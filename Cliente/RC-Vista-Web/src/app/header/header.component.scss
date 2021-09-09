@@ -1,0 +1,74 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+#toolbar{
+    background-color: white;
+    color: black;
+    height: 100px;
+}
+#logoRC{
+    height: 100px;
+    //margin-left: 200px;
+}
+button{
+    height: 50px;
+}
+button:hover{
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+#divCombobox{
+    border: 1px solid #E0E0E0; 
+    border-radius: 4px;
+}
+#combobox{
+    height: 48px;
+    width: 200px;
+    font-size: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+#combobox:hover{
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+.categorias{
+    text-align: center;
+    background-color: white;
+    color: black    ;
+}
+.categorias:hover{
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+#buscadorBox{
+    border-radius: 4px;
+    //border: 1px solid #E0E0E0;
+    //margin-right: 200px;
+}
+#buscador {
+    height: 50px;
+    width: 250px;
+    font-size: 15px;
+    border-radius: 4px;
+  }
+#btnBuscar{
+    cursor: pointer;
+    border-radius: 50%;    
+    height: 25px;
+    width: 25px;
+}
+#btnBuscar:hover{
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+
