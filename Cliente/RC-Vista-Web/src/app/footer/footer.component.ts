@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -11,5 +11,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  logo = "assets/images/logoRadioCompañera.jpg";
+  facebook = "assets/images/facebook.png";
+  twitter = "assets/images/twitter.png";
+  youtube = "assets/images/youtube.png";
 }

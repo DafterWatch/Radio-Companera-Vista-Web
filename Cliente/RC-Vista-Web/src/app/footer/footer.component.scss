@@ -1,0 +1,126 @@
+#toolbar{
+    background-color: #222020;
+    color: rgb(255, 255, 255);
+    height: 300px;
+
+    #log{
+        flex: 1 1 auto; 
+        height: 60px;
+        width: 400px;
+        text-align: left;
+        background-color: #222020; 
+        margin-left: 90px;
+    
+    }
+    #titulo{
+        flex: 1 1 auto; 
+        height: 30px;
+        width: 185px;
+        float: left;
+        margin-left: 25px;
+        text-align: center;
+        margin-top: 10px;
+        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-size: 27px;
+    }
+    
+    #logoRCom{
+        height: 60px;
+        float: left;
+        
+    }
+    
+    #Sort1{
+        flex: 1 1 auto; 
+        height: 200px;
+        width: 250px;
+        text-align: left;
+        background-color: #222020;
+        float: left;
+        margin-left: 30px;
+    }
+
+    button{
+        background-color: rgb(34, 32, 32);
+            height:35px;
+            width: 140px;
+            border-radius: 4px;
+            margin-bottom: 0px;
+            margin-left: 1px;
+            text-align: left;
+            font-size: 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    button:hover{
+        background-color: rgb(34, 32, 32);
+        transition: 0.3s;
+        color: chocolate;
+    }
+    #btnfacebook{
+        cursor: pointer;
+        border-radius: 50%; 
+        height: 50px;
+        width: 50px;
+        margin-right: 20px;
+    
+    }
+    #btnfacebook:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 60px;
+        width: 60px;
+    }
+    #btntwitter{
+        cursor: pointer;
+        border-radius: 50%; 
+        height: 50px;
+        width: 50px;
+        margin-right: 20px;
+    
+    }
+    #btntwitter:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 60px;
+        width: 60px;
+        
+    }
+    #btnyoutube{
+        cursor: pointer;
+        border-radius: 50%; 
+        height: 50px;
+        width: 50px;
+    
+    }
+    #btnyoutube:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 60px;
+        width: 60px;
+    }
+    #Sort2{
+        flex: 1 1 auto;
+        height: 90px;
+        width: 200px;
+        text-align: right;
+        float: right;
+        margin-top: 40px;
+        margin-left: 80px;
+    
+    }
+    #derechos{
+        flex: 1 1 auto; 
+        height: 30px;
+        width: 750px;
+        color: rgb(255, 255, 255);
+        float: left;
+        font-size: 13px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: left;
+        margin-left: 90px;
+    }
+    
+}

@@ -11,5 +11,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  publicidad1 = "assets/images/publicidadvital.jpg";
 
 }

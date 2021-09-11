@@ -11,5 +11,6 @@ export class AsideComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  publicidad2 = "assets/images/gifventura.gif";
 
 }
