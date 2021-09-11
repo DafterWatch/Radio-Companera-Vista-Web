@@ -1,3 +1,32 @@
-.example-form-field {
-    width: 200px;
-  }
+#carrusel{
+  height: 800px;
+  width: 800px;
+  padding: 10px;
+  border: 2px solid black;
+}
+#imagenNoticia{
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+#espacioNoticia{
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#contenedorImagen{ 
+  height: 600px;
+}
+#contenedorTexto{
+  border-radius: 0px;
+  font-size: 25px;
+  height: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.5; 
+  font-weight: 700;
+}

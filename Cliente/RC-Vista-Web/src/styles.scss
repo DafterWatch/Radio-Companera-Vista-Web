@@ -2,7 +2,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #E4F0FF;
 }
 
 .container {
@@ -22,7 +21,8 @@ app-header {
     font-size: 14px;
     grid-area: header;
     //text-align: center;
-    //background-color: red;   
+    //background-color: red;
+    border-bottom: 2px solid black;   
   }
   
 app-nav {
@@ -34,8 +34,12 @@ app-nav {
 app-privacy-policy,
 app-main {
     grid-area: content;
-    background-color: #F4CE46;
     padding: 25px;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
   
 app-aside {
@@ -80,3 +84,31 @@ app-aside {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+.owl-carousel .owl-nav .owl-prev{
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 50px;
+  font-size: 3vw;
+  line-height: 45px;
+}
+.owl-carousel .owl-nav .owl-next{
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 50px;
+  font-size: 3vw;
+  line-height: 45px;
+}
+.owl-carousel .owl-nav .owl-prev:hover{
+  background-color: red;
+  color: white;
+  transition: 0.3s;
+}
+.owl-carousel .owl-nav .owl-next:hover{
+  background-color: red;
+  color: white;
+  transition: 0.3s;
+}
