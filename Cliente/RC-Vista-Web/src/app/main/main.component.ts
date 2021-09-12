@@ -47,6 +47,32 @@ export class MainComponent implements OnInit {
     fecha:"11/09/2021",categoria:"Social"},
     {idNoticia:13,titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",imagen:"assets/images/noticia5.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
     fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:14,titulo:"Caso Anakin: Padre de la víctima asegura que abogada de Álvaro intenta cambiar los sucesos del crimen",imagen:"assets/images/noticia2.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:15,titulo:"Fiscalía solicita detención preventiva para los acusados de la muerte de Mayerly",imagen:"assets/images/noticia3.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:16,titulo:"Accidente en Santa Cruz deja tres personas fallecidas y siete heridas",imagen:"assets/images/noticia4.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:17,titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",imagen:"assets/images/noticia5.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:18,titulo:"Caso Anakin: Padre de la víctima asegura que abogada de Álvaro intenta cambiar los sucesos del crimen",imagen:"assets/images/noticia2.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:19,titulo:"Fiscalía solicita detención preventiva para los acusados de la muerte de Mayerly",imagen:"assets/images/noticia3.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:20,titulo:"Accidente en Santa Cruz deja tres personas fallecidas y siete heridas",imagen:"assets/images/noticia4.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:21,titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",imagen:"assets/images/noticia5.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:22,titulo:"Caso Anakin: Padre de la víctima asegura que abogada de Álvaro intenta cambiar los sucesos del crimen",imagen:"assets/images/noticia2.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:23,titulo:"Fiscalía solicita detención preventiva para los acusados de la muerte de Mayerly",imagen:"assets/images/noticia3.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:24,titulo:"Accidente en Santa Cruz deja tres personas fallecidas y siete heridas",imagen:"assets/images/noticia4.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:25,titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",imagen:"assets/images/noticia5.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"11/09/2021",categoria:"Social"},
+    {idNoticia:26,titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",imagen:"assets/images/noticia5.jpg",contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    fecha:"21/12/2021",categoria:"Economia"},
   ]
   customOptions: OwlOptions = {
    loop: true,
@@ -87,7 +113,12 @@ msaapPlaylist: Track[] = [
 
   }
   //-------------------------------Noticias-----------------------------------
-  
+  cantidadItems = 5;
+  paginaActual = 1;
+  cambioPagina(evento:any){
+    this.paginaActual = evento;
+    window.scroll(0,0);
+  }
 }
 
 interface Noticias {

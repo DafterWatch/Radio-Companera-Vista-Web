@@ -24,6 +24,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { NoticiaExpandidaComponent } from './noticia-expandida/noticia-expandida.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
     BrowserAnimationsModule,
     CarouselModule,
     NgxAudioPlayerModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

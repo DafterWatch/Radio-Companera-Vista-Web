@@ -28,7 +28,6 @@ app-header {
 app-nav {
     grid-area: nav;
     margin-left: 0.6rem;
-    background-color: #2A92BF;
   }
   
 app-privacy-policy,
@@ -40,7 +39,6 @@ app-main {
 app-aside {
     grid-area: side;
     margin-right: 0.6rem;
-    background-color: #2A92BF;
 }
   
   app-footer {
@@ -107,3 +105,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white;
   transition: 0.3s;
 }
+
+//---------------------------

@@ -1,4 +1,4 @@
-<div id="carrusel">
+<div id="carrusel" *ngIf="paginaActual==1">
         <owl-carousel-o [options]="customOptions">        
             <ng-container *ngFor="let noticia of noticias">            
             <ng-template carouselSlide>
@@ -10,7 +10,7 @@
             </ng-container>
         </owl-carousel-o>
 </div>
-<hr>
+<br>
 <div id="contenedorReproductorImagen">
     <div id="conImg">
     <img class="image" src="assets/images/logoRadioCompañera.jpg">
@@ -23,14 +23,14 @@
         [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
     </div>
 </div>
-<hr>
+<br>
 <div id="noticias">
-    <div *ngFor="let noticia of noticias">
+    <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
     <mat-card class="campoNoticia">
+        <img mat-card-image [src]="noticia.imagen" id="imgNoticia">
         <mat-card-header id="tituloNoticia">          
           <mat-card-title>{{noticia.titulo}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="noticia.imagen" id="imgNoticia">
+        </mat-card-header>        
         <mat-card-actions id="botones">
           <button mat-button class="botonNoticia">{{noticia.categoria}}</button>
           <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
@@ -39,4 +39,12 @@
     </mat-card>
     <br>
     </div>
+    <div id="contenedorPagina">
+        <pagination-controls class="custom-pagination"
+        (pageChange)="cambioPagina($event)" 
+        [responsive]="true"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+        [maxSize]="9"></pagination-controls>
+    </div>    
 </div>
