@@ -1,0 +1,46 @@
+
+  #main{
+      margin-left: 190px;
+      width: 800px;
+
+  }
+
+  #OtrasNoticias{
+
+    width: 300px;
+
+    margin-left: 790px;
+
+  }
+  #anuncio{
+    width: 200px;
+    margin-left: 50px;
+
+  }
+  .botonNoticia:hover
+  {
+      color: rgb(214, 50, 21);
+
+  }
+  #titulo{
+      font-size: 30px;
+      margin-left: 0px;
+
+}
+.parrafo
+  {
+     font-size: 20px;
+
+  }
+
+  #abajo{
+    width: 300px;
+}
+
+.relacionados
+  {
+    flex: 1 1 auto; 
+    text-align: left;
+    float: left;
+
+  }

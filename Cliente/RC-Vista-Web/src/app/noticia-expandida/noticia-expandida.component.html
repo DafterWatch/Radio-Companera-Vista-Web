@@ -1,10 +1,82 @@
 <div class="container">
-    <app-header></app-header>
-    <app-nav></app-nav>  
+    <app-header></app-header> 
+
+    <div id="main">                 
+                <div *ngFor="let noticiaprin of noticiaprincipal">
+                    <mat-card class="campoNoticia">
+                        <mat-card-header id="tituloNoticia">          
+                          <mat-card-title id="titulo">{{noticiaprin.titulo}}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-actions id="botones">
+                            <button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>
+                            <button mat-button class="botonNoticia">{{noticiaprin.fecha}}</button>
+                            <button mat-button class="botonNoticia">{{noticiaprin.categoria}}</button>
+                            
+                          </mat-card-actions>
+                        <img mat-card-image [src]="noticiaprin.imagen" id="imgNoticia">
+                        <p class="parrafo">
+                            {{noticiaprin.contenido}}
+                        </p>
+                    </mat-card>
+                    <br>
+                    </div>  
+
+                    <div id="abajo">
+
+                        <p>Noticias Relacionadas</p>
+                        <div *ngFor="let noticiarel of relacionados" class="relacionados">
+                            <mat-card class="campoNoticia">
+                                <img mat-card-image [src]="noticiarel.imagen" id="imgotrasNoticias">  
+                                <mat-card-header id="tituloNoticia">    
+                                    
+                                <mat-card-title id="titulo2">{{noticiarel.titulo}}</mat-card-title>
+                                </mat-card-header>
+                                
+                                <mat-card-actions id="botones">
+                                    <button mat-button class="botonNoticia">{{noticiarel.fecha}}</button>
+                                    <button mat-button class="botonNoticia">{{noticiarel.categoria}}</button>                   
+                                  </mat-card-actions>                
+                            </mat-card>
+                            <br>
+
+
+                            
+                            </div>
+                        
+                    </div>
+            
+    </div>
+     
+
+    <div id="OtrasNoticias">
+
+        <p>Principales Noticias</p>
+        <div *ngFor="let noticia of noticias" id="otras">
+            <mat-card class="campoNoticia">
+                <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias">  
+                <mat-card-header id="tituloNoticia">    
+                    
+                <mat-card-title id="titulo2">{{noticia.titulo}}</mat-card-title>
+                </mat-card-header>
+                
+                <mat-card-actions id="botones">
+                    <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
+                    <button mat-button class="botonNoticia">{{noticia.categoria}}</button>                   
+                  </mat-card-actions>                
+            </mat-card>
+            <br>
+            </div>  
+
+        <div id="anuncio">  
+            <app-aside></app-aside>
+        </div>
+
+        
+    </div>
     
-    <p>noticia-expandida works!</p>
-  
-    <app-aside></app-aside>
-  
-    <app-footer></app-footer>
-</div>
+    <app-footer></app-footer>  
+</div> 
+
+    
+
+
