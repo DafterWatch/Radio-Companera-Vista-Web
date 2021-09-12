@@ -22,6 +22,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
+import { NoticiaExpandidaComponent } from './noticia-expandida/noticia-expandida.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { NgxAudioPlayerModule } from 'ngx-audio-player';
     NavComponent,
     AsideComponent,
     PrivacyPolicyComponent,
+    NoticiaExpandidaComponent,
+    PaginaPrincipalComponent,
   ],
   imports: [
     BrowserModule,
