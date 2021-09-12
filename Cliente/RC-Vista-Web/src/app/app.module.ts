@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { NgxAudioPlayerModule } from 'ngx-audio-player';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatChipsModule,
     BrowserAnimationsModule,
     CarouselModule,
+    NgxAudioPlayerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,12 +1,42 @@
 <div id="carrusel">
-    <owl-carousel-o [options]="customOptions">        
-        <ng-container *ngFor="let noticia of noticias">            
-        <ng-template carouselSlide>
-        <div id="contenedorImagen">
-            <img [src]="noticia.imagen" id="imagenNoticia">
-        </div>     
-        <mat-card id="contenedorTexto">{{noticia.titulo}}</mat-card>        
-        </ng-template>    
-        </ng-container>
-    </owl-carousel-o>
+        <owl-carousel-o [options]="customOptions">        
+            <ng-container *ngFor="let noticia of noticias">            
+            <ng-template carouselSlide>
+            <div id="contenedorImagen">
+                <img [src]="noticia.imagen" id="imagenNoticia">
+            </div>     
+            <mat-card id="contenedorTexto">{{noticia.titulo}}</mat-card>        
+            </ng-template>    
+            </ng-container>
+        </owl-carousel-o>
+</div>
+<hr>
+<div id="contenedorReproductorImagen">
+    <div id="conImg">
+    <img class="image" src="assets/images/logoRadioCompañera.jpg">
+    </div>
+    <div id="reproductor">
+        <ngx-audio-player [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="true" 
+        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
+        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
+        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
+        [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
+    </div>
+</div>
+<hr>
+<div id="noticias">
+    <div *ngFor="let noticia of noticias">
+    <mat-card class="campoNoticia">
+        <mat-card-header id="tituloNoticia">          
+          <mat-card-title>{{noticia.titulo}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="noticia.imagen" id="imgNoticia">
+        <mat-card-actions id="botones">
+          <button mat-button class="botonNoticia">{{noticia.categoria}}</button>
+          <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
+          <button mat-button class="botonNoticia">Leer mas</button>
+        </mat-card-actions>
+    </mat-card>
+    <br>
+    </div>
 </div>
