@@ -5,7 +5,7 @@ import { NoticiaExpandidaComponent } from './noticia-expandida/noticia-expandida
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'noticia', pathMatch: 'full'},
+  { path: '', redirectTo: 'paginaPrincipal', pathMatch: 'full'},
   { path: 'paginaPrincipal', component: PaginaPrincipalComponent },
   { path: 'noticia', component: NoticiaExpandidaComponent },
 ];
