@@ -25,20 +25,24 @@
 </div>
 <br>
 <div id="noticias">
+    <mat-grid-list cols="3" rowHeight="500px">
     <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
-    <mat-card class="campoNoticia">
-        <img mat-card-image [src]="noticia.imagen" id="imgNoticia">
-        <mat-card-header id="tituloNoticia">          
-          <mat-card-title>{{noticia.titulo}}</mat-card-title>
-        </mat-card-header>        
-        <mat-card-actions id="botones">
-          <button mat-button class="botonNoticia">{{noticia.categoria}}</button>
-          <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
-          <button mat-button class="botonNoticia">Leer mas</button>
-        </mat-card-actions>
-    </mat-card>
-    <br>
+        
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-card class="campoNoticia">
+                    <img mat-card-image [src]="noticia.imagen" id="imgNoticia">
+                    <mat-card-header id="tituloNoticia">          
+                    <mat-card-title>{{noticia.titulo}}</mat-card-title>
+                    </mat-card-header>        
+                    <mat-card-actions id="botones">
+                    <button mat-button class="botonNoticia">{{noticia.categoria}}</button>
+                    <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
+                    <button mat-button class="botonNoticia">Leer mas</button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-grid-tile>        
     </div>
+    </mat-grid-list>
     <div id="contenedorPagina">
         <pagination-controls class="custom-pagination"
         (pageChange)="cambioPagina($event)" 

@@ -24,7 +24,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxAudioPlayerModule } from 'ngx-audio-player';
 import { NoticiaExpandidaComponent } from './noticia-expandida/noticia-expandida.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import {NgxPaginationModule} from 'ngx-pagination'; 
+import {NgxPaginationModule} from 'ngx-pagination';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     BrowserAnimationsModule,
     CarouselModule,
     NgxAudioPlayerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
