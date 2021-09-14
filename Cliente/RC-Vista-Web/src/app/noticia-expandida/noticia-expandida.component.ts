@@ -54,7 +54,7 @@ export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
     {idNoticia:2,
       titulo:"Caso Anakin: Padre de la víctima asegura que abogada de Álvaro intenta cambiar los sucesos del crimen",
     imagen:"assets/images/noticia2.jpg",
-    contenido:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbb",
+    contenido:"La Paz, 13 de septiembre (RC).- Abel Loma, abogado de la viceministra de Educación Superior, Aura Balderrama, informó que se notificará al ministro de Educación, Adrián Quelca, para que preste su declaración por el caso “tráfico de exámenes”. La autoridad de educación es el principal acusado y no goza de ningún beneficio, acotó.“Llamó la atención al Ministerio Púbico para que se puedan determinar la veracidad y la participación de las personas, Adrián Quelca será notificado para que pueda declarar de manera informativa en calidad de denunciado”, manifestó Loma a Radio Compañera. En el proceso ya declararon más de 11 personas y todas indicaron que perdieron sus celulares, los cuales serían sometidos a una pericia para recuperar la información.“Los investigadores asignados empezaron a tomar declaraciones a diferentes testigos que tienen cargos directivos en el sistema educativo plurinacional de Bolivia y todos misteriosamente perdieron sus celulares”, detalló.",
     fecha:"11/09/2021",
     autor:"Radio Compañera",
     categoria:"Social"
