@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
-import { Track } from 'ngx-audio-player';  
+import { Track } from 'ngx-audio-player';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +10,7 @@ import { Track } from 'ngx-audio-player';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
   ngOnInit(): void {    
   }
 
@@ -109,17 +110,29 @@ msaapPlaylist: Track[] = [
     duration: 3.5
   }
   ];
-  onEnded(){
-
-  }
   //-------------------------------Noticias-----------------------------------
-  cantidadItems = 6;
+  cantidadItems = 9;
   paginaActual = 1;
   cambioPagina(evento:any){
     this.paginaActual = evento;
-    window.scroll(0,0);
+    window.scroll(0,0);    
+  }
+  //@Input() noticiaEntrante:any;
+  irNoticiaExpandida(noticia:any){
+    /*this.noticiaEntrante = noticia;
+    this.servicioNoticia.disparadorNoticia.emit({data:this.noticiaEntrante});
+    console.log(this.noticiaEntrante)
+    console.log("se envio los datos");*/
+    sessionStorage.setItem('idNoticia',noticia.idNoticia);
+    sessionStorage.setItem('titulo',noticia.titulo);
+    sessionStorage.setItem('imagen',noticia.imagen);
+    sessionStorage.setItem('contenido',noticia.contenido);
+    sessionStorage.setItem('fecha',noticia.fecha);
+    sessionStorage.setItem('categoria',noticia.categoria);
+    this.router.navigate(['noticia']);
   }
 }
+
 
 interface Noticias {
   idNoticia: number;

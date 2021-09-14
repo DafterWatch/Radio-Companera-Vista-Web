@@ -1,16 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-noticia-expandida',
   templateUrl: './noticia-expandida.component.html',
   styleUrls: ['./noticia-expandida.component.scss']
 })
-export class NoticiaExpandidaComponent implements OnInit {
+export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
 
   constructor() { }
-
-  ngOnInit(): void {
+  ngAfterContentInit(): void {    
   }
+  idNoticia:any;
+  titulo:any;
+  imagen:any;
+  contenido:any;
+  fecha:any;
+  categoria:any;
+  /*public noticiaEntrante:NoticiaPrincipal={
+    idNoticia: 0,
+    titulo: 'error 404',
+    imagen: '',
+    contenido: '',
+    fecha: '',
+    categoria: ''
+  };*/
+  ngOnInit(): void {
+    this.idNoticia = sessionStorage.getItem('idNoticia');
+    this.titulo = sessionStorage.getItem('titulo');
+    this.imagen = sessionStorage.getItem('imagen');
+    this.contenido = sessionStorage.getItem('contenido');
+    this.fecha = sessionStorage.getItem('fecha');
+    this.categoria = sessionStorage.getItem('categoria');
+    console.log(this.idNoticia,this.titulo,this.imagen,this.contenido,this.fecha,this.categoria);
+  }
+  /*public noticiaprincipal:NoticiaPrincipal= {
+    idNoticia: this.noticiaEntrante.idNoticia,
+    titulo: this.noticiaEntrante.titulo,
+    imagen: this.noticiaEntrante.imagen,
+    contenido: this.noticiaEntrante.contenido,
+    fecha: this.noticiaEntrante.fecha,
+    categoria: this.noticiaEntrante.categoria
+  };*/
   noticias:Noticias[] = [
     {
       idNoticia:1,
@@ -47,17 +77,7 @@ export class NoticiaExpandidaComponent implements OnInit {
   },
   ]
 
-  noticiaprincipal:NoticiaPrincipal[] = [
-    {
-      idNoticia:1,
-      titulo:"ONU asevera que los talibanes ya han “refugiado” a miembros de Al Qaeda",
-      imagen:"assets/images/afganistan.jpg ",
-      contenido:"La Paz, 10 de septiembre (RC).- La enviada especial de la ONU para Afganistán, Deborah Lyons, informó que los talibanes ya han “acogido y refugiado visiblemente” a miembros de Al Qaeda, por lo que pidió a las autoridades y organizaciones internacionales que se unan para evitar el colapso de la economía de Afganistán, según el portal Infobae. Del mismo modo, la representante de la ONU explicó que el Consejo de Seguridad de la ONU deberá determinar cómo ser relacionará con los 33 miembros del gobierno talibán que están en la lista negra de sanciones de la ONU, ya que varias de las autoridades de dicho sector son personas buscadas por la ley. Por otro lado, Lyons advirtió de “una crisis inminente” causada por la congelación de miles de millones de dólares en activos afganos. La enviada de la ONU explicó que dicha situación podría causar una recesión económica que dejaría a millones de afganos en la pobreza.",
-      fecha:"11/09/2021",
-      autor:"Radio Compañera",
-      categoria:"Social"
-    },
-  ]
+  
 
   relacionados:Relacionados[] = [
     {
@@ -99,15 +119,15 @@ interface Noticias {
   categoria: string;
 }
 
-interface NoticiaPrincipal {
+/*interface NoticiaPrincipal {
   idNoticia: number;
   titulo: string;
   imagen: string;
   contenido: string;
   fecha: string;
-  autor: string;
+  //autor: string;
   categoria: string;
-}
+}*/
 
 interface Relacionados {
   idNoticia: number;
