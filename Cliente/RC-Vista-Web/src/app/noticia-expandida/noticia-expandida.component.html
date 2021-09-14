@@ -1,5 +1,5 @@
 <div class="container">
-    <app-header></app-header> 
+    <app-header></app-header>
     <div id="main">                 
         <mat-card class="campoNoticia">
             <mat-card-header id="tituloNoticia">          
@@ -17,7 +17,7 @@
             </p>
         </mat-card>
         <br>
-                    <div id="abajo">
+                    <!--<div id="abajo">
 
                         <p>Noticias Relacionadas</p>
                         <div *ngFor="let noticiarel of relacionados" class="relacionados">
@@ -35,18 +35,26 @@
                             </mat-card>
                             <br>                         
                             </div>                       
+                    </div>-->
+                    <div id="contenedorMultimedia">
+                        <ngx-audio-player [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
+                        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
+                        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
+                        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
+                        [displayDuration]="msaapDisplayDuration" [expanded]="false" style="height: 150px;"></ngx-audio-player>
+                        <br>
+                        <video style="height: 400px; width: 100%;" controls>
+                            <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
+                        </video>
                     </div>
-            
     </div>
-     
-
     <div id="OtrasNoticias">
 
         <p>Principales Noticias</p>
-        <div *ngFor="let noticia of noticias" id="otras">
+        <div *ngFor="let noticia of noticias | slice:0:4" id="otras">
             <mat-card class="campoNoticia">
-                <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias">  
-                <mat-card-header id="tituloNoticia">    
+                <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
+                <mat-card-header id="tituloNoticia">
                     
                 <mat-card-title id="titulo2">{{noticia.titulo}}</mat-card-title>
                 </mat-card-header>
@@ -65,7 +73,6 @@
 
         
     </div>
-    
     <app-footer></app-footer>  
 </div> 
 

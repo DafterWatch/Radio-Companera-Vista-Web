@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,10 @@ export class HeaderComponent implements OnInit {
     {idCategoria: 3, nombre: 'Gente y Lugares'}
   ];
   value = 'Clear me';
+  volverPrincipal(){
+    this.router.navigate(['paginaPrincipal']);
+    window.scroll(0,0);
+  }
 }
 interface Categoria {
   idCategoria: number;
