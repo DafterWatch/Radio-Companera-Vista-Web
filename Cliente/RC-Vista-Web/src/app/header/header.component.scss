@@ -1,33 +1,81 @@
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$app-primary: mat-palette($mat-indigo);
+$app-accent:  mat-palette($mat-blue, A200, A100, A400);
+
+$app-warn:    mat-palette($mat-red);
+
+$app-theme: mat-light-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,  
+  )
+));
+
+@include angular-material-theme($app-theme);
+
+$app-dark-theme: mat-dark-theme((
+  color: (
+    primary: $app-primary,
+    accent: $app-accent,
+    warn: $app-warn,  
+  )
+));
+
+.darkmode {
+
+  @include angular-material-theme($app-dark-theme);
+}
+
+
+//____________________________________________________________
+
+
+
 .example-spacer {
     flex: 1 1 auto;
   }
 #toolbar{
-    background-color: white;
-    color: black;
+    background-color: black;
     height: 100px;
 }
 #logoRC{
-    height: 100px;
+    height: 80px;
     //margin-left: 200px;
+    border-radius: 20%;
 }
-button{
+.botonmenu{
     height: 50px;
+    border-radius: 0px;
+    color: white;
+    background-color: rgb(45, 45, 45);
+    font-size: 13px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    //font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-button:hover{
+.botonmenu:hover{
     background-color: red;
     color: white;
     transition: 0.3s;
 }
 #divCombobox{
-    border: 1px solid #E0E0E0; 
-    border-radius: 4px;
+    border: 1px solid #c4c1c1; 
+    border-radius: 0px;
 }
 #combobox{
-    height: 48px;
+    height: 47px;
     width: 200px;
-    font-size: 15px;
-    border-radius: 4px;
+    font-size: 13px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 0px;
     text-align: center;
+    color: white;
+    background-color: rgb(45, 45, 45);
+
 }
 #combobox:hover{
     background-color: red;
@@ -37,12 +85,16 @@ button:hover{
 .categorias{
     text-align: center;
     background-color: white;
-    color: black    ;
+    color: black;
+    font-size: 13px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .categorias:hover{
-    background-color: red;
-    color: white;
+  cursor: pointer;
+    background-color: orange;
+    color: red;
     transition: 0.3s;
+    text-decoration:underline;
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -50,25 +102,57 @@ button:hover{
   }
 
 #buscadorBox{
-    border-radius: 4px;
+    border-radius: 0px;
     //border: 1px solid #E0E0E0;
     //margin-right: 200px;
 }
 #buscador {
-    height: 50px;
+    height: 47px;
     width: 250px;
     font-size: 15px;
-    border-radius: 4px;
+    border-radius: 0px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    font-size: 13px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 #btnBuscar{
     cursor: pointer;
     border-radius: 50%;    
     height: 25px;
     width: 25px;
+    text-align: center;
 }
 #btnBuscar:hover{
     background-color: red;
     color: white;
     transition: 0.3s;
+}
+
+.flex-stretch{
+    flex: 1 0 auto;
+  }
+  .Iconligh{
+    margin-left: 10px;
+    color: rgb(253, 218, 59);
+    margin-top: 10px;
+}
+
+.Iconnight{
+  margin-left: 10px;
+  color: rgb(32, 114, 172);
+}
+#switch{
+  background-color: rgb(56, 56, 56);
+  margin-left: 10px;
+}
+
+#ModoNoche{
+  background-color: rgb(56, 56, 56);
+  float: right;
+  margin-left: 50px;
+  border-radius: 40px;
+  height: 50px;
+  width: 120px;
 }
 

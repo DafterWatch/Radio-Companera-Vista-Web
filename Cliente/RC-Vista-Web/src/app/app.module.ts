@@ -26,6 +26,9 @@ import { NoticiaExpandidaComponent } from './noticia-expandida/noticia-expandida
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CarouselModule,
     NgxAudioPlayerModule,
     NgxPaginationModule,
-    MatGridListModule
+    MatGridListModule,
+    MatExpansionModule,
+    MatSliderModule,
+    MatSlideToggleModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

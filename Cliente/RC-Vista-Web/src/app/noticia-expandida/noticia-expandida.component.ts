@@ -45,6 +45,10 @@ export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
     fecha: this.noticiaEntrante.fecha,
     categoria: this.noticiaEntrante.categoria
   };*/
+  cantidadItems = 8;
+  paginaActual = 1;
+
+
   irNoticiaExpandida(noticia:any){
     sessionStorage.setItem('idNoticia',noticia.idNoticia);
     sessionStorage.setItem('titulo',noticia.titulo);

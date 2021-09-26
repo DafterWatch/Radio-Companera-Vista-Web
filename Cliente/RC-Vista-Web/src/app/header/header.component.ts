@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  
+  @HostBinding('class') className = '';
+
+  toggleControl = new FormControl(false);
+
   constructor(public router: Router) { }
 
+  
+
   ngOnInit(): void {
+    this.toggleControl.valueChanges.subscribe((val) =>{
+      this.className = val ? 'darkmode' : '';
+    });
   }
   logo = "assets/images/logoRadioCompañera.jpg";
   categorias: Categoria[] = [

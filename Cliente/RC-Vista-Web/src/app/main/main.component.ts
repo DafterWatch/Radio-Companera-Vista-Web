@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class MainComponent implements OnInit {
 
+  ImagenGrande = "assets/images/afganistan.jpg";
+
   constructor(public router: Router) { }
   ngOnInit(): void {  
     window.scroll(0,0);  
@@ -160,7 +162,7 @@ msaapPlaylist: Track[] = [
   }
   ];
   //-------------------------------Noticias-----------------------------------
-  cantidadItems = 9;
+  cantidadItems = 8;
   paginaActual = 1;
   cambioPagina(evento:any){
     this.paginaActual = evento;
@@ -180,10 +182,108 @@ msaapPlaylist: Track[] = [
     sessionStorage.setItem('categoria',noticia.categoria);
     this.router.navigate(['noticia']);
   }
+
+  noticiaGrande:NoticiaGrande[] = [
+    {
+      idNoticia:1,
+      titulo:"José Luis Camacho: Ni cuando pedí la renuncia de García Meza, me trataron así",
+    imagen:"assets/images/noticia21.jpg",
+    contenido:" José Luis Camacho, padre del gobernador cruceño Luis Fernando Camacho, calificó de “abuso” su retención en el aeropuerto de Viru Viru para recibir una notificación y señaló que ni durante la dictadura de Luis García Meza fue tratado como delincuente.“Cuando fui presidente del Comité pro Santa Cruz, me tocó luchar contra García Meza y contra un gobierno militar que le siguió en la gestión. Y le pedí, en nombre del pueblo cruceño, que renuncie. Jamás, a pesar de todos esos antecedentes, he sido tratado como a un delincuente como he sido tratado hoy”, señaló José Luis Camacho a su salida del aeropuerto.El padre del Gobernador cruceño señaló que tenía previsto viajar hoy a Estados Unidos, acompañando a su esposa, para tratar un tema de salud. Sin embargo, no le dejaron abordar indicando que había una alerta migratoria y debía esperar a que llegue un fiscal desde Warnes para que le dé una citación para declarar en la ciudad de La Paz.“Si quieren notificarme, ¿por qué no va a mi casa? Les digo que es la segunda vez que me están haciendo esto, la primera vez casi me impiden viajar. Estaba yendo con mi esposa (también) por un problema de salud”, contó.“Seguro molesta las declaraciones de mi hijo Luis Fernando porque han tomado está actitud revanchista e ilegal”, añadió. La retención del padre de la autoridad departamental se da un día después de los incidentes en los actos protocolares por la efeméride departamental.",
+    fecha:"26/09/2021",categoria:"Política"
+    },
+  ]
+
+  
+  noticia1:Noticia1[] = [
+    {
+      idNoticia:1,
+      titulo:"Médicos de Reino Unido piden vacunar a los menores de 12 a 15 años",
+      imagen:"assets/images/noticia9.jpg",
+      contenido:"Los asesores médicos del Gobierno británico solicitaron mediante un comunicado que todos los menores entre 12 y 15 años reciban una primera dosis de la vacuna contra el coronavirus de Pfizer, según el portal La Vanguardia. “COVID es una enfermedad que puede transmitirse de manera muy efectiva por propagación masiva en eventos, especialmente con la variante delta”, indicó el comunicado y resaltó que la inmunización de los menores reducirá la posibilidad de que se generen brotes de la pandemia en centros educativos. Asimismo, los médicos manifestaron que la vacunación de los menores reducirá las alteraciones en la educación y prevén que se realice la inmunización a alrededor de tres millones de menores de edad. Dichas declaraciones fueron realizadas pese a que el Comité Conjunto de Vacunación e Inmunización (JCVI) desaconsejó la vacunación en masa a menores de edad.",
+      fecha:"11/09/2021",categoria:"Internacional"
+    },
+  ]
+
+    
+  noticia2:Noticia2[] = [
+    {
+      idNoticia:1,
+      titulo:"ONU asevera que los talibanes ya han “refugiado” a miembros de Al Qaeda",
+      imagen:"assets/images/afganistan.jpg ",
+      contenido:"La Paz, 10 de septiembre (RC).- La enviada especial de la ONU para Afganistán, Deborah Lyons, informó que los talibanes ya han “acogido y refugiado visiblemente” a miembros de Al Qaeda, por lo que pidió a las autoridades y organizaciones internacionales que se unan para evitar el colapso de la economía de Afganistán, según el portal Infobae. Del mismo modo, la representante de la ONU explicó que el Consejo de Seguridad de la ONU deberá determinar cómo ser relacionará con los 33 miembros del gobierno talibán que están en la lista negra de sanciones de la ONU, ya que varias de las autoridades de dicho sector son personas buscadas por la ley. Por otro lado, Lyons advirtió de “una crisis inminente” causada por la congelación de miles de millones de dólares en activos afganos. La enviada de la ONU explicó que dicha situación podría causar una recesión económica que dejaría a millones de afganos en la pobreza.",
+      fecha:"11/09/2021",
+      categoria:"Social"
+    },
+  ]
+
+    
+  noticia3:Noticia3[] = [
+    {
+      idNoticia:1,
+      titulo:"China hace millonaria donación a Afganistán sin obviar la amenaza terrorista",
+    imagen:"assets/images/noticia19.jpg",
+    contenido:"En una reunión con los ministros de Exteriores de los países vecinos de Afganistán, el canciller Wang Yi anunció la donación de 31 millones de dólares en ayudas a Afganistán para apoyar su recuperación. El diplomático pidió gestos similares a Estados Unidos y sus aliados para que asuman sus responsabilidades y advirtió del riesgo terrorista que aún se cierne sobre el país.Una vez anunciado el nuevo Gobierno de los talibanes en Afganistán, China ha empezado a mover sus fichas.El pasado miércoles 8 septiembre tuvo lugar una reunión virtual entre los ministros de Exteriores de los países limítrofes con Afganistán: China, Pakistán, Irán, Tayikistán, Uzbekistán y Turkmenistán.En la cumbre, el canciller chino, Wang Yi, anunció el envío de 31 millones de dólares en ayudas a Afganistán. Se trata de 200 millones de yuanes en grano, suministros para el invierno, vacunas y medicamentos, que se suman a otro lote de tres millones de dosis de vacunas contra el Covid-19. El ministro destacó que los países vecinos, más que nadie, quieren ayudar a que Afganistán salga del caos.Por ello, el diplomático aseguró que China está dispuesta a ayudar al país a construir nuevos proyectos de infraestructuras que hagan más fácil la vida de los ciudadanos afganos y, en la medida de sus posibilidades, apoyar la reconstrucción pacífica y el desarrollo económico una vez haya seguridad en el país.",
+    fecha:"11/09/2021",categoria:"Social"
+    },
+  ]
+
+    
+  noticia4:Noticia4[] = [
+    {
+      idNoticia:1,
+      titulo:"Reportan que Sedcam controla el incendio en su campamento, pero el fuego salta a otros domicilios",
+      imagen:"assets/images/noticia14.jpg",
+      contenido:"Con maquinaria pesada y mucha tierra, los propios obreros del campamento Camargo, del Servicio Departamental de Caminos (Sedcam) lograron controlar el fuego, sin embargo, el mismo saltó a otros domicilios que son socorridos por los propios pobladores ante la ausencia de autoridades.Radio Camargo informó que hasta las 19:45 el fuego había sido controlado por la maquinaria que echó tierra sobre el fuego que amenazaba con extenderse a otros domicilios. Los pobladores esperaban el arribo de los bomberos de Tarija que son los más cercanos para atender este desastre.",
+      fecha:"11/09/2021",categoria:"Social"
+    },
+  ]
+
 }
 
 
 interface Noticias {
+  idNoticia: number;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  fecha: string;
+  categoria: string;
+}
+
+interface NoticiaGrande {
+  idNoticia: number;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  fecha: string;
+  categoria: string;
+}
+
+interface Noticia1 {
+  idNoticia: number;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  fecha: string;
+  categoria: string;
+}
+interface Noticia2 {
+  idNoticia: number;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  fecha: string;
+  categoria: string;
+}
+interface Noticia3 {
+  idNoticia: number;
+  titulo: string;
+  imagen: string;
+  contenido: string;
+  fecha: string;
+  categoria: string;
+}
+interface Noticia4 {
   idNoticia: number;
   titulo: string;
   imagen: string;

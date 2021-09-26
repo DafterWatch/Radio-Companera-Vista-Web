@@ -2,6 +2,13 @@
     background-color: #222020;
     color: rgb(255, 255, 255);
     height: 300px;
+  
+
+    #LosButtons{
+        flex-wrap: wrap;
+        min-width: 250px;
+    }
+
 
     #log{
         flex: 1 1 auto; 
@@ -27,7 +34,7 @@
     #logoRCom{
         height: 60px;
         float: left;
-        
+        border-radius: 20%;      
     }
     
     #Sort1{
@@ -38,6 +45,7 @@
         background-color: #222020;
         float: left;
         margin-left: 30px;
+
     }
 
     button{

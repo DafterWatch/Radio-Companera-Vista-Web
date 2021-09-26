@@ -1,4 +1,4 @@
-<div id="carrusel" *ngIf="paginaActual==1">
+<!--<div id="carrusel" *ngIf="paginaActual==1">
         <owl-carousel-o [options]="customOptions">        
             <ng-container *ngFor="let noticia of noticias">            
             <ng-template carouselSlide>
@@ -23,24 +23,77 @@
         [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
     </div>
 </div>
+-->
+
+<div id="noticiasarriba" *ngFor="let noticiagrande of noticiaGrande | slice:0:4">
+    
+<div id="noticiagrande">
+    <img [src]="noticiagrande.imagen" id="ImaNoticiaGrande" (click)="irNoticiaExpandida(noticiagrande)">
+    <div class="titulogrande" (click)="irNoticiaExpandida(noticiagrande)">{{noticiagrande.titulo}}</div>
+    <button mat-button class="btnFechaGrande">{{noticiagrande.fecha}}</button>
+    <button mat-button class="btncategoriaGrande">{{noticiagrande.categoria}}</button> 
+</div>
+<div id="noticiasCostado">
+    <div id="columna1">
+        <div id="fila1a" *ngFor="let primeranoticia of noticia1 | slice:0:4">
+            <img [src]="primeranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(primeranoticia)">
+            <div class="titulonoticia1" (click)="irNoticiaExpandida(primeranoticia)">{{primeranoticia.titulo}}</div>
+            <button mat-button class="btncategoria1">{{primeranoticia.categoria}}</button>
+        </div>
+        <div id="fila2a" *ngFor="let segundanoticia of noticia2 | slice:0:4">
+            <img [src]="segundanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(segundanoticia)">
+            <div class="titulonoticia1" (click)="irNoticiaExpandida(segundanoticia)">{{segundanoticia.titulo}}</div>
+            <button mat-button class="btncategoria1">{{segundanoticia.categoria}}</button>    
+        </div>
+
+    </div>
+    <div id="columna2">
+        <div id="fila1b" *ngFor="let terceranoticia of noticia3 | slice:0:4">
+
+            <img [src]="terceranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(terceranoticia)">
+            <div class="titulonoticia1" (click)="irNoticiaExpandida(terceranoticia)">{{terceranoticia.titulo}}</div>
+            <button mat-button class="btncategoria1">{{terceranoticia.categoria}}</button>
+
+        </div>
+        <div id="fila2b" *ngFor="let cuartanoticia of noticia4 | slice:0:4">
+
+            <img [src]="cuartanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(cuartanoticia)">
+            <div class="titulonoticia1" (click)="irNoticiaExpandida(cuartanoticia)">{{cuartanoticia.titulo}}</div>
+            <button mat-button class="btncategoria1">{{cuartanoticia.categoria}}</button>
+            
+        </div>
+
+    </div>
+</div>
+
+</div>
+
+
+
 <br>
+<div id="general">
+
 <div id="noticias">
-    <mat-grid-list cols="3" rowHeight="500px">
+    <p id="textocabeza">Noticias Principales</p>
+    <mat-grid-list cols="2" rowHeight="450px">
     <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
         
             <mat-grid-tile [colspan]="1" [rowspan]="1">
                 <mat-card class="campoNoticia">
                     <img mat-card-image [src]="noticia.imagen" id="imgNoticia" (click)="irNoticiaExpandida(noticia)">
-                    <mat-card-header id="tituloNoticia">          
-                    <mat-card-title style="cursor: pointer;" (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</mat-card-title>
+                    
+                    <button mat-button class="botonNoticiaCategoria">{{noticia.categoria}}</button>  
+                    <mat-card-header id="tituloNoticia">    
+                           
+                    <mat-card-title id="tit" style="cursor: pointer;" (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</mat-card-title>
                     </mat-card-header>        
                     <mat-card-actions id="botones">
-                    <button mat-button class="botonNoticia">{{noticia.categoria}}</button>
+                    
                     <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
                     <button mat-button class="botonNoticia">Leer mas</button>
                     </mat-card-actions>
                 </mat-card>
-            </mat-grid-tile>        
+    </mat-grid-tile>        
     </div>
     </mat-grid-list>
     <div id="contenedorPagina">
@@ -49,6 +102,19 @@
         [responsive]="true"
         previousLabel="Anterior"
         nextLabel="Siguiente"
-        [maxSize]="9"></pagination-controls>
-    </div>    
+        [maxSize]="8"></pagination-controls>
+    </div>   
+    
+</div>
+<div id="anuncios">
+    <div id="anuncio1">
+        <app-nav></app-nav>  
+    </div>
+    
+    <div id="anuncio2">
+        <app-aside></app-aside> 
+    </div>
+</div>
+
+
 </div>

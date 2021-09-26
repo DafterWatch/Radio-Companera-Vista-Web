@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +23,7 @@ app-header {
     grid-area: header;
     //text-align: center;
     //background-color: red;
-    border-bottom: 2px solid black;   
+    //border-bottom: 2px solid black;
   }
   
 app-nav {
@@ -32,8 +33,10 @@ app-nav {
   
 app-privacy-policy,
 app-main {
-    grid-area: content;
-    padding: 25px;
+ 
+  padding: 25px;
+  //grid-area: content;
+   
 }
   
 app-aside {
