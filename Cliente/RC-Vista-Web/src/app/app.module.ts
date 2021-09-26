@@ -29,6 +29,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,8 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatGridListModule,
     MatExpansionModule,
     MatSliderModule,
-    MatSlideToggleModule
-    
+    MatSlideToggleModule,   
+    TextFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
