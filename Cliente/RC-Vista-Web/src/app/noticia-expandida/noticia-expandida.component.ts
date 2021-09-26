@@ -1,16 +1,23 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit,NgZone, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Track } from 'ngx-audio-player';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {take} from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-noticia-expandida',
   templateUrl: './noticia-expandida.component.html',
   styleUrls: ['./noticia-expandida.component.scss']
 })
-export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
+export class NoticiaExpandidaComponent implements OnInit {
 
-  constructor(public router: Router) { }
-  ngAfterContentInit(): void {    
+  constructor(public router: Router, private _ngZone: NgZone) { }
+  @ViewChild('autosize') autosize: CdkTextareaAutosize | any;
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this._ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
   }
   idNoticia:any;
   titulo:any;
@@ -34,8 +41,10 @@ export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
     this.contenido = sessionStorage.getItem('contenido');
     this.fecha = sessionStorage.getItem('fecha');
     this.categoria = sessionStorage.getItem('categoria');
-    //console.log(this.idNoticia,this.titulo,this.imagen,this.contenido,this.fecha,this.categoria);
     window.scroll(0,0);
+    this.comentarios.reverse();
+    this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
+    this.cantidadComentarios = this.comentarios.length;
   }
   /*public noticiaprincipal:NoticiaPrincipal= {
     idNoticia: this.noticiaEntrante.idNoticia,
@@ -212,8 +221,91 @@ export class NoticiaExpandidaComponent implements OnInit, AfterContentInit {
       artist: 'Periodista 1'
     }
     ];
-}
+  //----------------comentarios-------------------------
+  comentarios:Comentarios[]=[
+    {idComentario:1,idNoticia:1, textoComentario:"Soy un comentario1", fecha:"2021-9-10",nombreUsuario:"bonbon"},
+    {idComentario:2,idNoticia:1, textoComentario:"Soy un comentario2", fecha:"2021-1-10",nombreUsuario:"burbuja"},
+    {idComentario:3,idNoticia:1, textoComentario:"Soy un comentario3", fecha:"2021-9-1",nombreUsuario:"bellota"},
+    {idComentario:4,idNoticia:1, textoComentario:"Soy un comentario4", fecha:"2021-9-25",nombreUsuario:"nose"},
+  ]
+  /*
+  comentarios:Comentarios[]=[
+    {idNoticia:1,idComentario:1, textoComentario:"Soy un comentario1", idUsuario:1,nombreUsuario:"bonbon", bLike:false, bDislike:false},
+    {idNoticia:1,idComentario:2, textoComentario:"Soy un comentario2", idUsuario:2,nombreUsuario:"burbuja",bLike:false, bDislike:false},
+    {idNoticia:1,idComentario:3, textoComentario:"Soy un comentario3", idUsuario:3,nombreUsuario:"bellota",bLike:false, bDislike:false},
+  ]
+  */
+  numeroDivisionComentarios = 5;
+  comentariosCortados:Comentarios[] | any;
+  cantidadComentarios = 0;
+  //booleanLike: boolean = false;
+  //booleanDislike: boolean = false;
+  aumentarComentariosVista(){
+    this.numeroDivisionComentarios = this.numeroDivisionComentarios + 5;
+    this.comentariosCortados=this.comentarios.slice(0,this.numeroDivisionComentarios);
+  }
+  nowDate(){
+    var result="";
+    var d = new Date();
+    result += d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+    return result;
+  }
+  restaFecha(fechaComentario:string){
+    var fecha1 = moment(this.nowDate());
+    var fecha2 = moment(fechaComentario);
+    var diferencia = "Hace "+fecha1.diff(fecha2, 'days')+' dias'
+    return diferencia;
+  }
 
+  /*cambiarColorLike(posicion:number,booleanLike:boolean, booleanDislike:boolean) {
+    if(booleanLike == false && booleanDislike == false){
+      booleanLike = true;      
+    } else if(booleanLike == true){
+      booleanLike = false;
+    } else if(booleanDislike == true){
+      booleanLike = true;
+      booleanDislike = false;
+    }
+    this.comentarios[posicion].bLike = booleanLike;
+    this.comentarios[posicion].bDislike = booleanDislike;
+  }
+  cambiarColorDislike(posicion:number,booleanLike:boolean, booleanDislike:boolean) {
+    if(booleanLike == false && booleanDislike == false){
+      booleanDislike = true;
+    } else if(booleanDislike == true){
+      booleanDislike = false;
+    } else if(booleanLike == true){
+      booleanDislike = true;
+      booleanLike = false;
+    }
+    this.comentarios[posicion].bLike = booleanLike;
+    this.comentarios[posicion].bDislike = booleanDislike;
+  }*/
+  enviarComentario(textoComentario:string, textoUsuario:string){
+    this.comentarios.reverse();
+    this.comentarios.push({idComentario:5,idNoticia:1, textoComentario:textoComentario, fecha:this.nowDate(),nombreUsuario:textoUsuario});
+    this.comentarios.reverse();
+    this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
+    this.cantidadComentarios = this.comentarios.length;
+  }
+}
+interface Comentarios{  
+  idComentario: number;
+  idNoticia: number;
+  fecha: string;
+  textoComentario: string;
+  nombreUsuario: string;
+}
+/*
+interface Comentarios{
+  idNoticia: number;
+  idComentario: number;
+  textoComentario: string;
+  idUsuario: number;
+  nombreUsuario: string;
+  bLike: boolean;
+  bDislike: boolean;
+}*/
 interface Noticias {
   idNoticia: number;
   titulo: string;

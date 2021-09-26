@@ -46,6 +46,61 @@
                         <video style="height: 400px; width: 100%;" controls>
                             <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
                         </video>
+                        <br>
+                        <br>
+                        <h1>{{cantidadComentarios+" comentarios"}}</h1>
+                        <hr>
+                        <div id="comentarioDiv">
+                            <mat-form-field id="comentarioBox">
+                                <mat-label>Escribe un comentario</mat-label>
+                                <textarea matInput
+                                          cdkTextareaAutosize
+                                          #autosize="cdkTextareaAutosize"
+                                          cdkAutosizeMinRows="1"
+                                          cdkAutosizeMaxRows="5"                                          
+                                          #textoComentario></textarea>
+                            </mat-form-field>
+                            <br><br>
+                            <div id="usuarioBox">
+                                <div style="height: 100%; float: right;">
+                                    <input placeholder="Usuario" id="inputUsuario" #textoUsuario>
+                                    <button mat-raised-button color="warn" 
+                                    style="float: left;" style="height: 100%; width: auto; margin-left: 10px;" 
+                                    (click)="enviarComentario(textoComentario.value, textoUsuario.value)">Enviar</button>
+                                </div>
+                                
+                            </div>                            
+                            <br>
+                            <div *ngFor="let comentario of comentariosCortados; index as i" id="contenedorComentario">
+                                <h3 style="color: red; font-size: 15px; display: inline;">
+                                    {{comentario.nombreUsuario}}
+                                </h3>
+                                &nbsp; &nbsp; &nbsp;
+                                <h3 style="display: inline; font-size: 15px;">
+                                    {{restaFecha(comentario.fecha)}}
+                                </h3>
+                                <p>
+                                    {{comentario.textoComentario}}
+                                </p>
+                                <!--{{comentario.cantLike}}
+                                <button mat-icon-button (click)="cambiarColorLike(i,comentario.bLike, comentario.bDislike)"
+                                [ngStyle]="{
+                                  'color' : comentario.bLike ? 'red' : 'black'
+                                }">
+                                    <mat-icon>thumb_up_alt</mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="cambiarColorDislike(i,comentario.bLike, comentario.bDislike)"
+                                [ngStyle]="{
+                                  'color' : comentario.bDislike ? 'red' : 'black'
+                                }">
+                                    <mat-icon>thumb_down_alt</mat-icon>
+                                  </button>
+                                {{comentario.cantLike}}-->                      
+                                <hr>
+                            </div>
+                            <button (click)="aumentarComentariosVista()" *ngIf="numeroDivisionComentarios < cantidadComentarios">Ver Mas</button>
+                        </div>
+                        
                     </div>
     </div>
     <div id="OtrasNoticias">
