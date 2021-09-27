@@ -1,5 +1,5 @@
 #noticiasarriba{
-  height: 500px;
+  height: 400px;
   width: 1150px;
   margin-left: auto;
   margin-right: auto;
@@ -8,7 +8,6 @@
 
 #noticiagrande{
   position: relative;
-  background-color: yellow;
   float: left;
 }
 
@@ -23,13 +22,13 @@
 }
 
 #noticiasCostado{
-  height: 500px;
+  height: 400px;
   width: 550px;
   float: left;
 }
 
 #columna1{
-  height: 500px;
+  height: 400px;
   width: 260px;
   float: left;
   margin-left: 15px;
@@ -63,7 +62,7 @@
 
 }
 #columna2{
-  height: 500px;
+  height: 400px;
   width: 260px;
   float: left;
   margin-left: 15px;
@@ -97,13 +96,13 @@
 }
 
 #ImaNoticiaGrande{
-  height: 500px;
+  height: 400px;
   width: 600px;
   
 }
 .titulogrande{
   position: absolute;
-  top: 260px;
+  top: 200px;
   left: 5%;
   cursor: pointer;
   font-size: 35px;
@@ -119,7 +118,7 @@
 
 .btncategoriaGrande{
   position: absolute;
-  top: 430px;
+  top: 350px;
   left: 3%;
   cursor: pointer;
   font-size: 25px;
@@ -135,7 +134,7 @@
 
 .btnFechaGrande{
   position: absolute;
-  top: 380px;
+  top: 310px;
   left: 3%;
   cursor: pointer;
   font-size: 17px;
@@ -144,12 +143,12 @@
 }
 
 #ImaNoticia1{
-  height: 240px;
+  height: 190px;
   width: 260px;
 }
 .titulonoticia1{
   position: absolute;
-  top: 120px;
+  top: 40%;
   left: 5%;
   cursor: pointer;
   font-size: 17px;
@@ -165,7 +164,7 @@
 
 .btncategoria1{
   position: absolute;
-  top: 200px;
+  top: 80%;
   left: 1%;
   cursor: pointer;
   font-size: 17px;

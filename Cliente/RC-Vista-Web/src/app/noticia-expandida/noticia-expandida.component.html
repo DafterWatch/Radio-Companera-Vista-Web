@@ -17,27 +17,8 @@
             </p>
         </mat-card>
         <br>
-                    <!--<div id="abajo">
-
-                        <p>Noticias Relacionadas</p>
-                        <div *ngFor="let noticiarel of relacionados" class="relacionados">
-                            <mat-card class="campoNoticia">
-                                <img mat-card-image [src]="noticiarel.imagen" id="imgotrasNoticias">  
-                                <mat-card-header id="tituloNoticia">    
-                                    
-                                <mat-card-title id="titulo2">{{noticiarel.titulo}}</mat-card-title>
-                                </mat-card-header>
-                                
-                                <mat-card-actions id="botones">
-                                    <button mat-button class="botonNoticia">{{noticiarel.fecha}}</button>
-                                    <button mat-button class="botonNoticia">{{noticiarel.categoria}}</button>                   
-                                  </mat-card-actions>                
-                            </mat-card>
-                            <br>                         
-                            </div>                       
-                    </div>-->
                     <div id="OtrasNoticias">
-                        <p id="textocabeza">Noticias Relacionadas</p>
+                        <p id="textocabeza">Noticias Principales</p>
                         <mat-grid-list cols="2" rowHeight="450px">
                         
                         <div *ngFor="let noticia of noticias | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }" id="otras">
@@ -61,17 +42,7 @@
                             <br>
                             </div>  
                         </mat-grid-list>
-                    <div id="contenedorMultimedia">
-                        <ngx-audio-player [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
-                        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
-                        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
-                        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
-                        [displayDuration]="msaapDisplayDuration" [expanded]="false" style="height: 150px;"></ngx-audio-player>
-                        <br>
-                        <video style="height: 400px; width: 100%;" controls>
-                            <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
-                        </video>
-                        <br>
+
                         <br>
                         <h1>{{cantidadComentarios+" comentarios"}}</h1>
                         <hr>
@@ -123,12 +94,11 @@
                                 {{comentario.cantLike}}-->                      
                                 <hr>
                             </div>
-                            <button (click)="aumentarComentariosVista()" *ngIf="numeroDivisionComentarios < cantidadComentarios">Ver Mas</button>
+                            <button id="VerMas" (click)="aumentarComentariosVista()" *ngIf="numeroDivisionComentarios < cantidadComentarios">Ver Mas</button>
                         </div>
-                        
-                    </div>
-                    
-    </div>
+                     </div>
+     </div> 
+
     <div id="contenedorMultimedia">
     <div id="divAudio">
         <p id="textoU">Escucha las ultimas noticias</p>
@@ -139,6 +109,21 @@
         [displayDuration]="msaapDisplayDuration" [expanded]="false" ></ngx-audio-player>
     </div>     
         <br>
+        <p id="textocabeza">Noticias Relacionadas</p>
+                        <div *ngFor="let noticiaCostados of noticiasCostado | slice:0:4" id="costado">
+                            <mat-card class="campoNoticiaCostado">
+                                <button mat-button class="botonNoticiaCategoriaCostado">{{noticiaCostados.categoria}}</button>    
+                                <mat-card-header id="tituloNoticiaCostado" (click)="irNoticiaExpandida(noticiaCostados)">
+                                    
+                                <mat-card-title id="titCostado">{{noticiaCostados.titulo}}</mat-card-title>
+                                </mat-card-header>
+                                
+                                <mat-card-actions id="botonesCostado">
+                                    <button mat-button class="botonNoticiaCostado">{{noticiaCostados.fecha}}</button>
+                                  </mat-card-actions>                
+                            </mat-card>
+                            <br>
+                            </div>  
         <div id="divVideo">
             <p id="textoU">Vea las ultimas noticias</p>
             <video id="video" controls>
@@ -148,15 +133,15 @@
 
 
         <div id="margen">
-
-
         <div id="anuncio">  
             <app-aside></app-aside>
         </div>
     </div>
 </div>
-    <app-footer></app-footer>  
+
+<app-footer></app-footer>  
 </div> 
+
 
     
 
