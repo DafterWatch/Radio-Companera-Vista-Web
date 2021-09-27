@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseServiceService } from '../services/database-service.service';
+import { Comentario } from '../types';
 
 @Component({
   selector: 'app-pagina-principal',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginaPrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataBase : DatabaseServiceService) { }
 
   ngOnInit(): void {
+    let comentario:Comentario[];
+    this.dataBase.getComentarios().subscribe(comentarios => comentario = comentarios);
+    /*
+    let comentarios : Observable<Comentario[]>;
+    comentarios =this.dataBase.getComentarios();
+    */
   }
-
 }

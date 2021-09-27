@@ -30,6 +30,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {TextFieldModule} from '@angular/cdk/text-field';
+import {DatabaseServiceService} from './services/database-service.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -64,9 +67,10 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     MatExpansionModule,
     MatSliderModule,
     MatSlideToggleModule,   
-    TextFieldModule
+    TextFieldModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatabaseServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
