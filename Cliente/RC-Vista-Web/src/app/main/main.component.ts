@@ -162,7 +162,7 @@ msaapPlaylist: Track[] = [
   }
   ];
   //-------------------------------Noticias-----------------------------------
-  cantidadItems = 8;
+  cantidadItems = 12;
   paginaActual = 1;
   cambioPagina(evento:any){
     this.paginaActual = evento;

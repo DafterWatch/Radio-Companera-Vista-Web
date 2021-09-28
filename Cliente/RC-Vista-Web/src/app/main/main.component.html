@@ -75,7 +75,7 @@
 
 <div id="noticias">
     <p id="textocabeza">Noticias Principales</p>
-    <mat-grid-list cols="2" rowHeight="450px">
+    <mat-grid-list cols="4" rowHeight="450px">
     <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
         
             <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -90,7 +90,7 @@
                     <mat-card-actions id="botones">
                     
                     <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
-                    <button mat-button class="botonNoticia">Leer mas</button>
+                    <!--<button mat-button class="botonNoticia">Leer mas</button>-->
                     </mat-card-actions>
                 </mat-card>
     </mat-grid-tile>        
