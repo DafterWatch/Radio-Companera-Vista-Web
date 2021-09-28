@@ -196,7 +196,7 @@
 }
 #inputUsuario{
   height: 100%; 
-  width: auto; 
+  width: auto;
   float: left; 
   border: 2px solid rgb(150, 150, 150);
   border-radius: 0%;
@@ -277,4 +277,8 @@
   width: 290px;
   text-align: left;
   margin-left: 10px;
+}
+#warningBox{
+  color: red;
+  font-size: 15px;
 }

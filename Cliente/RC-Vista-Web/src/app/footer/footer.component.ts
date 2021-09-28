@@ -1,4 +1,5 @@
 import { Component, OnInit ,} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,7 @@ import { Component, OnInit ,} from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -15,4 +16,8 @@ export class FooterComponent implements OnInit {
   facebook = "assets/images/facebook.png";
   twitter = "assets/images/twitter.png";
   youtube = "assets/images/youtube.png";
+  volverPrincipal(){
+    this.router.navigate(['paginaPrincipal']);
+    window.scroll(0,0);
+  }
 }

@@ -60,12 +60,12 @@
                             <br><br>
                             <div id="usuarioBox">
                                 <div style="height: 100%; float: right;">
-                                    <input placeholder="Usuario" id="inputUsuario" #textoUsuario>
+                                    <input placeholder="Usuario" id="inputUsuario" value="Anónimo" #textoUsuario (click)='textoUsuario.value=""'>
                                     <button mat-raised-button color="warn" 
                                     style="float: left;" style="height: 100%; width: auto; margin-left: 10px;" 
-                                    (click)="enviarComentario(textoComentario.value, textoUsuario.value)">Enviar</button>
-                                </div>
-                                
+                                    (click)='enviarComentario(textoComentario.value, textoUsuario.value); textoComentario.value=""; textoUsuario.value="Anónimo"'>Enviar</button>
+                                </div>                                
+                                <p id="warningBox" *ngIf="mensajeWarning.length > 0">{{mensajeWarning}}</p>
                             </div>                            
                             <br>
                             <div *ngFor="let comentario of comentariosCortados; index as i" id="contenedorComentario">

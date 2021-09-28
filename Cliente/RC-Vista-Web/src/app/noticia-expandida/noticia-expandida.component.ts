@@ -236,36 +236,40 @@ export class NoticiaExpandidaComponent implements OnInit {
   restaFecha(fechaComentario:string){
     var fecha1 = moment(this.nowDate());
     var fecha2 = moment(fechaComentario);
-    var diferencia = "Hace "+fecha1.diff(fecha2, 'days')+' dias'
+    var resultado = fecha1.diff(fecha2, 'days');
+    var diferencia;
+    if(resultado>0){
+      diferencia = "Hace "+resultado+' dias';
+    } else{
+      diferencia = "Hoy";
+    }    
     return diferencia;
   }
-
+  mensajeWarning="";
   serverDirection :string = 'http://localhost:3000';
   async enviarComentario(comentarioTexto:string, usuarioTexto:string):Promise<void>{  
-    //this.cantComentarios();
-    let comentarioObjeto:Comentarios={
-      idComentario: 0,
-      idNoticia: this.idNoticia,
-      fecha: this.nowDate(),
-      nombre: usuarioTexto,
-      contenido: comentarioTexto
+    if(comentarioTexto.length > 0 && usuarioTexto.length > 0){
+      this.mensajeWarning = "";
+        let comentarioObjeto:Comentarios={
+          idComentario: 0,
+          idNoticia: this.idNoticia,
+          fecha: this.nowDate(),
+          nombre: usuarioTexto,
+          contenido: comentarioTexto
+        }
+        console.log(comentarioObjeto);
+        let respuestaUser=null;
+        await this.http.post(this.serverDirection+"/postComentario",comentarioObjeto).toPromise()
+        .then(res=>respuestaUser=res);
+        if(respuestaUser){
+          console.log('Comentario enviado');  
+        }
+        this.getComentario();   
     }
-    console.log(comentarioObjeto);
-    let respuestaUser=null;
-    await this.http.post(this.serverDirection+"/postComentario",comentarioObjeto).toPromise()
-    .then(res=>respuestaUser=res);
-    if(respuestaUser){
-      console.log('Comentario enviado');  
+    else {
+      this.mensajeWarning = "Por favor rellene los campos vacios";
     }
-    this.getComentario();
   }
-  cantTotalComentarios;
-  /*async cantComentarios():Promise<void>{
-    let comentariosAux:Comentarios[] | any;    
-    await this.http.post(this.serverDirection+"/getComentarios","10").toPromise()
-    .then(res=>comentariosAux=res);
-    this.cantTotalComentarios = comentariosAux.length;
-  }*/
 }
 interface Comentarios{  
   idComentario: number;
