@@ -37,7 +37,7 @@ export class NoticiaExpandidaComponent implements OnInit {
     window.scroll(0,0);
 
     this.getComentario();
-    this.cantComentarios();
+    //this.cantComentarios();
     /*this.comentarios.reverse();
     this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
     this.cantidadComentarios = this.comentarios.length;*/
@@ -223,7 +223,6 @@ export class NoticiaExpandidaComponent implements OnInit {
   numeroDivisionComentarios = 5;
   comentariosCortados:Comentarios[] | any;
   cantidadComentarios = 0;
-
   aumentarComentariosVista(){
     this.numeroDivisionComentarios = this.numeroDivisionComentarios + 5;
     this.comentariosCortados=this.comentarios.slice(0,this.numeroDivisionComentarios);
@@ -242,11 +241,10 @@ export class NoticiaExpandidaComponent implements OnInit {
   }
 
   serverDirection :string = 'http://localhost:3000';
-  async enviarComentario(comentarioTexto:string, usuarioTexto:string):Promise<void>{
-    this.cantComentarios();
-    this.cantComentarios();
+  async enviarComentario(comentarioTexto:string, usuarioTexto:string):Promise<void>{  
+    //this.cantComentarios();
     let comentarioObjeto:Comentarios={
-      idComentario: this.cantTotalComentarios+1,
+      idComentario: 0,
       idNoticia: this.idNoticia,
       fecha: this.nowDate(),
       nombre: usuarioTexto,
@@ -262,12 +260,12 @@ export class NoticiaExpandidaComponent implements OnInit {
     this.getComentario();
   }
   cantTotalComentarios;
-  async cantComentarios():Promise<void>{
+  /*async cantComentarios():Promise<void>{
     let comentariosAux:Comentarios[] | any;    
     await this.http.post(this.serverDirection+"/getComentarios","10").toPromise()
     .then(res=>comentariosAux=res);
     this.cantTotalComentarios = comentariosAux.length;
-  }
+  }*/
 }
 interface Comentarios{  
   idComentario: number;
