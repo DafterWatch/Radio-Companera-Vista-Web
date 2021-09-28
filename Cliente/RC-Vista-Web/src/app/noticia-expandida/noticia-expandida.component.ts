@@ -240,13 +240,22 @@ export class NoticiaExpandidaComponent implements OnInit {
     return diferencia;
   }
 
-
-  enviarComentario(contenido:string, nombre:string){
-    this.comentarios.reverse();
-    this.comentarios.push({idComentario:this.cantidadComentarios+1,idNoticia:this.idNoticia, fecha:this.nowDate(),nombre:nombre, contenido:contenido});
-    this.comentarios.reverse();
-    this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
-    this.cantidadComentarios = this.comentarios.length;
+  serverDirection :string = 'http://localhost:3000';
+  async enviarComentario(comentarioTexto:string, usuarioTexto:string):Promise<void>{
+    let comentarioObjeto:Comentarios={
+      idComentario: this.cantidadComentarios+1,
+      idNoticia: this.idNoticia,
+      fecha: this.nowDate(),
+      nombre: usuarioTexto,
+      contenido: comentarioTexto
+    }
+    let respuestaUser=null;
+    await this.http.post(this.serverDirection+"/postComentario",comentarioObjeto).toPromise()
+    .then(res=>respuestaUser=res);
+    if(respuestaUser){
+      console.log('Comentario enviado');  
+    }
+    this.getComentario();
   }
 }
 interface Comentarios{  
