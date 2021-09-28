@@ -69,14 +69,14 @@
                             <br>
                             <div *ngFor="let comentario of comentariosCortados; index as i" id="contenedorComentario">
                                 <h3 style="color: red; font-size: 15px; display: inline;">
-                                    {{comentario.nombreUsuario}}
+                                    {{comentario.nombre}}
                                 </h3>
                                 &nbsp; &nbsp; &nbsp;
                                 <h3 style="display: inline; font-size: 15px;">
                                     {{restaFecha(comentario.fecha)}}
                                 </h3>
                                 <p>
-                                    {{comentario.textoComentario}}
+                                    {{comentario.contenido}}
                                 </p>
                                 <!--{{comentario.cantLike}}
                                 <button mat-icon-button (click)="cambiarColorLike(i,comentario.bLike, comentario.bDislike)"

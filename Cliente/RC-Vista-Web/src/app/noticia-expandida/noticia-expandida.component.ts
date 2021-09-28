@@ -4,6 +4,7 @@ import { Track } from 'ngx-audio-player';
 import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import {take} from 'rxjs/operators';
 import * as moment from 'moment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-noticia-expandida',
@@ -12,7 +13,7 @@ import * as moment from 'moment';
 })
 export class NoticiaExpandidaComponent implements OnInit {
 
-  constructor(public router: Router, private _ngZone: NgZone) { }
+  constructor(public router: Router, private _ngZone: NgZone, private http:HttpClient) { }
   @ViewChild('autosize') autosize: CdkTextareaAutosize | any;
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.
@@ -34,9 +35,13 @@ export class NoticiaExpandidaComponent implements OnInit {
     this.fecha = sessionStorage.getItem('fecha');
     this.categoria = sessionStorage.getItem('categoria');
     window.scroll(0,0);
-    this.comentarios.reverse();
+
+    this.getComentario();
+    /*this.comentarios.reverse();
     this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
-    this.cantidadComentarios = this.comentarios.length;
+    this.cantidadComentarios = this.comentarios.length;*/
+
+    
   }
   cantidadItems = 8;
   paginaActual = 1;
@@ -199,11 +204,20 @@ export class NoticiaExpandidaComponent implements OnInit {
     ];
   //----------------comentarios-------------------------
   comentarios:Comentarios[]=[
-    {idComentario:1,idNoticia:1, textoComentario:"Muy buena la informacion en este apartado", fecha:"2021-9-10",nombreUsuario:"Sofia Rodriguez"},
+    /*{idComentario:1,idNoticia:1, textoComentario:"Muy buena la informacion en este apartado", fecha:"2021-9-10",nombreUsuario:"Sofia Rodriguez"},
     {idComentario:2,idNoticia:1, textoComentario:"Interesante, me sirvio mucho.", fecha:"2021-7-10",nombreUsuario:"Diego Fernadez"},
     {idComentario:3,idNoticia:1, textoComentario:"Impresionante lo de los politicos", fecha:"2021-9-1",nombreUsuario:"Lorena Herrera"},
-    {idComentario:4,idNoticia:1, textoComentario:"Me parecio bastante interesante toda la informacion recopilada.", fecha:"2021-9-25",nombreUsuario:"Dross Rotzank"},
+    {idComentario:4,idNoticia:1, textoComentario:"Me parecio bastante interesante toda la informacion recopilada.", fecha:"2021-9-25",nombreUsuario:"Dross Rotzank"},*/
   ]
+  async getComentario():Promise<void>{
+    await this.http.get(`http://localhost:3000/getComentario/${this.idNoticia}`,{}).toPromise()
+    .then((res:any)=>{this.comentarios=res
+    //console.log(this.comentarios);
+    this.comentarios.reverse();
+    this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
+    this.cantidadComentarios = this.comentarios.length;
+    });
+  }
 
   numeroDivisionComentarios = 5;
   comentariosCortados:Comentarios[] | any;
@@ -227,9 +241,9 @@ export class NoticiaExpandidaComponent implements OnInit {
   }
 
 
-  enviarComentario(textoComentario:string, textoUsuario:string){
+  enviarComentario(contenido:string, nombre:string){
     this.comentarios.reverse();
-    this.comentarios.push({idComentario:5,idNoticia:1, textoComentario:textoComentario, fecha:this.nowDate(),nombreUsuario:textoUsuario});
+    this.comentarios.push({idComentario:this.cantidadComentarios+1,idNoticia:this.idNoticia, fecha:this.nowDate(),nombre:nombre, contenido:contenido});
     this.comentarios.reverse();
     this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
     this.cantidadComentarios = this.comentarios.length;
@@ -239,8 +253,8 @@ interface Comentarios{
   idComentario: number;
   idNoticia: number;
   fecha: string;
-  textoComentario: string;
-  nombreUsuario: string;
+  nombre: string;
+  contenido: string;
 }
 
 interface Noticias {

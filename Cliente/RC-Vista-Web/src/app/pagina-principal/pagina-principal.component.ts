@@ -12,7 +12,7 @@ export class PaginaPrincipalComponent implements OnInit {
   constructor(private dataBase : DatabaseServiceService) { }
 
   ngOnInit(): void {
-    let comentario:Comentario[];
+    /*let comentario:Comentario[];
     this.dataBase.getComentarios().subscribe(comentarios => comentario = comentarios);
     /*
     let comentarios : Observable<Comentario[]>;
