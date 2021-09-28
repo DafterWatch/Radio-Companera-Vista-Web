@@ -1,9 +1,9 @@
 #noticiasarriba{
-  height: 400px;
-  width: 1150px;
+  height: 500px;
+  width: 1500px;
   margin-left: auto;
   margin-right: auto;
-  margin-left: 150px;
+  margin-left: 200px;
 }
 
 #noticiagrande{
@@ -22,14 +22,14 @@
 }
 
 #noticiasCostado{
-  height: 400px;
-  width: 550px;
+  height: 500px;
+  width: 800px;
   float: left;
 }
 
 #columna1{
-  height: 400px;
-  width: 260px;
+  height: 500px;
+  width: 380px;
   float: left;
   margin-left: 15px;
 }
@@ -62,8 +62,8 @@
 
 }
 #columna2{
-  height: 400px;
-  width: 260px;
+  height: 500px;
+  width: 380px;
   float: left;
   margin-left: 15px;
 }
@@ -96,18 +96,18 @@
 }
 
 #ImaNoticiaGrande{
-  height: 400px;
-  width: 600px;
+  height: 500px;
+  width: 700px;
   
 }
 .titulogrande{
   position: absolute;
-  top: 200px;
+  top: 240px;
   left: 5%;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 40px;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  line-height: 40px;
+  line-height: 45px;
   color: white;
   margin-right: 20px;
 }
@@ -118,7 +118,7 @@
 
 .btncategoriaGrande{
   position: absolute;
-  top: 350px;
+  top: 420px;
   left: 3%;
   cursor: pointer;
   font-size: 25px;
@@ -134,7 +134,7 @@
 
 .btnFechaGrande{
   position: absolute;
-  top: 310px;
+  top: 380px;
   left: 3%;
   cursor: pointer;
   font-size: 17px;
@@ -143,17 +143,17 @@
 }
 
 #ImaNoticia1{
-  height: 190px;
-  width: 260px;
+  height: 237px;
+  width: 380px;
 }
 .titulonoticia1{
   position: absolute;
-  top: 40%;
+  top: 46%;
   left: 5%;
   cursor: pointer;
-  font-size: 17px;
+  font-size: 22px;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  line-height: 20px;
+  line-height: 25px;
   color: white;
   margin-right: 8px;
 }
