@@ -75,7 +75,7 @@
 
 <div id="noticias">
     <p id="textocabeza">Noticias Principales</p>
-    <mat-grid-list cols="4" rowHeight="450px">
+    <mat-grid-list class="gridlist" cols="3" rowHeight="500px">
     <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
         
             <mat-grid-tile [colspan]="1" [rowspan]="1">

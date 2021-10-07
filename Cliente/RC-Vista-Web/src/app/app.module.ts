@@ -32,7 +32,8 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {DatabaseServiceService} from './services/database-service.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     AsideComponent,
     PrivacyPolicyComponent,
     NoticiaExpandidaComponent,
-    PaginaPrincipalComponent,
+    PaginaPrincipalComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +69,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSliderModule,
     MatSlideToggleModule,   
     TextFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
+    MatListModule
+  ],
+  exports: [
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [DatabaseServiceService],
   bootstrap: [AppComponent]

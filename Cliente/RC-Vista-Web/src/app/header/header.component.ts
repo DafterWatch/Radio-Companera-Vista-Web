@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnInit, ViewEncapsulation, Output,  EventEmitter} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Output() public sidenavToggle = new EventEmitter();
 
   
   @HostBinding('class') className = '';
@@ -25,17 +27,33 @@ export class HeaderComponent implements OnInit {
   }
   logo = "assets/images/logoRadioCompañera.jpg";
   categorias: Categoria[] = [
-    {idCategoria: 1, nombre: 'Futuro'},
-    {idCategoria: 2, nombre: 'Viajes'},
-    {idCategoria: 3, nombre: 'Gente y Lugares'}
+    {idCategoria: 1, nombre: 'Internacional'},
+    {idCategoria: 2, nombre: 'Moda'},
+    {idCategoria: 3, nombre: 'Ciencia y tecnologia'}
   ];
   value = 'Clear me';
   volverPrincipal(){
     this.router.navigate(['paginaPrincipal']);
     window.scroll(0,0);
   }
+
+  public onToggleSidenav = () => {
+    this.sidenavToggle.emit();
+  }
+
+
+  public AbrirTopNav = () => {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+    x.className += " responsive";
+    }
+    else {
+    x.className = "topnav";
+      }
+}
 }
 interface Categoria {
   idCategoria: number;
   nombre: string;
 }
+

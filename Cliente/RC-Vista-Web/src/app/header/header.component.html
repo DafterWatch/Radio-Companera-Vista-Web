@@ -1,40 +1,43 @@
-<mat-toolbar id="toolbar">
-    <span class="example-spacer"></span>
-    <img [src]="logo" id="logoRC">
-    <span class="example-spacer"></span>
-    <button class="botonmenu" mat-stroked-button (click)="volverPrincipal()">Inicio</button>
-    <button class="botonmenu" mat-stroked-button>Politica</button>
-    <button class="botonmenu" mat-stroked-button>Social</button>
-    <button class="botonmenu" mat-stroked-button>Economia</button>
-    <button class="botonmenu" mat-stroked-button>Seguridad</button>
-    <button class="botonmenu" mat-stroked-button>Deportes</button>
-    <div id="divCombobox">
-    <mat-form-field id="combobox">
-        <mat-label>Mas categorias</mat-label>
+<div class="topnav" id="myTopnav">
+  <img [src]="logo" id="logoRC">
+  <a routerLink="/main" class="botonmenu">Inicio</a>
+  <a routerLink="/main" class="botonmenu">Politica</a>
+  <a routerLink="/main" class="botonmenu">Social</a>
+  <a routerLink="/main" class="botonmenu">Economia</a>
+  <a routerLink="/main" class="botonmenu">Seguridad</a>
+  <a routerLink="/main" class="botonmenu">Deportes</a>
+  <a routerLink="javascript:void(0);" class="icon" (click)="AbrirTopNav()">
+    <i class="fa fa-bars"></i>
+  </a>
+  <a class="mas">
+    <mat-form-field class="combobox">
+        <mat-label class="label">Mas categorias</mat-label>
         <mat-select>
           <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre" class="categorias">
             {{categoria.nombre}}
           </mat-option>
         </mat-select>
     </mat-form-field>
-    </div>
+  </a>
 
-    <span class="example-spacer"></span>
-
-    <div id="buscadorBox">      
-      <mat-form-field appearance="fill" id="buscador">
-        <mat-label>Buscar</mat-label>
-        <input type="text" matInput placeholder="¿Que buscas?">
-        <mat-icon id="btnBuscar" matSuffix>search</mat-icon>
-      </mat-form-field>
-      <div id="ModoNoche">
-      <mat-icon class="Iconligh">brightness_5</mat-icon>
+<a class="buscadorBox">
+  <mat-form-field appearance="fill" id="buscador">
+    <mat-label class="labelbuscar">Buscar</mat-label>
+    <input type="text" matInput placeholder="¿Que buscas?">
+    <mat-icon id="btnBuscar" matSuffix>search</mat-icon>
+  </mat-form-field>
+</a>
+<a class="ModoNoche">
+<mat-icon class="Iconligh">brightness_5</mat-icon>
+</a>
+<a class="ModoNoche">
       <mat-slide-toggle id="switch">
-
       </mat-slide-toggle>
+    </a>
+    <a class="ModoNoche">
       <mat-icon class="Iconnight">bedtime</mat-icon>
-    </div>
-    </div>
-    <span class="example-spacer"></span>
-</mat-toolbar>
+    </a>
+    
+</div>
+
   

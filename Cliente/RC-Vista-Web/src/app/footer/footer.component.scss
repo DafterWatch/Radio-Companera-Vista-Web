@@ -1,22 +1,25 @@
-#toolbar{
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+.toolbar{
     background-color: #222020;
     color: rgb(255, 255, 255);
-    height: 300px;
-  
+    height: 45%;
+}
 
     #LosButtons{
         flex-wrap: wrap;
-        min-width: 250px;
+        min-width: 100%;
     }
-
-
     #log{
         flex: 1 1 auto; 
         height: 60px;
         width: 400px;
         text-align: left;
         background-color: #222020; 
-        margin-left: 90px;
+        margin-left: 6%;
     
     }
     #titulo{
@@ -24,15 +27,15 @@
         height: 30px;
         width: 185px;
         float: left;
-        margin-left: 25px;
+        margin-left: 6%;
         text-align: center;
-        margin-top: 10px;
+        margin-top: 3%;
         font-family:Georgia, 'Times New Roman', Times, serif;
         font-size: 27px;
     }
     
     #logoRCom{
-        height: 60px;
+        height: 100%;
         float: left;
         border-radius: 20%;      
     }
@@ -44,7 +47,7 @@
         text-align: left;
         background-color: #222020;
         float: left;
-        margin-left: 30px;
+        margin-left: 3%;
 
     }
 
@@ -52,9 +55,8 @@
         background-color: rgb(34, 32, 32);
             height:35px;
             width: 140px;
-            border-radius: 4px;
-            margin-bottom: 0px;
-            margin-left: 1px;
+            margin-bottom: 0%;
+            margin-left: 1%;
             text-align: left;
             font-size: 15px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -69,7 +71,8 @@
         border-radius: 50%; 
         height: 50px;
         width: 50px;
-        margin-right: 20px;
+        margin-right: 10%;
+        transition: 0.3s;
     
     }
     #btnfacebook:hover{
@@ -84,7 +87,8 @@
         border-radius: 50%; 
         height: 50px;
         width: 50px;
-        margin-right: 20px;
+        margin-right: 10%;
+        transition: 0.3s;
     
     }
     #btntwitter:hover{
@@ -100,6 +104,7 @@
         border-radius: 50%; 
         height: 50px;
         width: 50px;
+        transition: 0.3s;
     
     }
     #btnyoutube:hover{
@@ -115,8 +120,8 @@
         width: 200px;
         text-align: right;
         float: right;
-        margin-top: 40px;
-        margin-left: 80px;
+        margin-top: 0%;
+        margin-right: 2%;
     
     }
     #derechos{
@@ -128,7 +133,58 @@
         font-size: 13px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-align: left;
-        margin-left: 90px;
+        margin-left: 7%;
     }
+
+    @media screen and (max-width: 1600px) {
+        .toolbar {
+          background-color:rgb(34, 32, 32);
+          height: 50%;
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        .toolbar {
+          background-color:rgb(34, 32, 32);
+          height: 80%;
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 900px) {
+        .toolbar{
+          background-color:rgb(34, 32, 32);
+          height: 90%;
+          width: 100%;
+        }
+
+        .toolbar #Sort1{
+            flex: 1 1 auto; 
+            height: 100px;
+            width: 250px;
+            text-align: left;
+            background-color: #222020;
+            float: left;
+            margin-left: 1%;
     
-}
+        }
+        .toolbar #log{
+            margin-left: 1%; 
+            margin-top: 3%;
+
+        }
+        .toolbar #titulo{
+            font-size: 18px; 
+            margin-top: 3%;
+            margin-left: 1%;
+        }
+
+        .toolbar button{
+            font-size: 13px; 
+        }
+        .toolbar #derechos{
+            font-size: 9px; 
+            margin-left: 1%;
+        }
+      }
+
