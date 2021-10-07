@@ -34,6 +34,8 @@ import {DatabaseServiceService} from './services/database-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { InnerhtmlpipePipe } from './innerhtmlpipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { MatListModule } from '@angular/material/list';
     AsideComponent,
     PrivacyPolicyComponent,
     NoticiaExpandidaComponent,
-    PaginaPrincipalComponent
+    PaginaPrincipalComponent,
+    InnerhtmlpipePipe,
   ],
   imports: [
     BrowserModule,
