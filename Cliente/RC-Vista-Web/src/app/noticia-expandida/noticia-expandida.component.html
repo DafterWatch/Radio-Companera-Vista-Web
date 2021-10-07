@@ -3,18 +3,18 @@
     <div id="main">                 
         <mat-card class="campoNoticia">
             <mat-card-header>          
-              <mat-card-title id="titulo">{{titulo}}</mat-card-title>
+              <mat-card-title id="titulo">{{noticia[0].titulo}}</mat-card-title>
             </mat-card-header>
             <mat-card-actions id="botones">
                 <!--<button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>-->
-                <button mat-button class="botonNoticia">{{fecha}}</button>
-                <button mat-button class="botonNoticia">{{categoria}}</button>
+                <button mat-button class="botonNoticia">{{noticia[0].fecha}}</button>
+                <button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>
                 
               </mat-card-actions>
-            <img mat-card-image [src]="imagen" id="imgNoticia">
-            <p class="parrafo">
-                {{contenido}}
-            </p>
+            <img mat-card-image [src]="noticia[0].imagen" id="imgNoticia">
+            <div [innerHTML]="contenido | innerhtmlpipe">
+                <!--Contenido-->
+            </div>
         </mat-card>
         <br>
                     <div id="OtrasNoticias">
@@ -25,7 +25,7 @@
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
                             <mat-card class="campoNoticia1">
                                 <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
-                                <button mat-button class="botonNoticiaCategoria">{{noticia.categoria}}</button>    
+                                <button mat-button class="botonNoticiaCategoria">{{noticia.nombre}}</button>
                                 <mat-card-header id="tituloNoticia">
                                     
                                 <mat-card-title id="tit">{{noticia.titulo}}</mat-card-title>

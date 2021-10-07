@@ -32,6 +32,7 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {DatabaseServiceService} from './services/database-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { InnerhtmlpipePipe } from './innerhtmlpipe.pipe';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     PrivacyPolicyComponent,
     NoticiaExpandidaComponent,
     PaginaPrincipalComponent,
+    InnerhtmlpipePipe,
   ],
   imports: [
     BrowserModule,
