@@ -62,7 +62,7 @@ export class MainComponent implements OnInit {
     
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
 
-    //this.getNoticias();
+    this.getNoticias();
   }
 
   /*onResize(event) {
@@ -116,7 +116,7 @@ msaapPlaylist: Track[] = [
     this.router.navigate(['noticia']);
   }
   noticias:Noticias[] = [
-    {id_noticia:1,
+    /*{id_noticia:1,
     id_reportero:1,
     ultima_modificacion:"Ayer",
     fecha: "09-03-2021",
@@ -298,12 +298,12 @@ msaapPlaylist: Track[] = [
     id_categoria: 3,
     nombre: "Social",
   },
-
+*/
 
   ];
   noticiaGrande:Noticias[] = [
     
-    {id_noticia:1,
+    /*{id_noticia:1,
     id_reportero:1,
     ultima_modificacion:"Ayer",
     fecha: "09-03-2021",
@@ -315,12 +315,12 @@ msaapPlaylist: Track[] = [
     etiquetas: ["reporte"],
     id_categoria: 3,
     nombre: "Social",
-  },
+  },*/
 
   ];  
   noticia1:Noticias[] = [
 
-    {id_noticia:1,
+    /*{id_noticia:1,
       id_reportero:1,
       ultima_modificacion:"Ayer",
       fecha: "09-03-2021",
@@ -333,11 +333,11 @@ msaapPlaylist: Track[] = [
       id_categoria: 3,
       nombre: "Social",
     },
-
+*/
   ];
   noticia2:Noticias[] = [
 
-    {id_noticia:1,
+    /*{id_noticia:1,
       id_reportero:1,
       ultima_modificacion:"Ayer",
       fecha: "09-03-2021",
@@ -350,11 +350,11 @@ msaapPlaylist: Track[] = [
       id_categoria: 3,
       nombre: "Social",
     },
-
+*/
   ];
   noticia3:Noticias[] = [
 
-    {id_noticia:1,
+    /*{id_noticia:1,
       id_reportero:1,
       ultima_modificacion:"Ayer",
       fecha: "09-03-2021",
@@ -367,11 +367,11 @@ msaapPlaylist: Track[] = [
       id_categoria: 3,
       nombre: "Social",
     },
-
+*/
   ];
   noticia4:Noticias[] = [
 
-    {id_noticia:1,
+    /*{id_noticia:1,
       id_reportero:1,
       ultima_modificacion:"Ayer",
       fecha: "09-03-2021",
@@ -383,7 +383,7 @@ msaapPlaylist: Track[] = [
       etiquetas: ["reporte"],
       id_categoria: 3,
       nombre: "Social",
-    },
+    },*/
 
   ];
 }
@@ -392,8 +392,8 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  //fecha: Date; 
-  fecha: string;  
+  fecha: Date; 
+  //fecha: string;  
   estado :boolean;
   id_contenido: number;
   imagen: string;

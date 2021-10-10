@@ -8,7 +8,7 @@
             </mat-card-header>
             <mat-card-actions id="botones">
                 <!--<button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>-->
-                <button mat-button class="botonNoticia">{{noticia[0].fecha}}</button>
+                <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia[0].fecha)}}</button>
                 <button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>
                 
               </mat-card-actions>
@@ -23,9 +23,10 @@
                         <mat-grid-list cols="2" rowHeight="450px">
                         
                         <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }" id="otras">
+                            <div *ngIf="idNoticia != noticia.id_noticia">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
                             <mat-card class="campoNoticia1">
-                                <div *ngIf="idNoticia != noticia.id_noticia">
+                                
                                     <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
                                     <button mat-button class="botonNoticiaCategoria">{{noticia.nombre}}</button>
                                     <mat-card-header id="tituloNoticia">
@@ -34,13 +35,13 @@
                                     </mat-card-header>
                                     
                                     <mat-card-actions id="botones">
-                                        <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
-                                        <button mat-button class="botonNoticia">Leer mas</button>
+                                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha)}}</button>
+                                        <!--<button mat-button class="botonNoticia">Leer mas</button>-->
                                                        
-                                      </mat-card-actions> 
-                                </div>                                              
+                                      </mat-card-actions>                                          
                             </mat-card>
-                        </mat-grid-tile>
+                            </mat-grid-tile>
+                            </div>
                         
                             <br>
                             </div>  
@@ -89,15 +90,15 @@
                      </div>
      </div> 
 
-    <div id="contenedorMultimedia">
-    <!--<div id="divAudio">
+    <!--<div id="contenedorMultimedia">
+    <div id="divAudio">
         <p id="textoU">Escucha las ultimas noticias</p>
         <ngx-audio-player id="audio" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
         muted="muted" [displayPlaylist]="msaapDisplayPlayList"
         [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
         [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
         [displayDuration]="msaapDisplayDuration" [expanded]="false" ></ngx-audio-player>
-    </div>     -->
+    </div>     -
         <br>
         <p id="textocabeza">Noticias Relacionadas</p>
                         <div *ngFor="let noticiaCostados of noticiasCostado | slice:0:4" id="costado">
@@ -114,12 +115,12 @@
                             </mat-card>
                             <br>
                             </div>  
-        <!--<div id="divVideo">
+        <<div id="divVideo">
             <p id="textoU">Vea las ultimas noticias</p>
             <video id="video" controls>
                 <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
             </video>
-        </div>-->
+        </div>
 
 
         <div id="margen">
@@ -127,7 +128,7 @@
             <app-aside></app-aside>
         </div>
     </div>
-</div>
+</div>-->
 
 <app-footer></app-footer>  
 </div> 

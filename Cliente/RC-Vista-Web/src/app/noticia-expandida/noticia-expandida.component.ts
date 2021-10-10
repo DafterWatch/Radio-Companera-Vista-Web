@@ -61,7 +61,8 @@ export class NoticiaExpandidaComponent implements OnInit {
       this.noticiasCostado.push(this.noticias[i]);
     }
   }
-  noticia:Noticias[] = [];
+  noticia:Noticias[] = [
+  ];
   noticias:Noticias[] = [];
   noticiasCostado:Noticias[] = []
   noticiasPrincipales:Noticias[] = []
@@ -108,6 +109,11 @@ export class NoticiaExpandidaComponent implements OnInit {
     result += d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
     return result;
   }
+  sacarSoloFecha(fecha:any){
+    let cadena = "";
+    cadena = fecha.slice(0,10);
+    return cadena;
+  }  
   restaFecha(fechaComentario:string){
     var fecha1 = moment(this.nowDate());
     var fecha2 = moment(fechaComentario);

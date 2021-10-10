@@ -540,7 +540,9 @@
   
 }
 
-
+/*.reproductor{
+  width: 300px;
+}*/
 
 //RESPONSIVE BLOQUE NOTICIAS PRINCIPALES MOVIL
 @media screen and (max-width: 900px) {
@@ -580,6 +582,7 @@
   }
   #general{
     max-height: max-content;
+    //width: 300px;
     width: 100%;
     margin-right: auto;
     margin-left: 0%;
