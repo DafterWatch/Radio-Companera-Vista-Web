@@ -21,21 +21,23 @@
                         <p id="textocabeza">Noticias Principales</p>
                         <mat-grid-list cols="2" rowHeight="450px">
                         
-                        <div *ngFor="let noticia of noticias | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }" id="otras">
+                        <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }" id="otras">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
                             <mat-card class="campoNoticia1">
-                                <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
-                                <button mat-button class="botonNoticiaCategoria">{{noticia.nombre}}</button>
-                                <mat-card-header id="tituloNoticia">
+                                <div *ngIf="idNoticia != noticia.id_noticia">
+                                    <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
+                                    <button mat-button class="botonNoticiaCategoria">{{noticia.nombre}}</button>
+                                    <mat-card-header id="tituloNoticia">
+                                        
+                                    <mat-card-title id="tit">{{noticia.titulo}}</mat-card-title>
+                                    </mat-card-header>
                                     
-                                <mat-card-title id="tit">{{noticia.titulo}}</mat-card-title>
-                                </mat-card-header>
-                                
-                                <mat-card-actions id="botones">
-                                    <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
-                                    <button mat-button class="botonNoticia">Leer mas</button>
-                                                   
-                                  </mat-card-actions>                
+                                    <mat-card-actions id="botones">
+                                        <button mat-button class="botonNoticia">{{noticia.fecha}}</button>
+                                        <button mat-button class="botonNoticia">Leer mas</button>
+                                                       
+                                      </mat-card-actions> 
+                                </div>                                              
                             </mat-card>
                         </mat-grid-tile>
                         
@@ -78,21 +80,7 @@
                                 </h3>
                                 <p>
                                     {{comentario.contenido}}
-                                </p>
-                                <!--{{comentario.cantLike}}
-                                <button mat-icon-button (click)="cambiarColorLike(i,comentario.bLike, comentario.bDislike)"
-                                [ngStyle]="{
-                                  'color' : comentario.bLike ? 'red' : 'black'
-                                }">
-                                    <mat-icon>thumb_up_alt</mat-icon>
-                                </button>
-                                <button mat-icon-button (click)="cambiarColorDislike(i,comentario.bLike, comentario.bDislike)"
-                                [ngStyle]="{
-                                  'color' : comentario.bDislike ? 'red' : 'black'
-                                }">
-                                    <mat-icon>thumb_down_alt</mat-icon>
-                                  </button>
-                                {{comentario.cantLike}}-->                      
+                                </p>                    
                                 <hr>
                             </div>
                             <button id="VerMas" (click)="aumentarComentariosVista()" *ngIf="numeroDivisionComentarios < cantidadComentarios">Ver Mas</button>
@@ -101,19 +89,19 @@
      </div> 
 
     <div id="contenedorMultimedia">
-    <div id="divAudio">
+    <!--<div id="divAudio">
         <p id="textoU">Escucha las ultimas noticias</p>
         <ngx-audio-player id="audio" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
         muted="muted" [displayPlaylist]="msaapDisplayPlayList"
         [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
         [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
         [displayDuration]="msaapDisplayDuration" [expanded]="false" ></ngx-audio-player>
-    </div>     
+    </div>     -->
         <br>
         <p id="textocabeza">Noticias Relacionadas</p>
                         <div *ngFor="let noticiaCostados of noticiasCostado | slice:0:4" id="costado">
                             <mat-card class="campoNoticiaCostado">
-                                <button mat-button class="botonNoticiaCategoriaCostado">{{noticiaCostados.categoria}}</button>    
+                                <button mat-button class="botonNoticiaCategoriaCostado">{{noticiaCostados.nombre}}</button>    
                                 <mat-card-header id="tituloNoticiaCostado" (click)="irNoticiaExpandida(noticiaCostados)">
                                     
                                 <mat-card-title id="titCostado">{{noticiaCostados.titulo}}</mat-card-title>
@@ -125,12 +113,12 @@
                             </mat-card>
                             <br>
                             </div>  
-        <div id="divVideo">
+        <!--<div id="divVideo">
             <p id="textoU">Vea las ultimas noticias</p>
             <video id="video" controls>
                 <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
             </video>
-        </div>
+        </div>-->
 
 
         <div id="margen">

@@ -22,7 +22,6 @@ export class MainComponent implements OnInit {
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
     .then((res:any)=>this.noticias=res);
-    //  .log(this.noticias);
     this.noticias.reverse();
     this.noticiaGrande.push(this.noticias[0]);
     this.noticia1.push(this.noticias[1]);
@@ -77,7 +76,7 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha: Date;  
+  fecha: string;  
   estado :boolean;
   id_contenido: number;
   imagen: string;
