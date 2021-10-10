@@ -6,7 +6,7 @@ body {
 .toolbar{
     background-color: #222020;
     color: rgb(255, 255, 255);
-    height: 45%;
+    height: 40%;
 }
 
     #LosButtons{
@@ -31,11 +31,12 @@ body {
         text-align: center;
         margin-top: 3%;
         font-family:Georgia, 'Times New Roman', Times, serif;
-        font-size: 27px;
+        font-size: 1.6vw;
     }
     
     #logoRCom{
-        height: 100%;
+        width: 18%;
+        height: auto;
         float: left;
         border-radius: 20%;      
     }
@@ -58,7 +59,7 @@ body {
             margin-bottom: 0%;
             margin-left: 1%;
             text-align: left;
-            font-size: 15px;
+            font-size: 1vw;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
     button:hover{
@@ -130,7 +131,7 @@ body {
         width: 750px;
         color: rgb(255, 255, 255);
         float: left;
-        font-size: 13px;
+        font-size: 0.9vw;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-align: left;
         margin-left: 7%;
@@ -158,10 +159,17 @@ body {
           width: 100%;
         }
 
+        .toolbar #LosButtons{
+            height: 90%;
+            margin-top: 3%;
+            padding-bottom: 20%;
+            width: 100%;
+    
+        }
         .toolbar #Sort1{
             flex: 1 1 auto; 
             height: 100px;
-            width: 250px;
+            width: 100%;
             text-align: left;
             background-color: #222020;
             float: left;
@@ -170,13 +178,18 @@ body {
         }
         .toolbar #log{
             margin-left: 1%; 
-            margin-top: 3%;
+            margin-top: 1%;
+            width: 100%;
 
         }
         .toolbar #titulo{
             font-size: 18px; 
             margin-top: 3%;
             margin-left: 1%;
+        }
+        .toolbar #Sort2{  
+            padding-top: 5%;
+            height: 50px;
         }
 
         .toolbar button{

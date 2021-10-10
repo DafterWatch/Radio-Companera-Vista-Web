@@ -33,15 +33,13 @@
     </div>
 </div>
 <br>
-<div id="general">
 
-<div id="noticias">
-        
+<div id="general">   
     <div id="conImg">
         <img class="image" src="assets/images/logoRadioCompañera.jpg">
         </div>
-        <div id="reproductor">
-            <ngx-audio-player [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="true" 
+        <div class="reproductor">
+            <ngx-audio-player id="reproductor1" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
             muted="muted" [displayPlaylist]="msaapDisplayPlayList"
             [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
             [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
@@ -50,7 +48,7 @@
         <br>
     <div id="noticias">
         <p id="textocabeza">Noticias Principales</p>
-        <mat-grid-list cols="3" rowHeight="450px">
+        <mat-grid-list #grid [cols]="cols" rowHeight="2:2.5" >
         <div *ngFor="let noticia of noticias | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-card class="campoNoticia">

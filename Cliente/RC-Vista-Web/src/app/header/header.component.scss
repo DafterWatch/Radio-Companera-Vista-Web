@@ -5,23 +5,50 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color:white;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: auto;
 }
 
 .topnav a {
   float: left;
   display:block;
   text-align: center;
-  padding: 20px 2%;
+  padding: 2% 0%;
   text-decoration: none;
   border-radius: 0px;
   color: white;
   background-color: rgb(18, 18, 18);
-  font-size: 13px;
+  font-size: 0.9vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 2%;
+  margin-top: 3%;
   transition: 0.2s;
+  width: 7%;
+
 }
+
+.topnav .divModoNoche {
+  float: left;
+  display:block;
+  text-align: center;
+  padding: 0% 0%;
+  text-decoration: none;
+  border-radius: 0px;
+  background-color: white;
+  color: white;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 3%;
+  transition: 0.2s;
+  width: 10%;
+  height: auto;
+
+}
+
+.topnav .divModoNoche:hover {
+  background-color: white;
+
+}
+
 
 .topnav a:hover {
   background-color: red;
@@ -36,28 +63,31 @@ body {
 }
 
 #logoRC{
-  height: 130px;
+  width: 9%;
+  height: auto;
   float: left;
   display: block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 1% 1%;
   transition: 0.3s;
   margin-left: 3%;
   border-radius: 30%;
 }
 
-  .topnav .mas{
+.topnav .mas{
   float: left;
+  width: 14%;
   display: block;
-  font-size: 15px;
+  font-size: 0.7em;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 0px;
   text-align: center;
   background-color: rgb(18, 18, 18);
-  padding: 1px 2%;
   color: white;
-  height: 60px;
-  margin-top: 2%;
+  margin-top: 3%;
+  height: 50%;
+  padding: 0% 0%;
+  
 }
 .topnav .mas:hover{
   background-color: red;
@@ -66,20 +96,23 @@ body {
 }
 
 .topnav .combobox{
-  float: left;
+  
+  float: left; 
   display: block;
-  font-size: 15px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 0px;
   text-align: center;
   color: white;
-}
+  width: 100%;
+  font-size: 1vw;
 
+}
 .topnav .categorias{
+  
   text-align: left;
   background-color: white;
   color: black;
-  font-size: 13px;
+  font-size: 115%;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .topnav .categorias:hover{
@@ -91,33 +124,35 @@ body {
 }
 
 .topnav .label{
-  font-size: 13px;
+  
+  font-size: 0.9vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: white;
 }
 
 .topnav .buscadorBox{
   float: left;
+  width: 14%;
   display: block;
-  padding: 1px 0.5%;
-  height: 60px;
-  margin-top: 2%;
+  height: auto;
+  margin-top: 3%;
   border-radius: 0px;
   background-color: rgb(18, 18, 18);
-  font-size: 13px;
+  font-size: 0.9vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0% 0%;
 }
 .topnav .buscadorBox:hover{
   background-color: rgb(18, 18, 18);
 }
 
 .topnav #buscador {
-  height: 100%;
+  height: 10%;
   width: 100%;
   border-radius: 0px;
   background-color: rgb(18, 18, 18);
   color: white;
-  font-size: 13px;
+  font-size: 0.9vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   transition: 0.3s;
 }
@@ -132,7 +167,7 @@ body {
   cursor: pointer;
   border-radius: 40%;    
   text-align: center;
-  font-size: 20px;
+  font-size: 1.6vw;
 }
 .topnav #btnBuscar:hover{
   background-color: red;
@@ -142,7 +177,7 @@ body {
 }
 
 .topnav .labelbuscar{
-  font-size: 13px;
+  font-size: 0.9vw;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(167, 167, 167);
 }
@@ -150,13 +185,13 @@ body {
 .topnav .Iconligh{
   padding: 15px 0.3%;
   color: rgb(240, 173, 29);
-  font-size: 30px;
+  font-size: 2.2vw;
 }
 
 .topnav .Iconnight{
   padding: 15px 0.3%;
 color: rgb(76, 84, 233);
-font-size: 30px;
+font-size: 2.2vw;
 }
 
 .topnav #switch{
@@ -167,11 +202,13 @@ background-color: white;
 .topnav .ModoNoche{
   background-color: white;
   float: left;
-  display: block;
+  //display: block;
   padding: 1px 0.3%;
-  height: 60px;
+  height: auto;
   margin-top: 2%;
   border-radius: 0px;
+  margin-left: 4%;
+  width: 28%;
 }
 .topnav .ModoNoche:hover{
   background-color: white;
@@ -182,9 +219,26 @@ background-color: white;
   .topnav a.icon {
     float: right;
     display: block;
+    margin-top: 7%;
+    margin-right: 7%;
+    background-color:black;
+    font-size: 2.8em;
   }
   .topnav {
     background-color:black;
+    width: 100%;
+    margin-left: 0%;
+  }
+  .topnav #logoRC {
+    width: 22%;
+    height: auto;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    transition: 0.3s;
+     margin-left: 3%;
+     border-radius: 30%;
   }
 }
 
@@ -195,6 +249,8 @@ background-color: white;
     position:absolute;
     right: 0;
     top: 0;
+    margin-top: 5%;
+    margin-right: 5%;
   }
   .topnav.responsive a {
     float: none;
@@ -209,12 +265,14 @@ background-color: white;
     text-align: left;
     margin-top: 0px;
     font-size: 13px;
+    width: 100%;
+    margin-left: 0%;
   }
   .topnav.responsive #logoRC {
     float: none;
     display: block;
     text-align: left;
-    height: 90px;
+    height: 70px;
     transition: 0.3s;
     border-radius: 30%;
   }
@@ -224,6 +282,8 @@ background-color: white;
     text-align: left;
     margin-top: 0px;
     font-size: 13px;
+    width: 100%;
+    margin-left: 0%;
   }
   .topnav.responsive .combobox {
     float: none;
@@ -231,6 +291,8 @@ background-color: white;
     text-align: left;
     margin-top: 0px;
     font-size: 13px;
+    width: 100%;
+    margin-left: 0%;
   }
   .topnav.responsive {
     background-color:black;
