@@ -392,7 +392,7 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha: Date; 
+  fecha_publicacion: Date; 
   //fecha: string;  
   estado :boolean;
   id_contenido: number;

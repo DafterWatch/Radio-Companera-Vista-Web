@@ -8,7 +8,7 @@
             </mat-card-header>
             <mat-card-actions id="botones">
                 <!--<button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>-->
-                <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia[0].fecha)}}</button>
+                <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia[0].fecha_publicacion)}}</button>
                 <button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>
                 
               </mat-card-actions>
@@ -35,7 +35,7 @@
                                     </mat-card-header>
                                     
                                     <mat-card-actions id="botones">
-                                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha)}}</button>
+                                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
                                         <!--<button mat-button class="botonNoticia">Leer mas</button>-->
                                                        
                                       </mat-card-actions>                                          

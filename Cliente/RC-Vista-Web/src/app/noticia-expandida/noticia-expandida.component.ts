@@ -61,11 +61,10 @@ export class NoticiaExpandidaComponent implements OnInit {
       this.noticiasCostado.push(this.noticias[i]);
     }
   }
-  noticia:Noticias[] = [
-  ];
+  noticia:Noticias[] = [];
   noticias:Noticias[] = [];
-  noticiasCostado:Noticias[] = []
-  noticiasPrincipales:Noticias[] = []
+  noticiasCostado:Noticias[] = [];
+  noticiasPrincipales:Noticias[] = [];
   //--------------reproductor----------
   msaapDisplayTitle = true;
   msaapDisplayPlayList = false;
@@ -163,7 +162,7 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha: Date;  
+  fecha_publicacion: Date;  
   estado :boolean;
   id_contenido: number;
   imagen: string;

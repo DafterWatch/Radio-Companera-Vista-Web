@@ -2,7 +2,7 @@
     <div id="noticiagrande">
         <img [src]="noticiagrande.imagen" id="ImaNoticiaGrande" (click)="irNoticiaExpandida(noticiagrande)">
         <div class="titulogrande" (click)="irNoticiaExpandida(noticiagrande)">{{noticiagrande.titulo}}</div>
-        <button mat-button class="btnFechaGrande">{{sacarSoloFecha(noticiagrande.fecha)}}</button>
+        <button mat-button class="btnFechaGrande">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
         <button mat-button class="btncategoriaGrande">{{noticiagrande.nombre}}</button> 
     </div>
     <div id="noticiasCostado">
@@ -61,7 +61,7 @@
                         <mat-card-title id="tit" style="cursor: pointer;" (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</mat-card-title>
                         </mat-card-header>        
                         <mat-card-actions id="botones">
-                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha)}}</button>
+                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
                         </mat-card-actions>
                     </mat-card>
                 </mat-grid-tile>    
@@ -77,6 +77,7 @@
     </div>
 </div>
 <div id="anuncios">
+    
     <div id="anuncio1">
         <app-nav></app-nav>  
     </div>

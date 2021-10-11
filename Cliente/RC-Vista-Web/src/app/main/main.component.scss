@@ -195,25 +195,27 @@
 //------------------------------
 
 #anuncio1{
-  width: 65%;
+  width: 400px;
   margin-left: 17%;
   margin-bottom: 40%;
+  
+  background-color: red;
   
 
 }
 
 #anuncio2{
-  width: 65%;
+  width: 400px;
   margin-left: 17%;
+  
+  background-color: red;
 
   }
 
   #anuncios{
-    width: 20%;
-    float: left;
-    margin-left: 5%;
-    max-height: max-content;
-
+    width: 500px;
+    float: right;
+    background-color: red;
     }
 
 //--------------------------------
@@ -696,7 +698,6 @@
   #anuncios{
     width: 90%;
     margin-left: 5%;
-
     }
 
 //--------------------------------
