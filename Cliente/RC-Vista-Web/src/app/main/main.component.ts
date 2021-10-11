@@ -80,11 +80,11 @@ export class MainComponent implements OnInit {
     this.noticia3.push(this.noticias[3]);
     this.noticia4.push(this.noticias[4]);
   }
-  sacarSoloFecha(fecha:any){
+  sacarSoloFecha(fecha1:any){
     let cadena = "";
-    cadena = fecha.slice(0,10);
+    cadena = fecha1.slice(0,10);
     return cadena;
-  }  
+  }
   //-------------------------------------------- Reproductor ----------------------------------------------
 msaapDisplayTitle = true;
 msaapDisplayPlayList = false;
