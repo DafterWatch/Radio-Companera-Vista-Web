@@ -26,7 +26,7 @@ export class NoticiaExpandidaComponent implements OnInit {
     window.scroll(0,0);
     this.getNoticia();
     this.getComentario();
-    this.getNoticias();
+    //this.getNoticias();
   }
   contenido;
   async getNoticias():Promise<void>{
@@ -44,6 +44,7 @@ export class NoticiaExpandidaComponent implements OnInit {
     await this.http.get(`http://localhost:3000/getNoticias/${this.idNoticia}`,{}).toPromise()
     .then((res:any)=>{this.noticia=res
     this.contenido = this.noticia[0].contenido;
+    console.log(this.noticia);
     });
   }
   cantidadItems = 8;
@@ -162,13 +163,24 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha_publicacion: Date;  
+  fecha_publicacion: Date;
   estado :boolean;
   id_contenido: number;
   imagen: string;
   titulo:string;
   contenido:string;
   etiquetas: string[];
-  id_categoria: number;
-  nombre:string;
+}
+interface NoticiasCompletas {
+  id_noticia: number;
+  id_reportero:number;
+  ultima_modificacion: string;  
+  fecha_publicacion: Date;
+  estado :boolean;
+  id_contenido: number;
+  imagen: string;
+  titulo:string;
+  contenido:string;
+  etiquetas: string[];
+  categorias: string[];
 }
