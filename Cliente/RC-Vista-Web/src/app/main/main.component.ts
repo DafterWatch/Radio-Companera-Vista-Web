@@ -67,117 +67,40 @@ export class MainComponent implements OnInit {
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
-  noticiasCompletas:NoticiasCompletas[]=[];
+  public noticiasCompletas:NoticiasCompletas[]=[];
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
-    .then((res:any)=>this.noticias=res);
+    .then((res:any)=>this.noticias=res);    
     this.noticias.reverse();
     for(let i = 0; i < this.noticias.length; i++){
       this.getCategorias(this.noticias[i].id_noticia);
     }
+    console.log(this.noticiasCompletas);
   }
   cate:Categorias[] = []
   log(a:any){
     console.log(a);
   }
+  primera = true;
+  segunda = false;
+  tercera = false;
+  cuarta = false;
+  quinta = false;
   async getCategorias(idNoticia:any):Promise<void>{
     await this.http.get(`http://localhost:3000/getCategorias/${idNoticia}`,{}).toPromise()
     .then((res:any)=>{
       let arrayCates=[];
       let idaux;
-      let primera = true;
+      let n = -1;
       res.forEach(element => {
         for(let i = 0; i < this.noticias.length; i++){
           if(this.noticias[i].id_noticia == element.id_noticia){       
             if(this.noticias[i].estado == true){
-              arrayCates.push(element.nombre);
-              switch(i){
-                case 0:{
-                  this.noticiaGrande.push(
-                    {
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    }
-                  );
-                  break;
-                }
-                case 1:{
-                  this.noticia1.push({
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  });
-                  break;
-                }
-                case 2:{
-                  this.noticia2.push({
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  });
-                  break;
-                }
-                case 3:{
-                  this.noticia3.push({
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  });
-                  break;
-                }
-                case 4:{
-                  this.noticia4.push({
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  });
-                  break;
-                }
-              }
-              if(primera){          
-                primera = false;    
+              arrayCates.push(element.nombre);          
+              if(this.primera){      
+                this.primera = false;    
+                this.segunda = true;    
                 idaux = element.id_noticia;
                 this.noticiasCompletas.push(
                   {
@@ -194,6 +117,22 @@ export class MainComponent implements OnInit {
                     categorias: arrayCates
                   }
                 );
+                this.noticiaGrande.push(
+                  {
+                    id_noticia: this.noticias[i].id_noticia,
+                    id_reportero:this.noticias[i].id_reportero,
+                    ultima_modificacion: this.noticias[i].ultima_modificacion,
+                    fecha_publicacion: this.noticias[i].fecha_publicacion,
+                    estado :this.noticias[i].estado,
+                    id_contenido: this.noticias[i].id_contenido,
+                    imagen: this.noticias[i].imagen,
+                    titulo:this.noticias[i].titulo,
+                    contenido:this.noticias[i].contenido,
+                    etiquetas: this.noticias[i].etiquetas,
+                    categorias: arrayCates
+                  }
+                );
+                
               } else {
                 if(idaux != element.id_noticia){
                   idaux = element.id_noticia;
@@ -211,7 +150,76 @@ export class MainComponent implements OnInit {
                       etiquetas: this.noticias[i].etiquetas,
                       categorias: arrayCates
                     }
-                  );                  
+                  );
+                  if(this.segunda){
+                    this.segunda = false;
+                    this.tercera = true;  
+                    this.noticia1.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  }else if(this.tercera){
+                    this.tercera = false;
+                    this.cuarta = true;  
+                    this.noticia2.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  } else if(this.cuarta){
+                    this.cuarta = false;
+                    this.quinta = true;  
+                    this.noticia3.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  } else if(this.quinta){
+                    this.quinta = false;
+                    this.noticia4.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  }
+
+
+                 
+
+                  
                 }
               }
             }
@@ -257,12 +265,12 @@ msaapPlaylist: Track[] = [
     sessionStorage.setItem('idNoticia',noticia.id_noticia);
     this.router.navigate(['noticia']);
   }
-  noticias:Noticias[] = [];
-  noticiaGrande:NoticiasCompletas[] = [];  
-  noticia1:NoticiasCompletas[] = [];
-  noticia2:NoticiasCompletas[] = [];
-  noticia3:NoticiasCompletas[] = [];
-  noticia4:NoticiasCompletas[] = [];
+  public noticias:Noticias[] = [];
+  public noticiaGrande:NoticiasCompletas[] = [];  
+  public noticia1:NoticiasCompletas[] = [];
+  public noticia2:NoticiasCompletas[] = [];
+  public noticia3:NoticiasCompletas[] = [];
+  public noticia4:NoticiasCompletas[] = [];
   
 }
 
