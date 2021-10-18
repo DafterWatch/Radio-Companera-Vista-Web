@@ -57,12 +57,39 @@ export class MainComponent implements OnInit {
     });
   }
   ngOnInit(): void { 
-
-    window.scroll(0, 0);
     
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
 
-    this.getNoticias();
+    /*
+    interface NoticiasCompletas {
+  id_noticia: number;
+  id_reportero:number;
+  ultima_modificacion: string;  
+  fecha_publicacion: Date;
+  estado :boolean;
+  id_contenido: number;
+  imagen: string;
+  titulo:string;
+  contenido:string;
+  etiquetas: string[];
+  categorias: string[];
+}*/
+    //this.getNoticias();
+    this.noticiasCompletas.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });    
+
+    window.scroll(0, 0);
   }
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
@@ -107,7 +134,7 @@ export class MainComponent implements OnInit {
                     id_noticia: this.noticias[i].id_noticia,
                     id_reportero:this.noticias[i].id_reportero,
                     ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
+                    fecha_publicacion: "a",
                     estado :this.noticias[i].estado,
                     id_contenido: this.noticias[i].id_contenido,
                     imagen: this.noticias[i].imagen,
@@ -122,7 +149,7 @@ export class MainComponent implements OnInit {
                     id_noticia: this.noticias[i].id_noticia,
                     id_reportero:this.noticias[i].id_reportero,
                     ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: this.noticias[i].fecha_publicacion,
+                    fecha_publicacion: "a",
                     estado :this.noticias[i].estado,
                     id_contenido: this.noticias[i].id_contenido,
                     imagen: this.noticias[i].imagen,
@@ -141,7 +168,7 @@ export class MainComponent implements OnInit {
                       id_noticia: this.noticias[i].id_noticia,
                       id_reportero:this.noticias[i].id_reportero,
                       ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      fecha_publicacion: "a",
                       estado :this.noticias[i].estado,
                       id_contenido: this.noticias[i].id_contenido,
                       imagen: this.noticias[i].imagen,
@@ -158,7 +185,7 @@ export class MainComponent implements OnInit {
                       id_noticia: this.noticias[i].id_noticia,
                       id_reportero:this.noticias[i].id_reportero,
                       ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      fecha_publicacion: "a",
                       estado :this.noticias[i].estado,
                       id_contenido: this.noticias[i].id_contenido,
                       imagen: this.noticias[i].imagen,
@@ -174,7 +201,7 @@ export class MainComponent implements OnInit {
                       id_noticia: this.noticias[i].id_noticia,
                       id_reportero:this.noticias[i].id_reportero,
                       ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      fecha_publicacion: "a",
                       estado :this.noticias[i].estado,
                       id_contenido: this.noticias[i].id_contenido,
                       imagen: this.noticias[i].imagen,
@@ -190,7 +217,7 @@ export class MainComponent implements OnInit {
                       id_noticia: this.noticias[i].id_noticia,
                       id_reportero:this.noticias[i].id_reportero,
                       ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      fecha_publicacion: "a",
                       estado :this.noticias[i].estado,
                       id_contenido: this.noticias[i].id_contenido,
                       imagen: this.noticias[i].imagen,
@@ -205,7 +232,7 @@ export class MainComponent implements OnInit {
                       id_noticia: this.noticias[i].id_noticia,
                       id_reportero:this.noticias[i].id_reportero,
                       ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: this.noticias[i].fecha_publicacion,
+                      fecha_publicacion: "a",
                       estado :this.noticias[i].estado,
                       id_contenido: this.noticias[i].id_contenido,
                       imagen: this.noticias[i].imagen,
@@ -290,7 +317,7 @@ interface NoticiasCompletas {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha_publicacion: Date;
+  fecha_publicacion: string;
   estado :boolean;
   id_contenido: number;
   imagen: string;
