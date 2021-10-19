@@ -195,25 +195,27 @@
 //------------------------------
 
 #anuncio1{
-  width: 65%;
+  width: 400px;
   margin-left: 17%;
   margin-bottom: 40%;
+  
+  background-color: red;
   
 
 }
 
 #anuncio2{
-  width: 65%;
+  width: 400px;
   margin-left: 17%;
+  
+  background-color: red;
 
   }
 
   #anuncios{
-    width: 20%;
-    float: left;
-    margin-left: 5%;
-    max-height: max-content;
-
+    width: 500px;
+    float: right;
+    background-color: red;
     }
 
 //--------------------------------
@@ -540,7 +542,9 @@
   
 }
 
-
+/*.reproductor{
+  width: 300px;
+}*/
 
 //RESPONSIVE BLOQUE NOTICIAS PRINCIPALES MOVIL
 @media screen and (max-width: 900px) {
@@ -580,6 +584,7 @@
   }
   #general{
     max-height: max-content;
+    //width: 300px;
     width: 100%;
     margin-right: auto;
     margin-left: 0%;
@@ -693,7 +698,6 @@
   #anuncios{
     width: 90%;
     margin-left: 5%;
-
     }
 
 //--------------------------------

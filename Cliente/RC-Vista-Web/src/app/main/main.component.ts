@@ -57,28 +57,211 @@ export class MainComponent implements OnInit {
     });
   }
   ngOnInit(): void { 
+    
+    //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
+
+    /*
+    interface NoticiasCompletas {
+  id_noticia: number;
+  id_reportero:number;
+  ultima_modificacion: string;  
+  fecha_publicacion: Date;
+  estado :boolean;
+  id_contenido: number;
+  imagen: string;
+  titulo:string;
+  contenido:string;
+  etiquetas: string[];
+  categorias: string[];
+}*/
+    //this.getNoticias();
+    this.noticiasCompletas.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });    
 
     window.scroll(0, 0);
-    
   }
-
-
+  /*onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
+  }*/
+  public noticiasCompletas:NoticiasCompletas[]=[];
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
-    .then((res:any)=>this.noticias=res);
+    .then((res:any)=>this.noticias=res);    
     this.noticias.reverse();
-    this.noticiaGrande.push(this.noticias[0]);
-    this.noticia1.push(this.noticias[1]);
-    this.noticia2.push(this.noticias[2]);
-    this.noticia3.push(this.noticias[3]);
-    this.noticia4.push(this.noticias[4]);
+    for(let i = 0; i < this.noticias.length; i++){
+      this.getCategorias(this.noticias[i].id_noticia);
+    }
+    console.log(this.noticiasCompletas);
   }
-  sacarSoloFecha(fecha:any){
+  cate:Categorias[] = []
+  log(a:any){
+    console.log(a);
+  }
+  primera = true;
+  segunda = false;
+  tercera = false;
+  cuarta = false;
+  quinta = false;
+  async getCategorias(idNoticia:any):Promise<void>{
+    await this.http.get(`http://localhost:3000/getCategorias/${idNoticia}`,{}).toPromise()
+    .then((res:any)=>{
+      let arrayCates=[];
+      let idaux;
+      let n = -1;
+      res.forEach(element => {
+        for(let i = 0; i < this.noticias.length; i++){
+          if(this.noticias[i].id_noticia == element.id_noticia){       
+            if(this.noticias[i].estado == true){
+              arrayCates.push(element.nombre);          
+              if(this.primera){      
+                this.primera = false;    
+                this.segunda = true;    
+                idaux = element.id_noticia;
+                this.noticiasCompletas.push(
+                  {
+                    id_noticia: this.noticias[i].id_noticia,
+                    id_reportero:this.noticias[i].id_reportero,
+                    ultima_modificacion: this.noticias[i].ultima_modificacion,
+                    fecha_publicacion: "a",
+                    estado :this.noticias[i].estado,
+                    id_contenido: this.noticias[i].id_contenido,
+                    imagen: this.noticias[i].imagen,
+                    titulo:this.noticias[i].titulo,
+                    contenido:this.noticias[i].contenido,
+                    etiquetas: this.noticias[i].etiquetas,
+                    categorias: arrayCates
+                  }
+                );
+                this.noticiaGrande.push(
+                  {
+                    id_noticia: this.noticias[i].id_noticia,
+                    id_reportero:this.noticias[i].id_reportero,
+                    ultima_modificacion: this.noticias[i].ultima_modificacion,
+                    fecha_publicacion: "a",
+                    estado :this.noticias[i].estado,
+                    id_contenido: this.noticias[i].id_contenido,
+                    imagen: this.noticias[i].imagen,
+                    titulo:this.noticias[i].titulo,
+                    contenido:this.noticias[i].contenido,
+                    etiquetas: this.noticias[i].etiquetas,
+                    categorias: arrayCates
+                  }
+                );
+                
+              } else {
+                if(idaux != element.id_noticia){
+                  idaux = element.id_noticia;
+                  this.noticiasCompletas.push(
+                    {
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: "a",
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    }
+                  );
+                  if(this.segunda){
+                    this.segunda = false;
+                    this.tercera = true;  
+                    this.noticia1.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: "a",
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  }else if(this.tercera){
+                    this.tercera = false;
+                    this.cuarta = true;  
+                    this.noticia2.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: "a",
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  } else if(this.cuarta){
+                    this.cuarta = false;
+                    this.quinta = true;  
+                    this.noticia3.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: "a",
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  } else if(this.quinta){
+                    this.quinta = false;
+                    this.noticia4.push({
+                      id_noticia: this.noticias[i].id_noticia,
+                      id_reportero:this.noticias[i].id_reportero,
+                      ultima_modificacion: this.noticias[i].ultima_modificacion,
+                      fecha_publicacion: "a",
+                      estado :this.noticias[i].estado,
+                      id_contenido: this.noticias[i].id_contenido,
+                      imagen: this.noticias[i].imagen,
+                      titulo:this.noticias[i].titulo,
+                      contenido:this.noticias[i].contenido,
+                      etiquetas: this.noticias[i].etiquetas,
+                      categorias: arrayCates
+                    });
+                  }
+
+
+                 
+
+                  
+                }
+              }
+            }
+          }
+        }
+      });
+
+
+    });
+  }
+  sacarSoloFecha(fecha1:any){
     let cadena = "";
-    cadena = fecha.slice(0,10);
+    cadena = fecha1.slice(0,10);
     return cadena;
-  }  
+  }
   //-------------------------------------------- Reproductor ----------------------------------------------
 msaapDisplayTitle = true;
 msaapDisplayPlayList = false;
@@ -109,291 +292,42 @@ msaapPlaylist: Track[] = [
     sessionStorage.setItem('idNoticia',noticia.id_noticia);
     this.router.navigate(['noticia']);
   }
-  noticias:Noticias[] = [
-    {id_noticia:1,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:2,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:3,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:4,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:5,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:6,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:7,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:8,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:9,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:10,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:11,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:12,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:13,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-  {id_noticia:14,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-
-
-  ];
-  noticiaGrande:Noticias[] = [
-    
-    {id_noticia:1,
-    id_reportero:1,
-    ultima_modificacion:"Ayer",
-    fecha: "09-03-2021",
-    estado: false,
-    id_contenido: 5,
-    imagen:"assets/images/noticia5.jpg",
-    titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-    contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-    etiquetas: ["reporte"],
-    id_categoria: 3,
-    nombre: "Social",
-  },
-
-  ];  
-  noticia1:Noticias[] = [
-
-    {id_noticia:1,
-      id_reportero:1,
-      ultima_modificacion:"Ayer",
-      fecha: "09-03-2021",
-      estado: false,
-      id_contenido: 5,
-      imagen:"assets/images/noticia5.jpg",
-      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-      etiquetas: ["reporte"],
-      id_categoria: 3,
-      nombre: "Social",
-    },
-
-  ];
-  noticia2:Noticias[] = [
-
-    {id_noticia:1,
-      id_reportero:1,
-      ultima_modificacion:"Ayer",
-      fecha: "09-03-2021",
-      estado: false,
-      id_contenido: 5,
-      imagen:"assets/images/noticia5.jpg",
-      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-      etiquetas: ["reporte"],
-      id_categoria: 3,
-      nombre: "Social",
-    },
-
-  ];
-  noticia3:Noticias[] = [
-
-    {id_noticia:1,
-      id_reportero:1,
-      ultima_modificacion:"Ayer",
-      fecha: "09-03-2021",
-      estado: false,
-      id_contenido: 5,
-      imagen:"assets/images/noticia5.jpg",
-      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-      etiquetas: ["reporte"],
-      id_categoria: 3,
-      nombre: "Social",
-    },
-
-  ];
-  noticia4:Noticias[] = [
-
-    {id_noticia:1,
-      id_reportero:1,
-      ultima_modificacion:"Ayer",
-      fecha: "09-03-2021",
-      estado: false,
-      id_contenido: 5,
-      imagen:"assets/images/noticia5.jpg",
-      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
-      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
-      etiquetas: ["reporte"],
-      id_categoria: 3,
-      nombre: "Social",
-    },
-
-  ];
+  public noticias:Noticias[] = [];
+  public noticiaGrande:NoticiasCompletas[] = [];  
+  public noticia1:NoticiasCompletas[] = [];
+  public noticia2:NoticiasCompletas[] = [];
+  public noticia3:NoticiasCompletas[] = [];
+  public noticia4:NoticiasCompletas[] = [];
+  
 }
 
 interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  //fecha: Date; 
-  fecha: string;  
+  fecha_publicacion: Date;
   estado :boolean;
   id_contenido: number;
   imagen: string;
   titulo:string;
   contenido:string;
   etiquetas: string[];
+}
+interface NoticiasCompletas {
+  id_noticia: number;
+  id_reportero:number;
+  ultima_modificacion: string;  
+  fecha_publicacion: string;
+  estado :boolean;
+  id_contenido: number;
+  imagen: string;
+  titulo:string;
+  contenido:string;
+  etiquetas: string[];
+  categorias: string[];
+}
+interface Categorias{
+  id_noticia:number;
   id_categoria: number;
-  nombre:string;
+  nombre: string;
 }
