@@ -6,7 +6,7 @@ body {
 .toolbar{
     background-color: #222020;
     color: rgb(255, 255, 255);
-    height: 40%;
+    height: auto;
 }
 
     #LosButtons{
@@ -20,6 +20,7 @@ body {
         text-align: left;
         background-color: #222020; 
         margin-left: 6%;
+        margin-top: 4%;
     
     }
     #titulo{
@@ -135,19 +136,20 @@ body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-align: left;
         margin-left: 7%;
+        margin-bottom: 3%;
     }
 
     @media screen and (max-width: 1600px) {
         .toolbar {
           background-color:rgb(34, 32, 32);
-          height: 50%;
+          height: auto;
           width: 100%;
         }
       }
       @media screen and (max-width: 1200px) {
         .toolbar {
           background-color:rgb(34, 32, 32);
-          height: 80%;
+          height: auto;
           width: 100%;
         }
       }
@@ -155,7 +157,7 @@ body {
       @media screen and (max-width: 900px) {
         .toolbar{
           background-color:rgb(34, 32, 32);
-          height: 90%;
+          height: auto;
           width: 100%;
         }
 
@@ -178,7 +180,7 @@ body {
         }
         .toolbar #log{
             margin-left: 1%; 
-            margin-top: 1%;
+            margin-top: 4%;
             width: 100%;
 
         }
@@ -196,8 +198,9 @@ body {
             font-size: 13px; 
         }
         .toolbar #derechos{
-            font-size: 9px; 
+            font-size: 2vw; 
             margin-left: 1%;
+            margin-bottom: 3%;
         }
       }
 

@@ -1,16 +1,77 @@
+.container{
+  height: auto;
+  max-height: max-content;
+}
 #main{
-      margin-left: 400px;
-      width: 800px;
+      margin-left: 8%;
+      width: 60%;
+      height: auto;
+      max-height: max-content;
+      float: left;
   }
+  #titulo{
+    margin-top: 2%;
+    font-size: 3.5vw;
+    margin-left: 0%;
+    line-height: 110%;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#botonesA{
+  width: 80%;
+  margin-top: 1%;
+  margin-left: 1%;
+
+}
+.botonNoticiaA{
+  color: red;
+  font-size: 1.2vw;
+  text-align: left;
+
+}
+.botonNoticiaA:hover{
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+}
+
+.campoNoticia {
+  border-radius: 0%;
+}
+
+.botonNoticia{
+  color: red;
+  font-size: 1vw;
+  margin-top: 0%;
+  margin-left: 3%;
+  text-align: left;
+
+}
+.botonNoticia:hover{
+  background-color: black;
+  color: white;
+  transition: 0.3s;
+}
 
   #OtrasNoticias{
-    width: 800px;
-    float: left;
+    width: 100%;
+    height: auto;
+    max-height: max-content;
 
   }
-  #textocabeza{
-    font-size: 20px;
-    margin-left: 20px;
+  #otras{
+    width: 100%;
+    height: 50%;
+
+  }
+  #princi{
+    width: 100%;
+    height: auto;
+    max-height: max-content;
+
+  }
+  .textocabeza{
+    font-size: 2vw;
+    margin-left: 4%;
   }
   #textoU{
     font-size: 20px;
@@ -41,19 +102,8 @@
     background-color:rgb(243, 243, 239); 
     margin-top: 100px;
   }
-  .botonNoticia:hover
-  {
-      color: rgb(214, 50, 21);
 
-  }
-  #titulo{
-    margin-top: 10px;
-      font-size: 46px;
-      margin-left: 0px;
-      line-height: 50px;
-      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
-}
 .parrafo
   {
      font-size: 16px;
@@ -73,13 +123,11 @@
 
   }
 #contenedorMultimedia{
-  width: 300px;
-  margin-left: 1050px; 
+  width: 25%;
   float: right; 
+  margin-right: 5%;
 }
-.campoNoticia {
-  border-radius: 0%;
-}
+
 #video{
   width: 340px;
   height: 270px;
@@ -95,22 +143,21 @@
   
 }
 .campoNoticia1 {
-  max-width: 400px;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 400px;
-  width: 350px;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  height: 90%;
+  width: 80%;
   border-radius: 0%;
 }
 
 
 #tituloNoticia {
   text-align: left;
-  font-size: 40px;
-  height: 100px;
+  height: auto;
   width: 100%;
+  margin-top: 2%;
   
 }
 #tituloNoticia:hover{
@@ -121,22 +168,22 @@
 }
 #tit {
   text-align: left;
-  font-size: 22px;
-  height: 50px;
+  font-size: 1.5vw;
+  height: auto;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  line-height: 25px;
+  line-height: 100%;
 
 }
 
 .botonNoticiaCategoria{
 
   color:white;
-  font-size: 13px;
-  margin-top: 1px;
-  margin-left: 10px;
+  font-size: 1vw;
+  margin-top: 0%;
+  margin-left: 4%;
   text-align: left;
   background-color: red;
-  margin-bottom: 10px;
+  margin-bottom: 0%;
 
 }
 .botonNoticiaCategoria:hover{
@@ -145,86 +192,82 @@
   transition: 0.3s;
 }
 
-.botonNoticia{
-
-  color: red;
-  font-size: 13px;
-  margin-top: 1px;
-  margin-left: 10px;
-  text-align: left;
-
-}
-.botonNoticia:hover{
-  background-color: black;
-  color: white;
-  transition: 0.3s;
-}
 #imgotrasNoticias{
   cursor: pointer;
-  height: 230px;
-  width: 382px;
-  margin-bottom: 0px;
-  border-radius: 0%;
+  width: 106%;
+  height: 300px;
 }
 
 #botones{
-  width: 290px;
   text-align: left;
-  margin-left: 10px;
+  margin-left: 2%;
 }
 #comentarioDiv{
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 2%;
   width: 100%;
-  float: left;
-  margin-bottom: 10%;
 }
-#comentarioBox{
-  margin-right: 12px; 
-  width: 100%; 
-  height: 50px; 
+#comentarioBox{ 
+  width: 90%; 
+  height: auto; 
   border: 2px solid rgb(150, 150, 150);
   border-radius: 0%;
-  padding: 5px;
+  padding: 2%;
+}
+#label{ 
+  font-size: 1.3vw;
+  margin-left: 1%;
 }
 #usuarioBox{
-  height: 50px;
+  height: 60px;
   width: 100%;
 }
 #contenedorComentario{
-  padding: 3px;
+  padding: 1%;
 }
 #inputUsuario{
   height: 100%; 
-  width: auto;
-  float: left; 
+  width: 50%;
+  float: right; 
   border: 2px solid rgb(150, 150, 150);
   border-radius: 0%;
+  font-size: 1vw;
 }
+
+#btnEnviar{
+  float: right;
+  height: 100%; 
+  width: 20%; 
+  margin-left: 2%;
+  margin-right: 8%;
+  font-size: 1vw;
+}
+
 #VerMas{
-  font-size: 17px;
+  font-size: 1vw;
   text-align: center;
-  margin-left: 10px;
+  margin-left: 2%;
   background-color: red;
   color: white;
   border-radius: 4px;
 }
 
+#costado {
+  width: 100%;
+}
 .campoNoticiaCostado {
-  max-width: 400px;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  height: 160px;
-  width: 340px;
+  height: auto;
+  width: 84%;
   border-radius: 0%;
+  margin-left: 5%;
 }
 
 #tituloNoticiaCostado {
   text-align: left;
-  font-size: 40px;
-  height: 80px;
+  height: auto;
   width: 100%;
   margin-bottom: 0%;
   
@@ -237,21 +280,20 @@
 }
 #titCostado {
   text-align: left;
-  font-size: 20px;
-  height: 50px;
+  font-size: 1.3vw;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  line-height: 24px;
+  line-height: 110%;
 
 }
 
 .botonNoticiaCategoriaCostado{
 
-  color:rgb(66, 66, 66);
-  font-size: 16px;
-  margin-top: 1px;
+  color:rgb(81, 81, 81);
+  font-size: 1.2vw;
+  margin-top: 1%;
   margin-left: 0%;
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
   text-decoration: underline;
 }
 .botonNoticiaCategoriaCostado:hover{
@@ -263,8 +305,8 @@
 
 .botonNoticiaCostado{
   color: red;
-  font-size: 13px;
-  margin-left: 30%;
+  font-size: 0.9vw;
+  margin-left: 0%;
   text-align: left;
 
 }
@@ -274,11 +316,342 @@
 }
 
 #botonesCostado{
-  width: 290px;
+  width: auto;
   text-align: left;
-  margin-left: 10px;
+  margin-left: 1%;
 }
 #warningBox{
   color: red;
-  font-size: 15px;
+  font-size: 1.2vw;
+}
+
+
+//RESPONSIVE
+@media screen and (max-width: 900px) {
+  .container{
+    height: auto;
+    max-height: max-content;
+  }
+  #main{
+        margin-left: 0%;
+        width: 100%;
+        height: auto;
+        max-height: max-content;
+        float: left;
+    }
+    #titulo{
+      margin-top: 2%;
+      font-size: 9vw;
+      margin-left: 0%;
+      line-height: 110%;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  #botonesA{
+    width: 100%;
+    margin-top: 0%;
+    margin-left: 0%;
+  
+  }
+  .botonNoticiaA{
+    color: red;
+    font-size: 4.5vw;
+    text-align: left;
+  
+  }
+  .botonNoticiaA:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  .campoNoticia {
+    border-radius: 0%;
+  }
+  
+  .botonNoticia{
+    color: red;
+    font-size: 4.7vw;
+    margin-top: 0%;
+    
+    text-align: left;
+  
+  }
+  .botonNoticia:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+  }
+  
+    #OtrasNoticias{
+      width: 100%;
+      height: auto;
+      max-height: max-content;
+  
+    }
+    #otras{
+      width: 100%;
+      height: 50%;
+      background-color: brown;
+  
+    }
+    #princi{
+      width: 100%;
+      height: auto;
+      max-height: max-content;
+  
+    }
+    .textocabeza{
+      font-size: 7vw;
+      margin-left: 4%;
+    }
+    #textoU{
+      font-size: 20px;
+      margin-left: 20px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    #divAudio{
+      margin-top: 50px;
+      width: 370px;
+      height: 180px;
+      background-color:rgb(243, 243, 239);
+    }
+    #divVideo{
+      width: 370px;
+      height: 370px;
+      background-color:rgb(243, 243, 239); 
+      margin-top: 50px;
+    }
+    #anuncio{
+      width: 200px;
+      background-color:rgb(243, 243, 239); 
+      margin-top: 50px;
+      margin-left: 80px;
+  
+    }
+    #margen{
+      width: 370px;
+      background-color:rgb(243, 243, 239); 
+      margin-top: 100px;
+    }
+  
+  
+  .parrafo
+    {
+       font-size: 16px;
+       line-height: 26px;
+  
+    }
+  
+    #abajo{
+      width: 300px;
+  }
+  
+  .relacionados
+    {
+      flex: 1 1 auto; 
+      text-align: left;
+      float: left;
+  
+    }
+  #contenedorMultimedia{
+    width: 90%;
+    margin-left: 5%;
+  }
+  
+  #video{
+    width: 340px;
+    height: 270px;
+    margin-left: 15px;
+    
+  }
+  #audio{
+    margin-top: 50px;
+    width: 300px;
+    height: 400px;
+    border-radius: 0px;
+    align-items: bottom;
+    
+  }
+  .campoNoticia1 {
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+    height: 90%;
+    width: 80%;
+    border-radius: 0%;
+  }
+  
+  
+  #tituloNoticia {
+    text-align: left;
+    height: auto;
+    width: 100%;
+    margin-top: 2%;
+    
+  }
+  #tituloNoticia:hover{
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+    
+  }
+  #tit {
+    text-align: left;
+    font-size: 7.3vw;
+    height: auto;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 105%;
+  
+  }
+  
+  .botonNoticiaCategoria{
+  
+    color:white;
+    font-size: 5vw;
+    margin-top: 0%;
+    margin-left: 4%;
+    text-align: left;
+    background-color: red;
+    margin-bottom: 0%;
+  
+  }
+  .botonNoticiaCategoria:hover{
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+  }
+  
+  #imgotrasNoticias{
+    cursor: pointer;
+    width:111%;
+    height: 260px;
+  }
+  
+  #botones{
+    text-align: left;
+    margin-left: 8%;
+  }
+  #comentarioDiv{
+    margin-top: 2%;
+    width: 100%;
+  }
+  #comentarioBox{ 
+    width: 90%; 
+    height: auto; 
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 0%;
+    padding: 2%;
+  }
+  #label{ 
+    font-size: 7vw;
+    margin-left: 3%;
+  }
+  #usuarioBox{
+    height: 80px;
+    width: 100%;
+  }
+  #contenedorComentario{
+    padding: 1%;
+  }
+  #inputUsuario{
+    height: 90%; 
+    width: 70%;
+    float: right; 
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 0%;
+    font-size: 4vw;
+  }
+  
+  #btnEnviar{
+    float: right;
+    height: 90%; 
+    width: 20%; 
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 1vw;
+  }
+  
+  #VerMas{
+    font-size: 1vw;
+    text-align: center;
+    margin-left: 2%;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  #costado {
+    width: 100%;
+  }
+  .campoNoticiaCostado {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    width: 90%;
+    border-radius: 0%;
+    margin-left: 0%;
+  }
+  
+  #tituloNoticiaCostado {
+    text-align: left;
+    height: auto;
+    width: 100%;
+    margin-bottom: 0%;
+    
+  }
+  #tituloNoticiaCostado:hover{
+    color: red;
+    cursor: pointer;
+    transition: 0.3s;
+    
+  }
+  #titCostado {
+    text-align: left;
+    font-size: 5vw;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    line-height: 110%;
+  
+  }
+  
+  .botonNoticiaCategoriaCostado{
+  
+    color:rgb(81, 81, 81);
+    font-size: 4vw;
+    margin-top: 1%;
+    margin-left: 0%;
+    text-align: left;
+    margin-bottom: 1%;
+    text-decoration: underline;
+  }
+  .botonNoticiaCategoriaCostado:hover{
+    color: red;
+    transition: 0.3s;
+    text-decoration: underline;
+    background-color: white;
+  }
+  
+  .botonNoticiaCostado{
+    color: red;
+    font-size: 3.8vw;
+    margin-left: 0%;
+    text-align: left;
+  
+  }
+  .botonNoticiaCostado:hover{
+    transition: 0.3s;
+    text-decoration: underline;
+  }
+  
+  #botonesCostado{
+    width: auto;
+    text-align: left;
+    margin-left: 1%;
+  }
+  #warningBox{
+    color: red;
+    font-size: 1.2vw;
+  }
 }

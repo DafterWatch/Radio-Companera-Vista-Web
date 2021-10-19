@@ -46,6 +46,9 @@
             [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
         </div>
         <br>
+        
+        <app-nav></app-nav>  
+
     <div id="noticias">
         <p id="textocabeza">Noticias Principales</p>
         <mat-grid-list #grid [cols]="cols" rowHeight="2:2.5" >
@@ -76,13 +79,7 @@
             [maxSize]="8"></pagination-controls>
     </div>
 </div>
-<div id="anuncios">
-    <div id="anuncio1">
-        <app-nav></app-nav>  
-    </div>
+
     
-    <div id="anuncio2">
         <app-aside></app-aside> 
-    </div>
-</div>
 </div>

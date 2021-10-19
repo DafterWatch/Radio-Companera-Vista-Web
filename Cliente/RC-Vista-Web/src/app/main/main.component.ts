@@ -60,14 +60,8 @@ export class MainComponent implements OnInit {
 
     window.scroll(0, 0);
     
-    //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
-
-    //this.getNoticias();
   }
 
-  /*onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
-  }*/
 
   tamañoEtiquetas;
   async getNoticias():Promise<void>{

@@ -6,14 +6,55 @@ import {take} from 'rxjs/operators';
 import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http';
 
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-noticia-expandida',
   templateUrl: './noticia-expandida.component.html',
   styleUrls: ['./noticia-expandida.component.scss']
 })
 export class NoticiaExpandidaComponent implements OnInit {
+  cols : number;
 
-  constructor(public router: Router, private _ngZone: NgZone, private http:HttpClient) { }
+  gridByBreakpoint = {
+    xl: 2,
+    lg: 2,
+    md: 2,
+    sm: 1,
+    xs: 1
+  }
+
+  breakpoint: number;
+
+  constructor(public router: Router, private _ngZone: NgZone, private http:HttpClient, private breakpointObserver: BreakpointObserver) { 
+
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge,
+    ]).subscribe(result => {
+      if (result.matches) {
+        if (result.breakpoints[Breakpoints.XSmall]) {
+          this.cols = this.gridByBreakpoint.xs;
+        }
+        if (result.breakpoints[Breakpoints.Small]) {
+          this.cols = this.gridByBreakpoint.sm;
+        }
+        if (result.breakpoints[Breakpoints.Medium]) {
+          this.cols = this.gridByBreakpoint.md;
+        }
+        if (result.breakpoints[Breakpoints.Large]) {
+          this.cols = this.gridByBreakpoint.lg;
+        }
+        if (result.breakpoints[Breakpoints.XLarge]) {
+          this.cols = this.gridByBreakpoint.xl;
+        }
+      }
+    });
+
+  }
   @ViewChild('autosize') autosize: CdkTextareaAutosize | any;
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.
@@ -61,10 +102,209 @@ export class NoticiaExpandidaComponent implements OnInit {
       this.noticiasCostado.push(this.noticias[i]);
     }
   }
-  noticia:Noticias[] = [];
-  noticias:Noticias[] = [];
-  noticiasCostado:Noticias[] = []
-  noticiasPrincipales:Noticias[] = []
+  noticia:Noticias[] = [
+    {id_noticia:1,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+  ];
+  noticias:Noticias[] = [
+    {id_noticia:1,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:2,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:3,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:4,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:5,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:6,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+  ];
+  noticiasCostado:Noticias[] = [
+    {id_noticia:1,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:2,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:3,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:4,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+  ]
+  noticiasPrincipales:Noticias[] = [
+    {id_noticia:1,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:2,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:3,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+    {id_noticia:4,
+      id_reportero:1,
+      ultima_modificacion:"Ayer",
+      fecha: "09-03-2021",
+      estado: false,
+      id_contenido: 5,
+      imagen:"assets/images/noticia5.jpg",
+      titulo:"El Banco Central Europeo advirtió que la variante delta puede retrasar la apertura total de la economía",
+      contenido:"La presidenta del Banco Central Europeo (BCE), Christine Lagarde, advirtió que la variante delta puede retrasar la apertura total de la economía, por lo que destacó la importancia de que las personas se inmunicen contra el coronavirus, según el portal Infobae. “La propagación de la variante delta no ha requerido que se vuelvan a imponer medidas de confinamiento, pero podría ralentizar la recuperación en el comercio global y la reapertura completa de la economía”, indicó Lagarde. Del mismo modo, la presidenta del BCE explicó que el aumento de la inmunidad al coronavirus significa que “el impacto de la pandemia es ahora menos duro”, sin embargo, advirtió que “la propagación en todo el mundo de la variante delta podría retrasar la reapertura completa de la economía”.",
+      etiquetas: ["reporte"],
+      id_categoria: 3,
+      nombre: "Social",
+    },
+  ]
   //--------------reproductor----------
   msaapDisplayTitle = true;
   msaapDisplayPlayList = false;
@@ -157,7 +397,8 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha: Date;  
+  //fecha: Date;  
+  fecha: string; 
   estado :boolean;
   id_contenido: number;
   imagen: string;

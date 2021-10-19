@@ -1,15 +1,14 @@
 <app-header></app-header>
-<div class="container">
-    
+
     <div id="main">                 
         <mat-card class="campoNoticia">
             <mat-card-header>          
               <mat-card-title id="titulo">{{noticia[0].titulo}}</mat-card-title>
             </mat-card-header>
-            <mat-card-actions id="botones">
+            <mat-card-actions id="botonesA">
                 <!--<button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>-->
-                <button mat-button class="botonNoticia">{{noticia[0].fecha}}</button>
-                <button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>
+                <button mat-button class="botonNoticiaA">{{noticia[0].fecha}}</button>
+                <button mat-button class="botonNoticiaA">{{noticia[0].nombre}}</button>
                 
               </mat-card-actions>
             <img mat-card-image [src]="noticia[0].imagen" id="imgNoticia">
@@ -19,14 +18,16 @@
         </mat-card>
         <br>
                     <div id="OtrasNoticias">
-                        <p id="textocabeza">Noticias Principales</p>
-                        <mat-grid-list cols="2" rowHeight="450px">
+
+                        <p class="textocabeza">Noticias Principales</p>
+                        <div id="princi">
+                        <mat-grid-list #grid [cols]="cols" rowHeight="600">
                         
-                        <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }" id="otras">
+                        <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
                             <mat-card class="campoNoticia1">
-                                <div *ngIf="idNoticia != noticia.id_noticia">
-                                    <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">  
+                                <div *ngIf="idNoticia != noticia.id_noticia" >
+                                    <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)"> 
                                     <button mat-button class="botonNoticiaCategoria">{{noticia.nombre}}</button>
                                     <mat-card-header id="tituloNoticia">
                                         
@@ -38,20 +39,21 @@
                                         <button mat-button class="botonNoticia">Leer mas</button>
                                                        
                                       </mat-card-actions> 
-                                </div>                                              
+                                </div>                                          
                             </mat-card>
                         </mat-grid-tile>
                         
                             <br>
                             </div>  
                         </mat-grid-list>
+                    </div>
 
                         <br>
-                        <h1>{{cantidadComentarios+" comentarios"}}</h1>
+                        <p class="textocabeza">{{cantidadComentarios+" comentarios"}}</p>
                         <hr>
                         <div id="comentarioDiv">
                             <mat-form-field id="comentarioBox">
-                                <mat-label>Escribe un comentario</mat-label>
+                                <mat-label id="label">Escribe un comentario</mat-label>
                                 <textarea matInput
                                           cdkTextareaAutosize
                                           #autosize="cdkTextareaAutosize"
@@ -62,24 +64,24 @@
                             </mat-form-field>
                             <br><br>
                             <div id="usuarioBox">
-                                <div style="height: 100%; float: right;">
-                                    <input placeholder="Usuario" id="inputUsuario" value="Anónimo" #textoUsuario (click)='textoUsuario.value=""'>
-                                    <button mat-raised-button color="warn" 
-                                    style="float: left;" style="height: 100%; width: auto; margin-left: 10px;" 
+                                <div style="height: 100%; width: 100%; float: right;">
+                                    
+                                    <button id="btnEnviar" mat-raised-button color="warn" 
                                     (click)='enviarComentario(textoComentario.value, textoUsuario.value); textoComentario.value=""; textoUsuario.value="Anónimo"'>Enviar</button>
+                                    <input placeholder="Usuario" id="inputUsuario" value="Anónimo" #textoUsuario (click)='textoUsuario.value=""'>
                                 </div>                                
                                 <p id="warningBox" *ngIf="mensajeWarning.length > 0">{{mensajeWarning}}</p>
                             </div>                            
                             <br>
                             <div *ngFor="let comentario of comentariosCortados; index as i" id="contenedorComentario">
-                                <h3 style="color: red; font-size: 15px; display: inline;">
+                                <h3 style="color: red; font-size: 1.1vw; display: inline;">
                                     {{comentario.nombre}}
                                 </h3>
                                 &nbsp; &nbsp; &nbsp;
-                                <h3 style="display: inline; font-size: 15px;">
+                                <h3 style="display: inline; font-size: 1.1vw;">
                                     {{restaFecha(comentario.fecha)}}
                                 </h3>
-                                <p>
+                                <p style="font-size: 1vw;">
                                     {{comentario.contenido}}
                                 </p>                    
                                 <hr>
@@ -99,7 +101,7 @@
         [displayDuration]="msaapDisplayDuration" [expanded]="false" ></ngx-audio-player>
     </div>     -->
         <br>
-        <p id="textocabeza">Noticias Relacionadas</p>
+        <p class="textocabeza">Noticias Relacionadas</p>
                         <div *ngFor="let noticiaCostados of noticiasCostado | slice:0:4" id="costado">
                             <mat-card class="campoNoticiaCostado">
                                 <button mat-button class="botonNoticiaCategoriaCostado">{{noticiaCostados.nombre}}</button>    
@@ -122,15 +124,10 @@
         </div>-->
 
 
-        <div id="margen">
-        <div id="anuncio">  
-            <app-aside></app-aside>
-        </div>
-    </div>
+            
 </div>
-
+<app-aside></app-aside>
 <app-footer></app-footer>  
-</div> 
 
 
     
