@@ -59,23 +59,8 @@ export class MainComponent implements OnInit {
   ngOnInit(): void { 
     
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
-
-    /*
-    interface NoticiasCompletas {
-  id_noticia: number;
-  id_reportero:number;
-  ultima_modificacion: string;  
-  fecha_publicacion: Date;
-  estado :boolean;
-  id_contenido: number;
-  imagen: string;
-  titulo:string;
-  contenido:string;
-  etiquetas: string[];
-  categorias: string[];
-}*/
-    //this.getNoticias();
-    this.noticiasCompletas.push({
+    this.getNoticias();
+    /*this.noticiasCompletas.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -87,7 +72,7 @@ export class MainComponent implements OnInit {
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
       categorias: ["categoria1","categoria2","categoria3","categoria4"],
-    });    
+    }); */   
 
     window.scroll(0, 0);
   }

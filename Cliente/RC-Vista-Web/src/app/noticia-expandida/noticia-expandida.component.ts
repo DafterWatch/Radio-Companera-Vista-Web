@@ -65,9 +65,106 @@ export class NoticiaExpandidaComponent implements OnInit {
   ngOnInit(): void {
     this.idNoticia = sessionStorage.getItem('idNoticia');
     window.scroll(0,0);
-    this.getNoticia();
+    /*this.getNoticia();
     this.getComentario();
-    //this.getNoticias();
+    this.getNoticias();*/
+    this.noticia.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"]
+    });
+    this.contenido = this.noticia[0].contenido;
+
+
+    this.comentarios.push({
+      idComentario:1,
+      idNoticia:1,
+      fecha:"2021-10-20",
+      nombre:"Usuario1",
+      contenido:"eso tilin"
+    });
+    this.comentarios.push({
+      idComentario:2,
+      idNoticia:1,
+      fecha:"2021-10-20",
+      nombre:"Usuario1",
+      contenido:"vaya tilin"
+    });
+    this.comentarios.push({
+      idComentario:3,
+      idNoticia:1,
+      fecha:"2021-10-20",
+      nombre:"Usuario1",
+      contenido:"wow tilin"
+    });
+    this.comentarios.push({
+      idComentario:4,
+      idNoticia:1,
+      fecha:"2021-10-20",
+      nombre:"Usuario1",
+      contenido:"ala mrd tilin"
+    });
+    this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
+    this.cantidadComentarios = this.comentarios.length;
+
+
+
+
+    this.noticiasPrincipales.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"]
+    });
+    this.noticiasPrincipales.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"]
+    });
+    this.noticiasPrincipales.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"]
+    });
+    this.noticiasPrincipales.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"]
+    });
   }
   contenido;
   async getNoticias():Promise<void>{
@@ -77,15 +174,11 @@ export class NoticiaExpandidaComponent implements OnInit {
     for(let i = 0; i < 6; i++){
       this.noticiasPrincipales.push(this.noticias[i]);
     }
-    for(let i = 6; i < 9; i++){
-      this.noticiasCostado.push(this.noticias[i]);
-    }
   }
   async getNoticia():Promise<void>{
     await this.http.get(`http://localhost:3000/getNoticias/${this.idNoticia}`,{}).toPromise()
     .then((res:any)=>{this.noticia=res
     this.contenido = this.noticia[0].contenido;
-    console.log(this.noticia);
     });
   }
   cantidadItems = 8;
@@ -98,9 +191,6 @@ export class NoticiaExpandidaComponent implements OnInit {
     this.noticiasCostado = [];
     for(let i = 0; i < 6; i++){
       this.noticiasPrincipales.push(this.noticias[i]);
-    }
-    for(let i = 6; i < 9; i++){
-      this.noticiasCostado.push(this.noticias[i]);
     }
   }
   noticia:Noticias[] = [];
@@ -204,7 +294,8 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  fecha_publicacion: Date;
+  //fecha_publicacion: Date;
+  fecha_publicacion: string;
   estado :boolean;
   id_contenido: number;
   imagen: string;

@@ -26,8 +26,7 @@
                         <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
                             <mat-card class="campoNoticia1">
-                                    <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)"> 
-                                    <button mat-button class="botonNoticiaCategoria">{{noticia.etiquetas}}</button>
+                                    <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">
                                     <mat-card-header id="tituloNoticia">
                                         
                                     <mat-card-title id="tit">{{noticia.titulo}}</mat-card-title>
@@ -35,7 +34,6 @@
                                     
                                     <mat-card-actions id="botones">
                                         <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
-                                        <button mat-button class="botonNoticia">Leer mas</button>
                                                        
                                       </mat-card-actions>                                          
                             </mat-card>
