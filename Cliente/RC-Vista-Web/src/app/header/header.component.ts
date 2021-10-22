@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, HostBinding, OnInit, ViewEncapsulation, Output,  EventEmitter} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   toggleControl = new FormControl(false);
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private http:HttpClient) { }
 
   
 
@@ -24,8 +25,9 @@ export class HeaderComponent implements OnInit {
     this.toggleControl.valueChanges.subscribe((val) =>{
       this.className = val ? 'darkmode' : '';
     });
+    this.getConfiguracion();
   }
-  logo = "assets/images/logoRadioCompañera.jpg";
+  logo;
   categorias: Categoria[] = [
     {idCategoria: 1, nombre: 'Internacional'},
     {idCategoria: 2, nombre: 'Moda'},
@@ -50,10 +52,22 @@ export class HeaderComponent implements OnInit {
     else {
     x.className = "topnav";
       }
-}
+  }
+  configuracion:Configuracion[] = [];
+  serverDirection :string = 'http://localhost:3000';
+  async getConfiguracion():Promise<void>{
+    await this.http.post(this.serverDirection+"/getConfiguraciones","1").toPromise()
+    .then((res:any)=>this.configuracion=res);
+    this.logo = this.configuracion[0].banner;
+  }
+
 }
 interface Categoria {
   idCategoria: number;
   nombre: string;
+}
+interface Configuracion{
+  titulo:string,
+  banner:string
 }
 

@@ -88,7 +88,6 @@ export class MainComponent implements OnInit {
     for(let i = 0; i < this.noticias.length; i++){
       this.getCategorias(this.noticias[i].id_noticia);
     }
-    console.log(this.noticiasCompletas);
   }
   cate:Categorias[] = []
   log(a:any){
@@ -261,7 +260,8 @@ msaapDisablePositionSlider = false;
 msaapPlaylist: Track[] = [
   {
     title: 'Radio Compañera',
-    link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
+    //link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
+    link: '',
     artist: 'Estacion 106.3',
     duration: 3.5
   }
