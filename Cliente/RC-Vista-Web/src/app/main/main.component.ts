@@ -60,7 +60,7 @@ export class MainComponent implements OnInit {
     
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
     this.getNoticias();
-    /*this.noticiasCompletas.push({
+    this.noticiasCompletas.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -72,7 +72,7 @@ export class MainComponent implements OnInit {
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
       categorias: ["categoria1","categoria2","categoria3","categoria4"],
-    }); */   
+    });    
 
     window.scroll(0, 0);
   }
