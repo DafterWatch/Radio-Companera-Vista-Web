@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { InnerhtmlpipePipe } from './innerhtmlpipe.pipe';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 @NgModule({
@@ -74,13 +77,15 @@ import { InnerhtmlpipePipe } from './innerhtmlpipe.pipe';
     TextFieldModule,
     HttpClientModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ],
   exports: [
     MatSidenavModule,
     MatListModule
   ],
   providers: [DatabaseServiceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, HostBinding, OnInit, ViewEncapsulation, Output,  EventEmitter} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { OverlayContainer } from '@angular/cdk/overlay';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { PasarDatosSwitchService } from '../pasar-datos-switch.service';
 
 @Component({
   selector: 'app-header',
@@ -10,21 +14,29 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() public sidenavToggle = new EventEmitter();
+  //@HostBinding('class') className = '';
 
-  
-  @HostBinding('class') className = '';
+  //toggleControl = new FormControl(false);
 
-  toggleControl = new FormControl(false);
+  //@Output() public sidenavToggle = new EventEmitter();
 
-  constructor(public router: Router, private http:HttpClient) { }
+  constructor(public router: Router, private http:HttpClient,
+    private pasarDatos:PasarDatosSwitchService
+    ) { }
 
   
 
   ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((val) =>{
-      this.className = val ? 'darkmode' : '';
-    });
+
+    /*this.toggleControl.valueChanges.subscribe((darkMode) => {
+      const darkClassName = 'darkMode';
+      this.className = darkMode ? darkClassName : '';
+      if (darkMode) {
+        this.overlay.getContainerElement().classList.add(darkClassName);
+      } else {
+        this.overlay.getContainerElement().classList.remove(darkClassName);
+      }
+    });*/
     this.getConfiguracion();
   }
   logo;
@@ -39,11 +51,13 @@ export class HeaderComponent implements OnInit {
     window.scroll(0,0);
   }
 
-  public onToggleSidenav = () => {
-    this.sidenavToggle.emit();
+  eventoSwitch(event: MatSlideToggleChange){
+    let cambioValor = event.checked
+    this.pasarDatos.disparador.emit({
+      data:cambioValor
+    })
   }
-
-
+  
   public AbrirTopNav = () => {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {
