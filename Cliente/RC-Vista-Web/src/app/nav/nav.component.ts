@@ -16,6 +16,7 @@ export class NavComponent implements OnInit {
   }
   serverDirection :string = 'http://localhost:3000';
   publicidad1;  
+  enlaceLink;  
   publicidades:Publicidad[] = [];
   publicidadIzquierda:Publicidad[] = [];
   async getPublicidades():Promise<void>{
@@ -38,6 +39,7 @@ export class NavComponent implements OnInit {
       }
     }
     this.publicidad1 = this.publicidadIzquierda[0].imagepublicidad;
+    this.enlaceLink = this.publicidadIzquierda[0].enlace;
   }
   restarFecha(fecha:Date){
     let date = new Date();
