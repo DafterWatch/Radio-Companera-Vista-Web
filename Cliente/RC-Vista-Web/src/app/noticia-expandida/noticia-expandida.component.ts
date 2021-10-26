@@ -65,10 +65,10 @@ export class NoticiaExpandidaComponent implements OnInit {
   ngOnInit(): void {
     this.idNoticia = sessionStorage.getItem('idNoticia');
     window.scroll(0,0);
-    /*this.getNoticia();
+    this.getNoticia();
     this.getComentario();
-    this.getNoticias();*/
-    this.noticia.push({
+    this.getNoticias();
+    /*this.noticia.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -164,7 +164,7 @@ export class NoticiaExpandidaComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"]
-    });
+    });*/
   }
   contenido;
   async getNoticias():Promise<void>{

@@ -60,7 +60,7 @@ export class MainComponent implements OnInit {
     
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
     this.getNoticias();
-    this.noticiasCompletas.push({
+    /*this.noticiasCompletas.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -72,7 +72,72 @@ export class MainComponent implements OnInit {
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
       categorias: ["categoria1","categoria2","categoria3","categoria4"],
-    });    
+    });
+    this.noticiaGrande.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });
+    this.noticia1.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });
+    this.noticia2.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });
+    this.noticia3.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });
+    this.noticia4.push({
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 1,
+      imagen: "assets/images/afganistan.jpg",
+      titulo: "Afganistan algo algo algo malo etc",
+      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      etiquetas: ["uno","dos","tres"],
+      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+    });*/
 
     window.scroll(0, 0);
   }
@@ -260,8 +325,8 @@ msaapDisablePositionSlider = false;
 msaapPlaylist: Track[] = [
   {
     title: 'Radio Compañera',
-    //link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
-    link: '',
+    link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
+    //link: '',
     artist: 'Estacion 106.3',
     duration: 3.5
   }
