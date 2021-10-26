@@ -16,7 +16,8 @@ export class AsideComponent implements OnInit {
   }
   serverDirection :string = 'http://localhost:3000';
   publicidad2;  
-  enlaceLink;  
+  enlaceLink;
+  estadoPubli; 
   publicidades:Publicidad[] = [];
   publicidadDerecha:Publicidad[] = [];
   async getPublicidades():Promise<void>{
@@ -39,7 +40,7 @@ export class AsideComponent implements OnInit {
     }
     this.publicidad2 = this.publicidadDerecha[0].imagepublicidad;
     this.enlaceLink = this.publicidadDerecha[0].enlace;
-
+    this.estadoPubli = this.publicidadDerecha[0].estado;
   }
   restarFecha(fecha:Date){
     let date = new Date();
