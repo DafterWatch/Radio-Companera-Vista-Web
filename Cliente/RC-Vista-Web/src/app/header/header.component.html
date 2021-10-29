@@ -22,8 +22,8 @@
 <a class="buscadorBox">
   <mat-form-field appearance="fill" id="buscador">
     <mat-label class="labelbuscar">Buscar</mat-label>
-    <input type="text" matInput placeholder="¿Que buscas?">
-    <mat-icon id="btnBuscar" matSuffix>search</mat-icon>
+    <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda" (ngModelChange)="eventoBusqueda($event)">
+    <mat-icon id="btnBuscar" (click)="textoBusqueda=''; eventoBusqueda('')" matSuffix>clear</mat-icon>
   </mat-form-field>
 </a>
 

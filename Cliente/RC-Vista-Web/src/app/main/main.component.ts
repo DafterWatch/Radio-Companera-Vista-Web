@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service';
 
 @Component({
   selector: 'app-main',
@@ -28,7 +29,7 @@ export class MainComponent implements OnInit {
   ImagenGrande = "assets/images/afganistan.jpg";
   serverDirection :string = 'http://localhost:3000';
 
-  constructor(public router: Router, private http:HttpClient, private breakpointObserver: BreakpointObserver) { 
+  constructor(public router: Router, private http:HttpClient, private breakpointObserver: BreakpointObserver, private pasarDatosBusqueda: PasarBusquedaNoticiasService) { 
 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -139,6 +140,7 @@ export class MainComponent implements OnInit {
     });*/
     
     this.noticias = [];
+    this.noticiasAux = [];
     this.noticiaGrande = [];
     this.noticia1 = [];
     this.noticia2 = [];
@@ -147,14 +149,29 @@ export class MainComponent implements OnInit {
     
     this.getNoticias();
     window.scroll(0, 0);
+    this.pasarDatosBusqueda.disparador.subscribe((data) => {      
+      //console.log(data.data);
+      if(data.data == ""){
+        this.noticias = this.noticiasAux;
+      } else {
+        this.buscarNoticias(data.data);
+      }
+    })
   }
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
+  resultados;
+  buscarNoticias(busqueda:string){
+    this.resultados = this.noticias.filter(noti => noti.titulo.includes(busqueda));
+    this.noticias = [];
+    this.noticias = this.resultados;
+  }
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
-    .then((res:any)=>this.noticias=res);    
+    .then((res:any)=>this.noticias=res);
+    this.noticiasAux = this.noticias; 
     this.noticias.reverse();
     this.noticiaGrande.push(this.noticias[0]);
     this.noticia1.push(this.noticias[1]);
@@ -203,6 +220,7 @@ export class MainComponent implements OnInit {
     this.router.navigate(['noticia']);
   }
   public noticias:Noticias[] = [];
+  public noticiasAux:Noticias[] = [];
   public noticiaGrande:Noticias[] = [];  
   public noticia1:Noticias[] = [];
   public noticia2:Noticias[] = [];

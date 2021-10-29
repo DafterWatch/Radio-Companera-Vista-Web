@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { PasarDatosSwitchService } from '../pasar-datos-switch.service';
+import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service';
 
 @Component({
   selector: 'app-header',
@@ -21,22 +22,12 @@ export class HeaderComponent implements OnInit {
   //@Output() public sidenavToggle = new EventEmitter();
 
   constructor(public router: Router, private http:HttpClient,
-    private pasarDatos:PasarDatosSwitchService
+    private pasarDatos:PasarDatosSwitchService, private pasarDatosBusqueda:PasarBusquedaNoticiasService
     ) { }
 
   
 
   ngOnInit(): void {
-
-    /*this.toggleControl.valueChanges.subscribe((darkMode) => {
-      const darkClassName = 'darkMode';
-      this.className = darkMode ? darkClassName : '';
-      if (darkMode) {
-        this.overlay.getContainerElement().classList.add(darkClassName);
-      } else {
-        this.overlay.getContainerElement().classList.remove(darkClassName);
-      }
-    });*/
     this.getConfiguracion();
   }
   logo;
@@ -50,14 +41,18 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['paginaPrincipal']);
     window.scroll(0,0);
   }
-
+  textoBusqueda = "";
   eventoSwitch(event: MatSlideToggleChange){
     let cambioValor = event.checked
     this.pasarDatos.disparador.emit({
       data:cambioValor
     })
   }
-  
+  eventoBusqueda(textoB:string){
+    this.pasarDatosBusqueda.disparador.emit({
+      data:textoB
+    });
+  }
   public AbrirTopNav = () => {
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav") {

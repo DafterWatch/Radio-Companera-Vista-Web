@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit ,} from '@angular/core';
 import { Router } from '@angular/router';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-footer',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public router: Router, private http:HttpClient) { }
+  constructor(public router: Router, private http:HttpClient, private titleService:Title) { }
 
   ngOnInit(): void {
     this.getConfiguracion();
@@ -30,6 +31,7 @@ export class FooterComponent implements OnInit {
     .then((res:any)=>this.configuracion=res);
     this.titulo = this.configuracion[0].titulo;
     this.logo = this.configuracion[0].banner;
+    this.titleService.setTitle(this.titulo);
   }
 }
 interface Configuracion{
