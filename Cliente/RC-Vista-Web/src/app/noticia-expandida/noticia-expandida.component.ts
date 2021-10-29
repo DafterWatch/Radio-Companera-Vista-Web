@@ -61,13 +61,13 @@ export class NoticiaExpandidaComponent implements OnInit {
     this._ngZone.onStable.pipe(take(1))
         .subscribe(() => this.autosize.resizeToFitContent(true));
   }
+  log(a:any){
+    console.log(a);
+  }
   idNoticia:any;  
   ngOnInit(): void {
     this.idNoticia = sessionStorage.getItem('idNoticia');
-    window.scroll(0,0);
-    this.getNoticia();
-    this.getComentario();
-    this.getNoticias();
+    window.scroll(0,0);    
     /*this.noticia.push({
       id_noticia: 1,
       id_reportero:1,
@@ -78,10 +78,10 @@ export class NoticiaExpandidaComponent implements OnInit {
       imagen: "assets/images/afganistan.jpg",
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-      etiquetas: ["uno","dos","tres"]
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
     this.contenido = this.noticia[0].contenido;
-
 
     this.comentarios.push({
       idComentario:1,
@@ -113,10 +113,6 @@ export class NoticiaExpandidaComponent implements OnInit {
     });
     this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
     this.cantidadComentarios = this.comentarios.length;
-
-
-
-
     this.noticiasPrincipales.push({
       id_noticia: 1,
       id_reportero:1,
@@ -127,7 +123,8 @@ export class NoticiaExpandidaComponent implements OnInit {
       imagen: "assets/images/afganistan.jpg",
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-      etiquetas: ["uno","dos","tres"]
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
     this.noticiasPrincipales.push({
       id_noticia: 1,
@@ -139,7 +136,8 @@ export class NoticiaExpandidaComponent implements OnInit {
       imagen: "assets/images/afganistan.jpg",
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-      etiquetas: ["uno","dos","tres"]
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
     this.noticiasPrincipales.push({
       id_noticia: 1,
@@ -151,7 +149,8 @@ export class NoticiaExpandidaComponent implements OnInit {
       imagen: "assets/images/afganistan.jpg",
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-      etiquetas: ["uno","dos","tres"]
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
     this.noticiasPrincipales.push({
       id_noticia: 1,
@@ -163,65 +162,49 @@ export class NoticiaExpandidaComponent implements OnInit {
       imagen: "assets/images/afganistan.jpg",
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-      etiquetas: ["uno","dos","tres"]
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });*/
+    this.getNoticia();
+    this.getComentario();
+    this.getNoticias();
   }
-  contenido;
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
     .then((res:any)=>this.noticias=res);
     this.noticias.reverse();
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < 4; i++){
       this.noticiasPrincipales.push(this.noticias[i]);
     }
   }
   async getNoticia():Promise<void>{
     await this.http.get(`http://localhost:3000/getNoticias/${this.idNoticia}`,{}).toPromise()
     .then((res:any)=>{this.noticia=res
-    this.contenido = this.noticia[0].contenido;
+      this.contenido = this.noticia[0].contenido;
     });
   }
   cantidadItems = 8;
   paginaActual = 1;
   irNoticiaExpandida(noticia:any){
     sessionStorage.setItem('idNoticia',noticia.id_noticia);
-    this.idNoticia = sessionStorage.getItem('idNoticia');
-    window.scroll(0,0);
+    this.idNoticia = sessionStorage.getItem('idNoticia');    
+    this.noticia = [];
     this.noticiasPrincipales = [];
-    this.noticiasCostado = [];
-    for(let i = 0; i < 6; i++){
-      this.noticiasPrincipales.push(this.noticias[i]);
-    }
-  }
+    this.contenido = [];    
+    this.getNoticia();
+    this.getComentario();
+    this.getNoticias();
+    window.scroll(0,0);
+  }  
+  contenido;
   noticia:Noticias[] = [];
   noticias:Noticias[] = [];
-  noticiasCostado:Noticias[] = [];
   noticiasPrincipales:Noticias[] = [];
-  //--------------reproductor----------
-  msaapDisplayTitle = true;
-  msaapDisplayPlayList = false;
-  msaapPageSizeOptions = [2,4,6];
-  msaapDisplayVolumeControls = true;
-  msaapDisplayRepeatControls = false;
-  msaapDisplayArtist = true;
-  msaapDisplayDuration = false;
-  msaapDisablePositionSlider = false;
-     
-  // Material Style Advance Audio Player Playlist
-  msaapPlaylist: Track[] = [
-    {
-      title: 'Noticia 1',
-      link: 'assets/audios/videoNoticia1.mp3',
-      artist: 'Periodista 1'
-    }
-    ];
   //----------------comentarios-------------------------
   comentarios:Comentarios[]=[];
   async getComentario():Promise<void>{
-    //console.log(`http://localhost:3000/getComentario/${this.idNoticia}`);
     await this.http.get(`http://localhost:3000/getComentario/${this.idNoticia}`,{}).toPromise()
     .then((res:any)=>{this.comentarios=res
-    //console.log(this.comentarios);
     this.comentarios.reverse();
     this.comentariosCortados = this.comentarios.slice(0,this.numeroDivisionComentarios);
     this.cantidadComentarios = this.comentarios.length;
@@ -294,7 +277,6 @@ interface Noticias {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
-  //fecha_publicacion: Date;
   fecha_publicacion: string;
   estado :boolean;
   id_contenido: number;
@@ -302,17 +284,5 @@ interface Noticias {
   titulo:string;
   contenido:string;
   etiquetas: string[];
-}
-interface NoticiasCompletas {
-  id_noticia: number;
-  id_reportero:number;
-  ultima_modificacion: string;  
-  fecha_publicacion: Date;
-  estado :boolean;
-  id_contenido: number;
-  imagen: string;
-  titulo:string;
-  contenido:string;
-  etiquetas: string[];
-  categorias: string[];
+  categoriasarray: string[];
 }

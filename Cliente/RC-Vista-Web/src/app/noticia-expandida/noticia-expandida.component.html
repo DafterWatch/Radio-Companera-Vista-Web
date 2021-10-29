@@ -6,10 +6,11 @@
               <mat-card-title id="titulo">{{noticia[0].titulo}}</mat-card-title>
             </mat-card-header>
             <mat-card-actions id="botonesA">
-                <!--<button mat-button class="botonNoticia">{{noticiaprin.autor}}</button>-->
                 <button mat-button class="botonNoticiaA">{{sacarSoloFecha(noticia[0].fecha_publicacion)}}</button>
                 <!--<button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>-->
-                
+                <div *ngFor="let etiqueta of noticia[0].categoriasarray" style="display: inline;">
+                    <button mat-button class="botonNoticia">{{etiqueta}}</button>
+                </div>
               </mat-card-actions>
             <img mat-card-image [src]="noticia[0].imagen" id="imgNoticia">
             <div [innerHTML]="contenido | innerhtmlpipe">
@@ -18,7 +19,6 @@
         </mat-card>
         <br>
                     <div id="OtrasNoticias">
-
                         <p class="textocabeza">Noticias Principales</p>
                         <div id="princi">
                         <mat-grid-list #grid [cols]="cols" rowHeight="600">
@@ -29,10 +29,13 @@
                                     <img mat-card-image [src]="noticia.imagen" id="imgotrasNoticias" (click)="irNoticiaExpandida(noticia)">
                                     <mat-card-header id="tituloNoticia">
                                         
-                                    <mat-card-title id="tit">{{noticia.titulo}}</mat-card-title>
+                                    <mat-card-title id="tit"><span (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</span></mat-card-title>
                                     </mat-card-header>
                                     
                                     <mat-card-actions id="botones">
+                                        <div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline;">
+                                            <button mat-button class="botonNoticia">{{etiqueta}}</button>
+                                        </div>
                                         <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
                                                        
                                       </mat-card-actions>                                          
@@ -82,41 +85,7 @@
                             </div>
                             <button id="VerMas" (click)="aumentarComentariosVista()" *ngIf="numeroDivisionComentarios < cantidadComentarios">Ver Mas</button>
                         </div>
-                     </div> 
-
-    <!--<div id="contenedorMultimedia">
-    <div id="divAudio">
-        <p id="textoU">Escucha las ultimas noticias</p>
-        <ngx-audio-player id="audio" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
-        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
-        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
-        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
-        [displayDuration]="msaapDisplayDuration" [expanded]="false" ></ngx-audio-player>
-    </div>     -
-        <br>
-        <p class="textocabeza">Noticias Relacionadas</p>
-                        <div *ngFor="let noticiaCostados of noticiasCostado | slice:0:4" id="costado">
-                            <mat-card class="campoNoticiaCostado">
-                                <button mat-button class="botonNoticiaCategoriaCostado">{{noticiaCostados.nombre}}</button>    
-                                <mat-card-header id="tituloNoticiaCostado" (click)="irNoticiaExpandida(noticiaCostados)">
-                                    
-                                <mat-card-title id="titCostado">{{noticiaCostados.titulo}}</mat-card-title>
-                                </mat-card-header>
-                                
-                                <mat-card-actions id="botonesCostado">
-                                    <button mat-button class="botonNoticiaCostado">{{noticiaCostados.fecha}}</button>
-                                  </mat-card-actions>                
-                            </mat-card>
-                            <br>
-                            </div>  
-        <<div id="divVideo">
-            <p id="textoU">Vea las ultimas noticias</p>
-            <video id="video" controls>
-                <source src="assets/videos/videoNoticia1.mp4" type="video/mp4">
-            </video>
-        </div>-->
-
-
+                     </div>
             
 </div>
 <app-aside></app-aside>

@@ -56,11 +56,10 @@ export class MainComponent implements OnInit {
       }
     });
   }
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {    
     //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
-    this.getNoticias();
-    /*this.noticiasCompletas.push({
+
+    /*this.noticias.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -71,7 +70,7 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });
     this.noticiaGrande.push({
       id_noticia: 1,
@@ -84,7 +83,7 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });
     this.noticia1.push({
       id_noticia: 1,
@@ -97,7 +96,7 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });
     this.noticia2.push({
       id_noticia: 1,
@@ -110,7 +109,7 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });
     this.noticia3.push({
       id_noticia: 1,
@@ -123,7 +122,7 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });
     this.noticia4.push({
       id_noticia: 1,
@@ -136,175 +135,36 @@ export class MainComponent implements OnInit {
       titulo: "Afganistan algo algo algo malo etc",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
-      categorias: ["categoria1","categoria2","categoria3","categoria4"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });*/
-
+    
+    this.noticias = [];
+    this.noticiaGrande = [];
+    this.noticia1 = [];
+    this.noticia2 = [];
+    this.noticia3 = [];
+    this.noticia4 = [];
+    
+    this.getNoticias();
     window.scroll(0, 0);
   }
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
-  public noticiasCompletas:NoticiasCompletas[]=[];
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
     .then((res:any)=>this.noticias=res);    
     this.noticias.reverse();
-    for(let i = 0; i < this.noticias.length; i++){
-      this.getCategorias(this.noticias[i].id_noticia);
-    }
+    this.noticiaGrande.push(this.noticias[0]);
+    this.noticia1.push(this.noticias[1]);
+    this.noticia2.push(this.noticias[2]);
+    this.noticia3.push(this.noticias[3]);
+    this.noticia4.push(this.noticias[4]);
   }
   cate:Categorias[] = []
   log(a:any){
     console.log(a);
-  }
-  primera = true;
-  segunda = false;
-  tercera = false;
-  cuarta = false;
-  quinta = false;
-  async getCategorias(idNoticia:any):Promise<void>{
-    await this.http.get(`http://localhost:3000/getCategorias/${idNoticia}`,{}).toPromise()
-    .then((res:any)=>{
-      let arrayCates=[];
-      let idaux;
-      let n = -1;
-      res.forEach(element => {
-        for(let i = 0; i < this.noticias.length; i++){
-          if(this.noticias[i].id_noticia == element.id_noticia){       
-            if(this.noticias[i].estado == true){
-              arrayCates.push(element.nombre);          
-              if(this.primera){      
-                this.primera = false;    
-                this.segunda = true;    
-                idaux = element.id_noticia;
-                this.noticiasCompletas.push(
-                  {
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: "a",
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  }
-                );
-                this.noticiaGrande.push(
-                  {
-                    id_noticia: this.noticias[i].id_noticia,
-                    id_reportero:this.noticias[i].id_reportero,
-                    ultima_modificacion: this.noticias[i].ultima_modificacion,
-                    fecha_publicacion: "a",
-                    estado :this.noticias[i].estado,
-                    id_contenido: this.noticias[i].id_contenido,
-                    imagen: this.noticias[i].imagen,
-                    titulo:this.noticias[i].titulo,
-                    contenido:this.noticias[i].contenido,
-                    etiquetas: this.noticias[i].etiquetas,
-                    categorias: arrayCates
-                  }
-                );
-                
-              } else {
-                if(idaux != element.id_noticia){
-                  idaux = element.id_noticia;
-                  this.noticiasCompletas.push(
-                    {
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: "a",
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    }
-                  );
-                  if(this.segunda){
-                    this.segunda = false;
-                    this.tercera = true;  
-                    this.noticia1.push({
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: "a",
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    });
-                  }else if(this.tercera){
-                    this.tercera = false;
-                    this.cuarta = true;  
-                    this.noticia2.push({
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: "a",
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    });
-                  } else if(this.cuarta){
-                    this.cuarta = false;
-                    this.quinta = true;  
-                    this.noticia3.push({
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: "a",
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    });
-                  } else if(this.quinta){
-                    this.quinta = false;
-                    this.noticia4.push({
-                      id_noticia: this.noticias[i].id_noticia,
-                      id_reportero:this.noticias[i].id_reportero,
-                      ultima_modificacion: this.noticias[i].ultima_modificacion,
-                      fecha_publicacion: "a",
-                      estado :this.noticias[i].estado,
-                      id_contenido: this.noticias[i].id_contenido,
-                      imagen: this.noticias[i].imagen,
-                      titulo:this.noticias[i].titulo,
-                      contenido:this.noticias[i].contenido,
-                      etiquetas: this.noticias[i].etiquetas,
-                      categorias: arrayCates
-                    });
-                  }
-
-
-                 
-
-                  
-                }
-              }
-            }
-          }
-        }
-      });
-
-
-    });
   }
   sacarSoloFecha(fecha1:any){
     let cadena = "";
@@ -312,17 +172,17 @@ export class MainComponent implements OnInit {
     return cadena;
   }
   //-------------------------------------------- Reproductor ----------------------------------------------
-msaapDisplayTitle = true;
-msaapDisplayPlayList = false;
-msaapPageSizeOptions = [2,4,6];
-msaapDisplayVolumeControls = true;
-msaapDisplayRepeatControls = false;
-msaapDisplayArtist = true;
-msaapDisplayDuration = false;
-msaapDisablePositionSlider = false;
-   
-// Material Style Advance Audio Player Playlist
-msaapPlaylist: Track[] = [
+  msaapDisplayTitle = true;
+  msaapDisplayPlayList = false;
+  msaapPageSizeOptions = [2,4,6];
+  msaapDisplayVolumeControls = true;
+  msaapDisplayRepeatControls = false;
+  msaapDisplayArtist = true;
+  msaapDisplayDuration = false;
+  msaapDisablePositionSlider = false;
+    
+  // Material Style Advance Audio Player Playlist
+  msaapPlaylist: Track[] = [
   {
     title: 'Radio Compañera',
     link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
@@ -343,27 +203,15 @@ msaapPlaylist: Track[] = [
     this.router.navigate(['noticia']);
   }
   public noticias:Noticias[] = [];
-  public noticiaGrande:NoticiasCompletas[] = [];  
-  public noticia1:NoticiasCompletas[] = [];
-  public noticia2:NoticiasCompletas[] = [];
-  public noticia3:NoticiasCompletas[] = [];
-  public noticia4:NoticiasCompletas[] = [];
+  public noticiaGrande:Noticias[] = [];  
+  public noticia1:Noticias[] = [];
+  public noticia2:Noticias[] = [];
+  public noticia3:Noticias[] = [];
+  public noticia4:Noticias[] = [];
   
 }
 
 interface Noticias {
-  id_noticia: number;
-  id_reportero:number;
-  ultima_modificacion: string;  
-  fecha_publicacion: Date;
-  estado :boolean;
-  id_contenido: number;
-  imagen: string;
-  titulo:string;
-  contenido:string;
-  etiquetas: string[];
-}
-interface NoticiasCompletas {
   id_noticia: number;
   id_reportero:number;
   ultima_modificacion: string;  
@@ -374,7 +222,7 @@ interface NoticiasCompletas {
   titulo:string;
   contenido:string;
   etiquetas: string[];
-  categorias: string[];
+  categoriasarray: string[];
 }
 interface Categorias{
   id_noticia:number;
