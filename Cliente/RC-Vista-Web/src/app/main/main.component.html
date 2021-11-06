@@ -68,6 +68,9 @@
     <div id="noticias">
         <p id="textocabeza">Noticias Principales</p>
         <mat-grid-list #grid [cols]="cols" rowHeight="2:2.5" >
+        <div *ngIf="sinNoticias">
+            <h1>No existen resultados para su busqueda</h1>
+        </div>
         <div *ngFor="let noticia of noticias| paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual}">
                 
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
