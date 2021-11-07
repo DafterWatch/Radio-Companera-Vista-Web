@@ -7,7 +7,6 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { PasarDatosSwitchService } from '../pasar-datos-switch.service';
 import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service';
-import { BuscarCategoriaService } from '../buscar-categoria.service';
 
 @Component({
   selector: 'app-header',
@@ -17,20 +16,15 @@ import { BuscarCategoriaService } from '../buscar-categoria.service';
 export class HeaderComponent implements OnInit {
 
   constructor(public router: Router, private http:HttpClient,
-    private pasarDatos:PasarDatosSwitchService, 
-    private pasarDatosBusqueda:PasarBusquedaNoticiasService,
-    private pasarDatosBusquedaCategoria: BuscarCategoriaService
+    private pasarDatos:PasarDatosSwitchService, private pasarDatosBusqueda:PasarBusquedaNoticiasService
     ) { }
 
   
 
   ngOnInit(): void {
-    this.extraCategorias = false;
     this.getConfiguracion();
-    this.getCategorias();
   }
   logo;
-<<<<<<< HEAD
   facebook = "assets/images/facebook.png";
   twitter = "assets/images/twitter.png";
   youtube = "assets/images/youtube.png";
@@ -40,12 +34,6 @@ export class HeaderComponent implements OnInit {
     {idCategoria: 2, nombre: 'Moda'},
     {idCategoria: 3, nombre: 'Ciencia y tecnologia'}
   ];
-=======
-  extraCategorias;
-  categorias: Categoria[] = [];
-  categoriasAux: Categoria[] = [];
-  categoriasDefecto: Categoria[] = [];
->>>>>>> a147274eb55b685a2cec8ba40a3401a2e145e33a
   value = 'Clear me';
   volverPrincipal(){
     this.router.navigate(['paginaPrincipal']);
@@ -60,11 +48,6 @@ export class HeaderComponent implements OnInit {
   }
   eventoBusqueda(textoB:string){
     this.pasarDatosBusqueda.disparador.emit({
-      data:textoB
-    });
-  }
-  eventoBusquedaCategoria(textoB:string){
-    this.pasarDatosBusquedaCategoria.disparador.emit({
       data:textoB
     });
   }
@@ -84,25 +67,11 @@ export class HeaderComponent implements OnInit {
     .then((res:any)=>this.configuracion=res);
     this.logo = this.configuracion[0].banner;
   }
-  async getCategorias():Promise<void>{
-    await this.http.post(this.serverDirection+"/getCategorias","1").toPromise()
-    .then((res:any)=>this.categoriasAux = res);
-    for(let j = 0; j<this.categoriasAux.length; j++){
-      if(j > 4){
-        this.categorias.push(this.categoriasAux[j]);
-        this.extraCategorias = true;
-      } else {
-        this.categoriasDefecto.push(this.categoriasAux[j]);
-        this.extraCategorias = false;       
-      }
-    }
-  }
 
 }
 interface Categoria {
-  id_categoria: number;
+  idCategoria: number;
   nombre: string;
-  estado: boolean;
 }
 interface Configuracion{
   titulo:string,

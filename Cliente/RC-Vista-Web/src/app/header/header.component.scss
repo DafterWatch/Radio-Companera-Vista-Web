@@ -336,9 +336,7 @@ font-size: 2.2vw;
      border-radius: 30%;
   }
 }
-.botonmenu{
-  cursor: pointer;
-}
+
 @media screen and (max-width: 900px) {
   .topnav.responsive {position: relative;}
 
@@ -365,7 +363,6 @@ font-size: 2.2vw;
     font-size: 4vw;
     width: 100%;
     margin-left: 0%;
-    cursor: pointer;
   }
   .topnav.responsive #logoRC {
     float: none;

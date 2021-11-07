@@ -25,7 +25,19 @@ export class AsideComponent implements OnInit {
     .then((res:any)=>this.publicidades=res);
     let i = 1;
     this.publicidades.reverse();
-    this.publicidadDerecha.push(this.publicidades[i]);
+    if(this.publicidades[1].estado){  
+      if(this.restarFecha(this.publicidades[1].fechafin)){        
+        this.publicidadDerecha.push(this.publicidades[i]);
+      } else {
+        this.publicidadDerecha.push(this.publicidades[i+1]);
+      }
+    } else {
+      if(this.restarFecha(this.publicidades[0].fechafin)){        
+        this.publicidadDerecha.push(this.publicidades[i+1]);
+      } else {
+        this.publicidadDerecha.push(this.publicidades[i+2]);
+      }
+    }
     this.publicidad2 = this.publicidadDerecha[0].imagepublicidad;
     this.enlaceLink = this.publicidadDerecha[0].enlace;
     this.estadoPubli = this.publicidadDerecha[0].estado;

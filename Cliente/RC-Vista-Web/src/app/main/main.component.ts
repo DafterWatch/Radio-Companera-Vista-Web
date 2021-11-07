@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service';
-import { BuscarCategoriaService } from '../buscar-categoria.service';
 
 @Component({
   selector: 'app-main',
@@ -30,11 +29,7 @@ export class MainComponent implements OnInit {
   ImagenGrande = "assets/images/afganistan.jpg";
   serverDirection :string = 'http://localhost:3000';
 
-  constructor(public router: Router, 
-    private http:HttpClient, 
-    private breakpointObserver: BreakpointObserver, 
-    private pasarDatosBusqueda: PasarBusquedaNoticiasService,
-    private pasarDatosBusquedaCategoria: BuscarCategoriaService) { 
+  constructor(public router: Router, private http:HttpClient, private breakpointObserver: BreakpointObserver, private pasarDatosBusqueda: PasarBusquedaNoticiasService) { 
 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -299,37 +294,15 @@ export class MainComponent implements OnInit {
         this.buscarNoticias(data.data);
       }
     })
-    this.pasarDatosBusquedaCategoria.disparador.subscribe((data) => {
-      if(data.data == ""){
-        this.noticias = this.noticiasAux;
-      } else {
-        this.getNoticiaCategoria(data.data);
-      }
-    })
   }
-  sinNoticias:Boolean = false;
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
-  async getNoticiaCategoria(nombre:string):Promise<void>{
-    await this.http.get(`http://localhost:3000/getCategorias/${nombre}`,{}).toPromise()
-    .then((res:any)=>{this.noticias = res});
-    this.noticias.reverse();
-  }
   resultados;
   buscarNoticias(busqueda:string){
-    this.noticias = this.noticiasAux;
-    this.resultados = this.noticias.filter(noti => noti.titulo.toUpperCase().includes(busqueda.toUpperCase()));
-    if(this.resultados.length > 0){
-      this.sinNoticias = false;
-      this.noticias = [];
-      this.noticias = this.resultados;
-    } else {
-      this.sinNoticias = true;
-    }    
-    if(this.sinNoticias){
-      this.noticias = [];
-    }
+    this.resultados = this.noticias.filter(noti => noti.titulo.includes(busqueda));
+    this.noticias = [];
+    this.noticias = this.resultados;
   }
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
