@@ -24,14 +24,22 @@
   <a routerLink="/main" class="botonmenu">Economia</a>
   <a routerLink="/main" class="botonmenu">Seguridad</a>
   <a routerLink="/main" class="botonmenu">Deportes</a>
+
+  <!--
+  <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
+  <span *ngFor="let noticia of categoriasDefecto">    
+    <a class="botonmenu" (click)="eventoBusquedaCategoria(noticia.nombre)">{{noticia.nombre}}</a>
+  </span>
+-->
+
   <a routerLink="javascript:void(0);" class="icon" (click)="AbrirTopNav()">
     <i class="fa fa-bars"></i>
   </a>
-  <a class="mas">
+  <a class="mas" *ngIf="extraCategorias">
     <mat-form-field class="combobox">
         <mat-label class="label">Mas categorias</mat-label>
         <mat-select>
-          <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre" class="categorias">
+          <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre" class="categorias" (click)="eventoBusquedaCategoria(categoria.nombre)"> 
             {{categoria.nombre}}
           </mat-option>
         </mat-select>
@@ -42,6 +50,10 @@
     <mat-label class="labelbuscar">Buscar</mat-label>
     <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda" (ngModelChange)="eventoBusqueda($event)">
     <mat-icon id="btnBuscar" (click)="textoBusqueda=''; eventoBusqueda('')" matSuffix>search</mat-icon>
+<!--
+    <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda">
+    <mat-icon id="btnBuscar" (click)="eventoBusqueda(textoBusqueda)" matSuffix>search</mat-icon>
+-->
   </mat-form-field>
 </a>
 
