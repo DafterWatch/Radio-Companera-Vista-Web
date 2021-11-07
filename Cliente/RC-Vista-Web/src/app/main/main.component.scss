@@ -1,11 +1,9 @@
-
 #noticiasarriba{
-  height: 600px;
-  width: 85%;
+  height: 50%;
+  width: 80%;
   //margin-left: auto;
   margin-right: auto;
-  margin-left: 8%;
-  //background-color: burlywood;
+  margin-left: 10%;
 }
 
 #noticiagrande{
@@ -32,16 +30,16 @@
 }
 
 #columna1{
-  width: 49%;
+  width: 47%;
   height: 100%;
   float: left;
-  margin-left: 0.5%;
+  margin-left: 2.5%;
 }
 #fila1a{
   width: 100%;
-  height: 49.5%;
+  height: 48%;
   position: relative;
-  margin-bottom: 1.2%;
+  margin-bottom: 5%;
 }
 
 #fila1a::before{
@@ -56,7 +54,7 @@
 }
 #fila2a{
   width: 100%;
-  height: 49.5%;
+  height: 48%;
   position: relative;
 }
 #fila2a::before{
@@ -70,16 +68,16 @@
 
 }
 #columna2{
-  width: 49%;
+  width: 47%;
   height: 100%;
   float: left;
-  margin-left: 0.5%;
+  margin-left: 2.5%;
 }
 #fila1b{
   width: 100%;
-  height: 49.5%;
+  height: 48%;
   position: relative;
-  margin-bottom: 1.2%;
+  margin-bottom: 5%;
 }
 #fila1b::before{
   content: "";
@@ -94,7 +92,7 @@
 #fila2b{
   position: relative;
   width: 100%;
-  height: 49.5%;
+  height: 48%;
 }
 #fila2b::before{
   content: "";
@@ -118,12 +116,11 @@
 }
 .titulogrande{
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 5%;
   cursor: pointer;
   font-size: 2vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   line-height: 120%;
   color: white;
   margin-right: 2%;
@@ -135,36 +132,27 @@
 
 .btncategoriaGrande{
   position: absolute;
-  top: 13%;
-  right: 4%;
+  top: 80%;
+  left: 3%;
   cursor: pointer;
-  font-size: 1.5vw;
-  font-family: Helvetica, 'Now';
-  color: white;
-  background-color: red;
-  padding: 1% 1%;
-  border-radius: 10%;
+  font-size: 2vw;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(196, 196, 196);
 }
 
 .btncategoriaGrande:hover{
-  //text-decoration:underline;
-  background-color: black;
+  text-decoration:underline;
   color: white;
 }
 
 .btnFechaGrande{
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 3%;
   cursor: pointer;
   font-size: 1.5vw;
   line-height: 40px;
   color: rgb(196, 196, 196);
-}
-
-.btnFechaGrande:hover{
-  text-decoration:underline;
-  color: white;
 }
 
 #ImaNoticia1{
@@ -173,12 +161,11 @@
 }
 .titulonoticia1{
   position: absolute;
-  top: 40%;
+  top: 30%;
   left: 5%;
   cursor: pointer;
   font-size: 1.12vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   line-height: 130%;
   color: white;
   margin-right: 4%;
@@ -188,36 +175,19 @@
   color: lightcoral;
 }
 
-.btnFecha1{
+.btncategoria1{
   position: absolute;
-  top: 75%;
-  left: 3%;
+  top: 78%;
+  left: 1%;
   cursor: pointer;
   font-size: 1.15vw;
-  line-height: 40px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: rgb(196, 196, 196);
 }
 
-.btnFecha1:hover{
+.btncategoria1:hover{
   text-decoration:underline;
   color: white;
-}
-
-.btncategoria1{
-  position: absolute;
-  top: 15%;
-  right: 5%;
-  cursor: pointer;
-  font-size: 1vw;
-  font-family: Helvetica, 'Now';
-  color: white;
-  background-color: red;
-}
-
-.btncategoria1:hover{
-  //text-decoration:underline;
-  color: white;
-  background-color: black;
 }
 //---------------------------------------------
 
@@ -251,8 +221,8 @@
 //--------------------------------
 
 .image {
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
@@ -264,21 +234,12 @@
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #conImg{
-  height: 300px;
+  height: 200px;
   width: 100%;
-  background-image: url("../../assets/images/city2.jpg");
-  background-size: 100% 100%;
+  background-color: black;
   display: flex;
   align-items: center;
 }
-
-#reproductor1{
-  font-size: 1.3vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
-}
-
-
 //NOTICIAS PRINCIPALES-------------------------
 #textocabeza{
   font-size: 2vw;
@@ -326,8 +287,7 @@
   font-size: 1.2vw;
   line-height: 110%;
   text-align: left;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }
 

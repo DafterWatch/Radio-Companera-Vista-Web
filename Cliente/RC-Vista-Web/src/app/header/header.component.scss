@@ -1,194 +1,106 @@
 body {
   margin: 0;
-  font-family: Helvetica, 'Now';
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .topnav {
   overflow: hidden;
   width: 100%;
   margin-right: auto;
-  //background-color: black;
-}
-
-#divLog{
-  width: 100%;
-  background-image: url("../../assets/images/fon3.jpg");
-  height: 160px;
-}
-#divbot{
-  background-color:black;
-  flex: 1 1 auto;
-  overflow: hidden;
-  width: 100%;
-  margin-right: auto;
+  background-color: black;
 }
 
 
-a {
+.topnav a {
   float: left;
   display:block;
   text-align: center;
-  padding: 1.3% 0%;
+  padding: 2% 0%;
   text-decoration: none;
   border-radius: 0px;
   color: white;
   background-color: rgb(18, 18, 18);
-  font-size: 1vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
-  margin-top: 0%;
+  font-size: 0.9vw;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 3%;
   transition: 0.2s;
-  width: 9.5%;
+  width: 7%;
 
 }
 
-.divModoNoche {
-  float: right;
+.topnav .divModoNoche {
+  float: left;
   display:block;
   text-align: center;
   padding: 0% 0%;
   text-decoration: none;
-  background-color:black;
-  font-family: Helvetica, 'Now';
+  border-radius: 40%;
+  background-color: rgb(72, 72, 72);
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 3%;
   transition: 0.2s;
   width: 10%;
   height: auto;
-  margin-right: 2%;
+  margin-left: 2%;
 
 }
 
-.divModoNoche:hover {
-  background-color:black;
+.topnav .divModoNoche:hover {
+  background-color: rgb(72, 72, 72);
 
 }
 
 
- a:hover {
+.topnav a:hover {
   background-color: red;
   color: white;
   transition: 0.2s;
 }
 
 
- .icon {
+.topnav .icon {
   display: none;
   font-size: 30px
 }
 
 #logoRC{
-  width: 6%;
+  width: 9%;
   height: auto;
   float: left;
   display: block;
   text-align: center;
-  padding: 0% 0%;
+  padding: 1% 1%;
   transition: 0.3s;
-  margin-left: 8%;
-  margin-top: 1%;
-  border-radius: 22%;
+  margin-left: 3%;
+  border-radius: 30%;
 }
-.divTitulo {
+
+.topnav .mas{
   float: left;
-  height: 70px;
-  width: 50%;
-  //background-color:crimson;
-  margin-top: 4%;
-  margin-left: 0.7%;
-}
-
-.labelRadio {
-  font-size: 5vw;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-}
-
-#btnfacebook{
-  cursor: pointer;
-  border-radius: 50%; 
-  height: 50px;
-  width: 50px;
-  margin-right: 5%;
-  transition: 0.3s;
-
-}
-#btnfacebook:hover{
-  
-  color: white;
-  transition: 0.3s;
-  height: 60px;
-  width: 60px;
-}
-#btntwitter{
-  cursor: pointer;
-  border-radius: 50%; 
-  height: 50px;
-  width: 50px;
-  margin-right: 5%;
-  transition: 0.3s;
-
-}
-#btntwitter:hover{
-  
-  color: white;
-  transition: 0.3s;
-  height: 60px;
-  width: 60px;
-  
-}
-#btnyoutube{
-  cursor: pointer;
-  border-radius: 50%; 
-  height: 50px;
-  width: 50px;
-  transition: 0.3s;
-
-}
-#btnyoutube:hover{
-  
-  color: white;
-  transition: 0.3s;
-  height: 60px;
-  width: 60px;
-}
-.divRedes{
-  flex: 1 1 auto;
-  height: auto;
-  width: 20%;
-  text-align: right;
-  float: right;
-  margin-top: 4%;
-  margin-right: 8%;
-  //background-color: darkgoldenrod;
-
-}
-
-.mas{
-  float: left;
-  width: 15%;
-  height: 70px;
+  width: 14%;
   display: block;
-  font-size: 1vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-size: 0.7em;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 0px;
   text-align: center;
   background-color: rgb(18, 18, 18);
   color: white;
-  padding: 0% 0%;
+  margin-top: 3%;
+  padding: 0.35% 0%;
   
 }
-.mas:hover{
+.topnav .mas:hover{
   background-color: red;
   color: white;
   transition: 0.3s;
 
 }
 
-.combobox{
+.topnav .combobox{
   
   float: left; 
   display: block;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 0px;
   text-align: center;
   color: white;
@@ -196,16 +108,15 @@ a {
   font-size: 1vw;
 
 }
-.categorias{
+.topnav .categorias{
   
   text-align: left;
   background-color: white;
   color: black;
   font-size: 1vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-.categorias:hover{
+.topnav .categorias:hover{
   cursor: pointer;
   background-color: red;
   color: white;
@@ -213,48 +124,46 @@ a {
   text-decoration:underline;
 }
 
-.label{
+.topnav .label{
   
   font-size: 0.9vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: white;
 }
 
-.buscadorBox{
+.topnav .buscadorBox{
   float: left;
-  width: 16%;
+  width: 14%;
   display: block;
-  height: 70px;
+  height: auto;
+  margin-top: 3%;
   border-radius: 0px;
   background-color: rgb(18, 18, 18);
   font-size: 0.9vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
-  padding: 0% 0%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0.1% 0%;
 }
-.buscadorBox:hover{
+.topnav .buscadorBox:hover{
   background-color: rgb(18, 18, 18);
 }
 
- #buscador {
+.topnav #buscador {
   width: 100%;
   border-radius: 0px;
   background-color: rgb(18, 18, 18);
   color: white;
   font-size: 0.9vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   transition: 0.3s;
 }
   
-#buscador:hover {
+.topnav #buscador:hover {
   background-color: white;
   color: black;
   transition: 0.3s;
 }
 
-#btnBuscar{
+.topnav #btnBuscar{
   cursor: pointer;
   border-radius: 40%;    
   text-align: center;
@@ -262,40 +171,39 @@ a {
   height: auto;
   width: auto;
 }
- #btnBuscar:hover{
+.topnav #btnBuscar:hover{
   background-color: red;
   color: white;
   transition: 0.3s;
 
 }
 
- .labelbuscar{
+.topnav .labelbuscar{
   font-size: 0.9vw;
-  font-family: Helvetica, 'Now';
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(167, 167, 167);
 }
 
-.Iconligh{
+.topnav .Iconligh{
   padding: 1% 0.3%;
   color: rgb(240, 173, 29);
   font-size: 2.2vw;
 }
 
-.Iconnight{
+.topnav .Iconnight{
   padding: 1% 0.3%;
 color: rgb(76, 84, 233);
 font-size: 2.2vw;
 }
 
- #switch{
+.topnav #switch{
   margin-left: 40%;
   padding: 30% 0.3%;
-  background-color:black;
+  background-color: rgb(72, 72, 72);
 }
 
- .ModoNoche{
-  background-color:black;
+.topnav .ModoNoche{
+  background-color: rgb(72, 72, 72);
   float: left;
   //display: block;
   padding: 1px 0.3%;
@@ -305,8 +213,8 @@ font-size: 2.2vw;
   margin-left: 2%;
   width: 28%;
 }
-.ModoNoche:hover{
-  background-color:black;
+.topnav .ModoNoche:hover{
+  background-color: rgb(72, 72, 72);
 }
 
 @media screen and (max-width: 900px) {

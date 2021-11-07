@@ -14,7 +14,6 @@
                     <img [src]="primeranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(primeranoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(primeranoticia)">{{primeranoticia.titulo}}</div>
                     <!--<button mat-button class="btncategoria1">{{primeranoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
                         <button mat-button class="btncategoria1">{{etiqueta}}</button>
                     </div>
@@ -23,7 +22,6 @@
                     <img [src]="segundanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(segundanoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(segundanoticia)">{{segundanoticia.titulo}}</div>
                     <!--<button mat-button class="btncategoria1">{{segundanoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
                         <button mat-button class="btncategoria1">{{etiqueta}}</button>
                     </div>
@@ -34,7 +32,6 @@
                     <img [src]="terceranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(terceranoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(terceranoticia)">{{terceranoticia.titulo}}</div>
                     <!--<button mat-button class="btncategoria1">{{terceranoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
                         <button mat-button class="btncategoria1">{{etiqueta}}</button>
                     </div>
@@ -43,7 +40,6 @@
                     <img [src]="cuartanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(cuartanoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(cuartanoticia)">{{cuartanoticia.titulo}}</div>
                     <!--<button mat-button class="btncategoria1">{{cuartanoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
                         <button mat-button class="btncategoria1">{{etiqueta}}</button>
                     </div>

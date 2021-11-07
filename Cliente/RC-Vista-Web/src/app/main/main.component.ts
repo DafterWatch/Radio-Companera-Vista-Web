@@ -58,8 +58,9 @@ export class MainComponent implements OnInit {
     });
   }
   ngOnInit(): void {    
-/*
-    this.noticias.push({
+    //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
+
+    /*this.noticias.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -137,152 +138,14 @@ export class MainComponent implements OnInit {
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });*/
-
     
-    this.noticias = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Afganistan algo algo algo malo etc",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      },
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Afganistan algo algo algo malo etc",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      },
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Afganistan algo algo algo malo etc",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      },
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Afganistan algo algo algo malo etc",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticiasAux = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Afganistan algo algo algo malo etc",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticiaGrande = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "How Michigan Republicans are trying to sway state's independent redistricting process",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticia1 = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/noticia12.jpg",
-        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticia2 = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/noticia2.jpg",
-        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticia3 = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/noticia7.jpg",
-        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
-    this.noticia4 = [
-      {
-        id_noticia: 1,
-        id_reportero:1,
-        ultima_modificacion: "10-09-10",
-        fecha_publicacion: "10-10-10",
-        estado :true,
-        id_contenido: 1,
-        imagen: "assets/images/afganistan.jpg",
-        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
-        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
-        etiquetas: ["uno","dos","tres"],
-        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-      }
-    ];
+    this.noticias = [];
+    this.noticiasAux = [];
+    this.noticiaGrande = [];
+    this.noticia1 = [];
+    this.noticia2 = [];
+    this.noticia3 = [];
+    this.noticia4 = [];
     
     this.getNoticias();
     window.scroll(0, 0);
