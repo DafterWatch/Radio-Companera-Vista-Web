@@ -15,12 +15,6 @@ import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service
 })
 export class HeaderComponent implements OnInit {
 
-  //@HostBinding('class') className = '';
-
-  //toggleControl = new FormControl(false);
-
-  //@Output() public sidenavToggle = new EventEmitter();
-
   constructor(public router: Router, private http:HttpClient,
     private pasarDatos:PasarDatosSwitchService, private pasarDatosBusqueda:PasarBusquedaNoticiasService
     ) { }
@@ -31,6 +25,10 @@ export class HeaderComponent implements OnInit {
     this.getConfiguracion();
   }
   logo;
+  facebook = "assets/images/facebook.png";
+  twitter = "assets/images/twitter.png";
+  youtube = "assets/images/youtube.png";
+  
   categorias: Categoria[] = [
     {idCategoria: 1, nombre: 'Internacional'},
     {idCategoria: 2, nombre: 'Moda'},

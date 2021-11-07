@@ -1,5 +1,23 @@
 <div class="topnav" id="myTopnav">
-  <img [src]="logo" id="logoRC">
+  <div id="divLog">
+  <!--<img [src]="logo" id="logoRC">-->
+  <img src="assets/images/logoRadioCompañera.jpg" id="logoRC">
+
+  <div class="divTitulo">
+  <p class="labelRadio">Radio Compañera</p>
+</div>
+
+<div class="divRedes" style="list-style-type: none">
+  <li>
+      
+      <img [src]="facebook" id="btnfacebook">
+      <img [src]="twitter" id="btntwitter">
+      <img [src]="youtube" id="btnyoutube">
+  </li>
+  </div>
+</div>
+
+<div id="divbot">
   <a routerLink="/main" class="botonmenu" (click)="volverPrincipal()">Inicio</a>
   <a routerLink="/main" class="botonmenu">Politica</a>
   <a routerLink="/main" class="botonmenu">Social</a>
@@ -23,7 +41,7 @@
   <mat-form-field appearance="fill" id="buscador">
     <mat-label class="labelbuscar">Buscar</mat-label>
     <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda" (ngModelChange)="eventoBusqueda($event)">
-    <mat-icon id="btnBuscar" (click)="textoBusqueda=''; eventoBusqueda('')" matSuffix>clear</mat-icon>
+    <mat-icon id="btnBuscar" (click)="textoBusqueda=''; eventoBusqueda('')" matSuffix>search</mat-icon>
   </mat-form-field>
 </a>
 
@@ -40,6 +58,8 @@
     </a>
 
   </a>
+
+</div>
     
 </div>
 
