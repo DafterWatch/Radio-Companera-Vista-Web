@@ -143,7 +143,7 @@ export class MainComponent implements OnInit {
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });*/
     
-    this.noticias = [
+    /*this.noticias = [
       {
         id_noticia: 1,
         id_reportero:1,
@@ -287,7 +287,7 @@ export class MainComponent implements OnInit {
         categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
       }
     ];
-    
+    */
     this.getNoticias();
     window.scroll(0, 0);
     this.pasarDatosBusqueda.disparador.subscribe((data) => {      
@@ -299,6 +299,7 @@ export class MainComponent implements OnInit {
       }
     })
     this.pasarDatosBusquedaCategoria.disparador.subscribe((data) => {
+      this.log("llegue");
       if(data.data == ""){
         this.noticias = this.noticiasAux;
       } else {
