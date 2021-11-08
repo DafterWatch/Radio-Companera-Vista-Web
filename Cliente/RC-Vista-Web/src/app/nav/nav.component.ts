@@ -26,19 +26,7 @@ export class NavComponent implements OnInit {
     let i = 0;
     this.publicidades.reverse();
     
-    if(this.publicidades[0].estado){  
-      if(this.restarFecha(this.publicidades[0].fechafin)){        
-        this.publicidadIzquierda.push(this.publicidades[i]);
-      } else {
-        this.publicidadIzquierda.push(this.publicidades[i+1]);
-      }
-    } else {
-      if(this.restarFecha(this.publicidades[0].fechafin)){        
-        this.publicidadIzquierda.push(this.publicidades[i+1]);
-      } else {
-        this.publicidadIzquierda.push(this.publicidades[i+2]);
-      }
-    }
+    this.publicidadIzquierda.push(this.publicidades[i]);  
     this.publicidad1 = this.publicidadIzquierda[0].imagepublicidad;
     this.enlaceLink = this.publicidadIzquierda[0].enlace;
     this.estadoPubli = this.publicidadIzquierda[0].estado;

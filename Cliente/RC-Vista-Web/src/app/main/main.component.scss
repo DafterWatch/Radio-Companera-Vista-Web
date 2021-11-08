@@ -1,9 +1,9 @@
 #noticiasarriba{
-  height: 50%;
-  width: 80%;
+  height: 600px;
+  width: 85%;
   //margin-left: auto;
   margin-right: auto;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 #noticiagrande{
@@ -30,16 +30,16 @@
 }
 
 #columna1{
-  width: 47%;
+  width: 49%;
   height: 100%;
   float: left;
-  margin-left: 2.5%;
+  margin-left: 0.5%;
 }
 #fila1a{
   width: 100%;
-  height: 48%;
+  height: 49.5%;
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 1.2%;
 }
 
 #fila1a::before{
@@ -54,7 +54,7 @@
 }
 #fila2a{
   width: 100%;
-  height: 48%;
+  height: 49.5%;
   position: relative;
 }
 #fila2a::before{
@@ -68,16 +68,16 @@
 
 }
 #columna2{
-  width: 47%;
+  width: 49%;
   height: 100%;
   float: left;
-  margin-left: 2.5%;
+  margin-left: 0.5%;
 }
 #fila1b{
   width: 100%;
-  height: 48%;
+  height: 49.5%;
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: 1.2%;
 }
 #fila1b::before{
   content: "";
@@ -92,7 +92,7 @@
 #fila2b{
   position: relative;
   width: 100%;
-  height: 48%;
+  height: 49.5%;
 }
 #fila2b::before{
   content: "";
@@ -116,11 +116,12 @@
 }
 .titulogrande{
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 5%;
   cursor: pointer;
   font-size: 2vw;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
   line-height: 120%;
   color: white;
   margin-right: 2%;
@@ -132,27 +133,35 @@
 
 .btncategoriaGrande{
   position: absolute;
-  top: 80%;
-  left: 3%;
+  top: 13%;
+  right: 4%;
   cursor: pointer;
-  font-size: 2vw;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: rgb(196, 196, 196);
+  font-size: 1.5vw;
+  font-family: Helvetica, 'Now';
+  color: white;
+  background-color: red;
+  padding: 1% 1%;
+  border-radius: 10%;
 }
 
 .btncategoriaGrande:hover{
-  text-decoration:underline;
+  background-color: black;
   color: white;
 }
 
 .btnFechaGrande{
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 3%;
   cursor: pointer;
   font-size: 1.5vw;
   line-height: 40px;
   color: rgb(196, 196, 196);
+}
+
+.btnFechaGrande:hover{
+  text-decoration:underline;
+  color: white;
 }
 
 #ImaNoticia1{
@@ -161,11 +170,12 @@
 }
 .titulonoticia1{
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 5%;
   cursor: pointer;
   font-size: 1.12vw;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
   line-height: 130%;
   color: white;
   margin-right: 4%;
@@ -175,19 +185,36 @@
   color: lightcoral;
 }
 
-.btncategoria1{
+.btnFecha1{
   position: absolute;
-  top: 78%;
-  left: 1%;
+  top: 75%;
+  left: 3%;
   cursor: pointer;
   font-size: 1.15vw;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 40px;
   color: rgb(196, 196, 196);
 }
 
-.btncategoria1:hover{
+.btnFecha1:hover{
   text-decoration:underline;
   color: white;
+}
+
+.btncategoria1{
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  cursor: pointer;
+  font-size: 1vw;
+  font-family: Helvetica, 'Now';
+  color: white;
+  background-color: red;
+}
+
+.btncategoria1:hover{
+  //text-decoration:underline;
+  color: white;
+  background-color: black;
 }
 //---------------------------------------------
 
@@ -221,8 +248,8 @@
 //--------------------------------
 
 .image {
-  width: 120px;
-  height: 120px;
+  width: 200px;
+  height: 200px;
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;
@@ -234,12 +261,20 @@
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #conImg{
-  height: 200px;
+  height: 300px;
   width: 100%;
-  background-color: black;
+  background-image: url("../../assets/images/city2.jpg");
+  background-size: 100% 100%;
   display: flex;
   align-items: center;
 }
+
+#reproductor1{
+  font-size: 1.3vw;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
+}
+
 //NOTICIAS PRINCIPALES-------------------------
 #textocabeza{
   font-size: 2vw;
@@ -287,7 +322,8 @@
   font-size: 1.2vw;
   line-height: 110%;
   text-align: left;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
 
 }
 

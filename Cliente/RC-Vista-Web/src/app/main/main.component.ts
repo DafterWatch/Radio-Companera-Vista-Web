@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { PasarBusquedaNoticiasService } from '../pasar-busqueda-noticias.service';
+import { BuscarCategoriaService } from '../buscar-categoria.service';
 
 @Component({
   selector: 'app-main',
@@ -29,7 +30,11 @@ export class MainComponent implements OnInit {
   ImagenGrande = "assets/images/afganistan.jpg";
   serverDirection :string = 'http://localhost:3000';
 
-  constructor(public router: Router, private http:HttpClient, private breakpointObserver: BreakpointObserver, private pasarDatosBusqueda: PasarBusquedaNoticiasService) { 
+  constructor(public router: Router, 
+    private http:HttpClient, 
+    private breakpointObserver: BreakpointObserver, 
+    private pasarDatosBusqueda: PasarBusquedaNoticiasService,
+    private pasarDatosBusquedaCategoria: BuscarCategoriaService) {
 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -58,7 +63,6 @@ export class MainComponent implements OnInit {
     });
   }
   ngOnInit(): void {    
-    //this.breakpoint = (window.innerWidth > 400) ? 3 : 3;
 
     /*this.noticias.push({
       id_noticia: 1,
@@ -139,13 +143,150 @@ export class MainComponent implements OnInit {
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
     });*/
     
-    this.noticias = [];
-    this.noticiasAux = [];
-    this.noticiaGrande = [];
-    this.noticia1 = [];
-    this.noticia2 = [];
-    this.noticia3 = [];
-    this.noticia4 = [];
+    this.noticias = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Afganistan algo algo algo malo etc",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      },
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Afganistan algo algo algo malo etc",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      },
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Afganistan algo algo algo malo etc",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      },
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Afganistan algo algo algo malo etc",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticiasAux = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Afganistan algo algo algo malo etc",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticiaGrande = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "How Michigan Republicans are trying to sway state's independent redistricting process",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticia1 = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/noticia12.jpg",
+        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticia2 = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/noticia2.jpg",
+        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticia3 = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/noticia7.jpg",
+        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
+    this.noticia4 = [
+      {
+        id_noticia: 1,
+        id_reportero:1,
+        ultima_modificacion: "10-09-10",
+        fecha_publicacion: "10-10-10",
+        estado :true,
+        id_contenido: 1,
+        imagen: "assets/images/afganistan.jpg",
+        titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+        contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+        etiquetas: ["uno","dos","tres"],
+        categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+      }
+    ];
     
     this.getNoticias();
     window.scroll(0, 0);
@@ -157,15 +298,37 @@ export class MainComponent implements OnInit {
         this.buscarNoticias(data.data);
       }
     })
+    this.pasarDatosBusquedaCategoria.disparador.subscribe((data) => {
+      if(data.data == ""){
+        this.noticias = this.noticiasAux;
+      } else {
+        this.getNoticiaCategoria(data.data);
+      }
+    })
   }
+  sinNoticias:Boolean = false;
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
+  async getNoticiaCategoria(nombre:string):Promise<void>{
+    await this.http.get(`http://localhost:3000/getCategorias/${nombre}`,{}).toPromise()
+    .then((res:any)=>{this.noticias = res});
+    this.noticias.reverse();
+  }
   resultados;
   buscarNoticias(busqueda:string){
-    this.resultados = this.noticias.filter(noti => noti.titulo.includes(busqueda));
-    this.noticias = [];
-    this.noticias = this.resultados;
+    this.noticias = this.noticiasAux;
+    this.resultados = this.noticias.filter(noti => noti.titulo.toUpperCase().includes(busqueda.toUpperCase()));
+    if(this.resultados.length > 0){
+      this.sinNoticias = false;
+      this.noticias = [];
+      this.noticias = this.resultados;
+    } else {
+      this.sinNoticias = true;
+    }    
+    if(this.sinNoticias){
+      this.noticias = [];
+    }
   }
   tamañoEtiquetas;
   async getNoticias():Promise<void>{
