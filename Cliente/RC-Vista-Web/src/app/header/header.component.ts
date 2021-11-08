@@ -36,11 +36,7 @@ export class HeaderComponent implements OnInit {
   youtube = "assets/images/youtube.png";
 
   extraCategorias;
-  categorias: Categoria[] = [
-    {id_categoria: 1, nombre: 'Internacional', estado: true},
-    {id_categoria: 2, nombre: 'Moda', estado: true},
-    {id_categoria: 3, nombre: 'Ciencia y tecnologia', estado: true}
-  ];
+  categorias: Categoria[] = [];
   categoriasAux: Categoria[] = [];
   categoriasDefecto: Categoria[] = [];
 
