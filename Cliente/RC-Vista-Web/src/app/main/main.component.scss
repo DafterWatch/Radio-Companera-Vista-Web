@@ -263,7 +263,7 @@
 #conImg{
   height: 300px;
   width: 100%;
-  background-image: url("../../assets/images/city2.jpg");
+  background-image: url("../../assets/images/city3.jpg");
   background-size: 100% 100%;
   display: flex;
   align-items: center;
@@ -279,6 +279,8 @@
 #textocabeza{
   font-size: 2vw;
   text-align: left;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
 }
 
 #noticias{
@@ -286,6 +288,7 @@
   height: auto;
   float: left;
   margin-left: 3%;
+  margin-right: 2%;
   max-height: max-content;
 }
 #general{
@@ -310,6 +313,9 @@
   text-align: left;
   height: auto;
   width: 100%;
+  padding: 0% 0%;
+  margin-left: 0%;
+  margin-bottom: 0%;
   
 }
 #tituloNoticia:hover{
@@ -319,11 +325,15 @@
   
 }
 #tit {
+  width: 100%;
+  margin-left: 0%;
   font-size: 1.2vw;
   line-height: 110%;
   text-align: left;
   font-family: Helvetica, 'Now';
-  font-weight: bold;
+  //font-weight: bold;
+  padding: 0% 0%;
+  margin-bottom: 0%;
 
 }
 
@@ -331,11 +341,15 @@
 
   color:white;
   font-size: 1vw;
-  margin-top: 0%;
   margin-left: 4%;
+  margin-top: 0%;
   text-align: left;
   background-color: red;
-  margin-bottom: 1%;
+  font-family: Helvetica, 'Now';
+  padding: 0% 3%;
+  border-color: white;
+  border-width: 10%;
+  border-style: solid;
 
 }
 .botonNoticiaCategoria:hover{
@@ -346,15 +360,18 @@
 
 .botonNoticia{
 
-  color: red;
+  color: rgb(162, 162, 162);
   font-size: 1vw;
-  margin-top: 0%;
   text-align: left;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
+  display:block;
+  padding: 2% 0%;
 
 }
 .botonNoticia:hover{
-  background-color: black;
-  color: white;
+  text-decoration: underline;
+  color: rgb(133, 47, 47);
   transition: 0.3s;
 }
 #imgNoticia{
@@ -362,11 +379,10 @@
   width: 120%;
   height: 55%;
 }
-
-
 #botones{
   text-align: left;
   margin-left: 4%;
+
 }
 //------------------------
 
@@ -412,6 +428,7 @@
     margin-bottom: 3%;
     height: max-content;
     width: 100%;
+    height: 220px;
   }
   
   #noticiagrande::before{
@@ -437,6 +454,7 @@
   #fila1a{
     position: relative;
     margin-bottom: 3%;
+    height: 220px;
   }
   
   #fila1a::before{
@@ -452,6 +470,7 @@
   #fila2a{
     position: relative;
     margin-bottom: 3%;
+    height: 220px;
   }
   #fila2a::before{
     content: "";
@@ -471,6 +490,7 @@
   #fila1b{
     position: relative;
     margin-bottom: 3%;
+    height: 220px;
   }
   #fila1b::before{
     content: "";
@@ -484,6 +504,7 @@
   }
   #fila2b{
     position: relative;
+    height: 220px;
   }
   #fila2b::before{
     content: "";
@@ -503,11 +524,12 @@
   }
   .titulogrande{
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 5%;
     cursor: pointer;
-    font-size: 1.5em;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 5vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
     line-height: 120%;
     color: white;
     margin-right: 4%;
@@ -519,25 +541,27 @@
   
   .btncategoriaGrande{
     position: absolute;
-    top: 80%;
-    left: 2%;
+    top: 10%;
+    right: 2%;
     cursor: pointer;
-    font-size: 1.5em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(196, 196, 196);
+    font-size: 4vw;
+    font-family: Helvetica, 'Now';
+    color: white;
+    float: right;
   }
   
   .btncategoriaGrande:hover{
-    text-decoration:underline;
     color: white;
   }
   
   .btnFechaGrande{
     position: absolute;
     top: 80%;
-    left: 64%;
+    left: 2%;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 4vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
     color: rgb(196, 196, 196);
   }
   
@@ -547,11 +571,12 @@
   }
   .titulonoticia1{
     position: absolute;
-    top: 35%;
+    top: 45%;
     left: 5%;
     cursor: pointer;
-    font-size: 1.5em;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 5vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
     line-height: 120%;
     color: white;
     margin-right: 4%;
@@ -563,15 +588,31 @@
   
   .btncategoria1{
     position: absolute;
-    top: 80%;
-    left: 2%;
+    top: 10%;
+    right: 2%;
     cursor: pointer;
-    font-size: 1.5em;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(196, 196, 196);
+    font-size: 4vw;
+    font-family: Helvetica, 'Now';
+    color: white;
+    float: right;
   }
   
   .btncategoria1:hover{
+    color: white;
+  }
+
+  .btnFecha1{
+    position: absolute;
+    top: 80%;
+    left: 2%;
+    cursor: pointer;
+    font-size: 4vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
+    color: rgb(196, 196, 196);
+  }
+  
+  .btnFecha1:hover{
     text-decoration:underline;
     color: white;
   }
@@ -586,8 +627,8 @@
 @media screen and (max-width: 900px) {
 
   .image {
-    width: 120px;
-    height: 120px;
+    width: 70px;
+    height: 70px;
     -webkit-animation:spin 4s linear infinite;
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
@@ -599,13 +640,17 @@
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
   
   #conImg{
-
-    height: 200px;
+    height: 100px;
     width: 100%;
-    background-color: black;
     display: flex;
     align-items: center;
     margin-top: 7%;
+  }
+
+  #reproductor1{
+    font-size: 3vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
   }
 
   #textocabeza{

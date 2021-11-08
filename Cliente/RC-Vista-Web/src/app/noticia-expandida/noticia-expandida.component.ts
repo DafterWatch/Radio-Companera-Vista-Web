@@ -66,18 +66,21 @@ export class NoticiaExpandidaComponent implements OnInit {
   }
   idNoticia:any;  
   ngOnInit(): void {
+
+    
+
     this.idNoticia = sessionStorage.getItem('idNoticia');
     window.scroll(0,0);    
-    /*this.noticia.push({
+    this.noticia.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
       fecha_publicacion: "10-10-10",
       estado :true,
       id_contenido: 1,
-      imagen: "assets/images/afganistan.jpg",
-      titulo: "Afganistan algo algo algo malo etc",
-      contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
+      imagen: "assets/images/noticia4.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "CSS permite crear varios tipos de bordes en elementos de la página. El borde más habitual es el de una línea lisa, pero también hay otros tipos de bordes que podemos implementar como una línea de puntos, bordes redondeados, etc. En este artículo de DesarrolloWeb.com veremos las distintas posibilidades de creación de bordes en CSS. Lo cierto es que en DesarrolloWeb.com ya hemos hablado varias veces de bordes con CSS, sobre todo para explicar modos de hacer los bordes redondeados, que suelen quedar muy atractivos en las páginas web. De todos modos, vamos a ver cómo se especifica un borde con CSS.",
       etiquetas: ["uno","dos","tres"],
       categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
@@ -121,7 +124,7 @@ export class NoticiaExpandidaComponent implements OnInit {
       estado :true,
       id_contenido: 1,
       imagen: "assets/images/afganistan.jpg",
-      titulo: "Afganistan algo algo algo malo etc",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
       categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
@@ -164,10 +167,14 @@ export class NoticiaExpandidaComponent implements OnInit {
       contenido: "<h2>Aqui esta el contenido con codigo html</h2>",
       etiquetas: ["uno","dos","tres"],
       categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
-    });*/
-    this.getNoticia();
+    });
+
+
+
+
+    /*this.getNoticia();
     this.getComentario();
-    this.getNoticias();
+    this.getNoticias();*/
   }
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
@@ -200,6 +207,30 @@ export class NoticiaExpandidaComponent implements OnInit {
   noticia:Noticias[] = [];
   noticias:Noticias[] = [];
   noticiasPrincipales:Noticias[] = [];
+
+
+  //-------------------------------------------- Reproductor ----------------------------------------------
+  msaapDisplayTitle = true;
+  msaapDisplayPlayList = false;
+  msaapPageSizeOptions = [2,4,6];
+  msaapDisplayVolumeControls = true;
+  msaapDisplayRepeatControls = false;
+  msaapDisplayArtist = true;
+  msaapDisplayDuration = false;
+  msaapDisablePositionSlider = false;
+    
+  // Material Style Advance Audio Player Playlist
+  msaapPlaylist: Track[] = [
+  {
+    title: 'Radio Compañera',
+    link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
+    //link: '',
+    artist: 'Estacion 106.3',
+    duration: 3.5
+  }
+  ];
+
+  
   //----------------comentarios-------------------------
   comentarios:Comentarios[]=[];
   async getComentario():Promise<void>{

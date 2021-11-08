@@ -13,7 +13,7 @@
                 </div>
               </mat-card-actions>
             <img mat-card-image [src]="noticia[0].imagen" id="imgNoticia">
-            <div [innerHTML]="contenido | innerhtmlpipe">
+            <div [innerHTML]="contenido | innerhtmlpipe" class="ContenidoNoticia">
                 <!--Contenido-->
             </div>
         </mat-card>
@@ -21,7 +21,7 @@
                     <div id="OtrasNoticias">
                         <p class="textocabeza">Noticias Principales</p>
                         <div id="princi">
-                        <mat-grid-list #grid [cols]="cols" rowHeight="600">
+                        <mat-grid-list #grid [cols]="cols" rowHeight="2:2">
                         
                         <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -36,7 +36,7 @@
                                         <div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline;">
                                             <button mat-button class="botonNoticia">{{etiqueta}}</button>
                                         </div>
-                                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
+                                        <button mat-button class="botonNoticiaFecha">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
                                                        
                                       </mat-card-actions>                                          
                             </mat-card>
@@ -88,7 +88,30 @@
                      </div>
             
 </div>
+<div id="RadioD">
+<div id="conImg">
+    <img class="image" src="assets/images/logoRadioCompañera.jpg">
+    </div>
+    <div class="reproductor">
+        <ngx-audio-player id="reproductor1" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
+        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
+        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
+        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
+        [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
+    </div>
+    <br>
+</div>
+<div id="AnuncioArriba">
+</div>
+<app-nav></app-nav> 
+<div id="AnuncioArriba1">
+</div>
+
+<div id="AnuncioArriba2">
+
+</div>
 <app-aside></app-aside>
+
 <app-footer></app-footer>  
 
 
