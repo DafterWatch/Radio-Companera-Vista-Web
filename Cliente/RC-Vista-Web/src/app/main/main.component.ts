@@ -340,31 +340,43 @@ export class MainComponent implements OnInit {
       }
     ];
     */
+    this.busquedaNoIniciada = true;
     this.getNoticias();
     window.scroll(0, 0);
-    this.pasarDatosBusqueda.disparador.subscribe((data) => {      
-      //console.log(data.data);
+    this.pasarDatosBusqueda.disparador.subscribe((data) => {
       if(data.data == ""){
+        this.busquedaNoIniciada = true;
         this.noticias = this.noticiasAux;
       } else {
+        this.busquedaNoIniciada = false;
         this.buscarNoticias(data.data);
       }
     })
     this.pasarDatosBusquedaCategoria.disparador.subscribe((data) => {
-      this.log("llegue");
       if(data.data == ""){
         this.noticias = this.noticiasAux;
-      } else {
-        this.getNoticiaCategoria(data.data);
+        this.busquedaNoIniciada = true;
+      } else {        
+        this.getNoticiaCategoria(data.data);        
       }
     })
   }
+  busquedaNoIniciada = true;
   sinNoticias:Boolean = false;
   /*onResize(event) {
     this.breakpoint = (event.target.innerWidth <= 400) ? 3 : 3;
   }*/
   async getNoticiaCategoria(nombre:string):Promise<void>{
+    window.scroll(0,0);
+    this.busquedaNoIniciada = false;
     await this.http.get(`http://localhost:3000/getCategorias/${nombre}`,{}).toPromise()
+    .then((res:any)=>{this.noticias = res});
+    this.noticias.reverse();
+  }
+  async getNoticiaCategoriaFecha(fecha:string):Promise<void>{
+    window.scroll(0,0);
+    this.busquedaNoIniciada = false;
+    await this.http.get(`http://localhost:3000/getCategoriasFecha/${fecha}`,{}).toPromise()
     .then((res:any)=>{this.noticias = res});
     this.noticias.reverse();
   }
@@ -397,7 +409,7 @@ export class MainComponent implements OnInit {
   }
   cate:Categorias[] = []
   log(a:any){
-    console.log(a);
+    console.log(this.sacarSoloFecha(a));
   }
   sacarSoloFecha(fecha1:any){
     let cadena = "";
@@ -429,7 +441,12 @@ export class MainComponent implements OnInit {
   paginaActual = 1;
   cambioPagina(evento:any){
     this.paginaActual = evento;
-    //window.scroll(0,0);
+    if(this.paginaActual == 1){      
+      this.busquedaNoIniciada = true;
+    } else {      
+      this.busquedaNoIniciada = false;
+    }
+    window.scroll(0,0);
   }  
   irNoticiaExpandida(noticia:any){
     sessionStorage.setItem('idNoticia',noticia.id_noticia);

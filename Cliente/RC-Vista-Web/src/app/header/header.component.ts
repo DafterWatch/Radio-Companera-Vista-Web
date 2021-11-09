@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
     this.getCategorias();
   }
   logo;
+  titulo;
   facebook = "assets/images/facebook.png";
   twitter = "assets/images/twitter.png";
   youtube = "assets/images/youtube.png";
@@ -80,6 +81,7 @@ export class HeaderComponent implements OnInit {
     await this.http.post(this.serverDirection+"/getConfiguraciones","1").toPromise()
     .then((res:any)=>this.configuracion=res);
     this.logo = this.configuracion[0].banner;
+    this.titulo = this.configuracion[0].titulo;
     }
     async getCategorias():Promise<void>{
       await this.http.post(this.serverDirection+"/getCategorias","1").toPromise()

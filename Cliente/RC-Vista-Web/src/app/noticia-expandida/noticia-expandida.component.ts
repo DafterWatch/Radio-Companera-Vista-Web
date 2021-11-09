@@ -71,7 +71,7 @@ export class NoticiaExpandidaComponent implements OnInit {
 
     this.idNoticia = sessionStorage.getItem('idNoticia');
     window.scroll(0,0);    
-    this.noticia.push({
+    /*this.noticia.push({
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -168,13 +168,13 @@ export class NoticiaExpandidaComponent implements OnInit {
       etiquetas: ["uno","dos","tres"],
       categoriasarray:["categoria1","categoria2","categoria3","categoria4"]
     });
+    */
 
 
 
-
-    /*this.getNoticia();
+    this.getNoticia();
     this.getComentario();
-    this.getNoticias();*/
+    this.getNoticias();
   }
   async getNoticias():Promise<void>{
     await this.http.post(this.serverDirection+"/getNoticias","1").toPromise()
