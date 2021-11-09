@@ -6,11 +6,10 @@
               <mat-card-title id="titulo">{{noticia[0].titulo}}</mat-card-title>
             </mat-card-header>
             <mat-card-actions id="botonesA">
-                <button mat-button class="botonNoticiaA">{{sacarSoloFecha(noticia[0].fecha_publicacion)}}</button>
-                <!--<button mat-button class="botonNoticia">{{noticia[0].nombre}}</button>-->
+                <!--<button mat-button class="botonNoticiaA">{{sacarSoloFecha(noticia[0].fecha_publicacion)}}</button>
                 <div *ngFor="let etiqueta of noticia[0].categoriasarray" style="display: inline;">
                     <button mat-button class="botonNoticia">{{etiqueta}}</button>
-                </div>
+                </div>-->
               </mat-card-actions>
             <img mat-card-image [src]="noticia[0].imagen" id="imgNoticia">
             <div [innerHTML]="contenido | innerhtmlpipe" class="ContenidoNoticia">
@@ -33,10 +32,10 @@
                                     </mat-card-header>
                                     
                                     <mat-card-actions id="botones">
-                                        <div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline;">
+                                        <!--<div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline;">
                                             <button mat-button class="botonNoticia">{{etiqueta}}</button>
                                         </div>
-                                        <button mat-button class="botonNoticiaFecha">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
+                                        <button mat-button class="botonNoticiaFecha">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>-->
                                                        
                                       </mat-card-actions>                                          
                             </mat-card>

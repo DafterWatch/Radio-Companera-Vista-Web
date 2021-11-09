@@ -347,20 +347,25 @@ export class MainComponent implements OnInit {
       if(data.data == ""){
         this.busquedaNoIniciada = true;
         this.noticias = this.noticiasAux;
+        this.textoNoticiasTitular = "Noticias Principales";
       } else {
         this.busquedaNoIniciada = false;
         this.buscarNoticias(data.data);
+        this.textoNoticiasTitular = "Resultados de "+data.data;
       }
     })
     this.pasarDatosBusquedaCategoria.disparador.subscribe((data) => {
       if(data.data == ""){
         this.noticias = this.noticiasAux;
         this.busquedaNoIniciada = true;
+        this.textoNoticiasTitular = "Noticias Principales";
       } else {        
-        this.getNoticiaCategoria(data.data);        
+        this.getNoticiaCategoria(data.data);
+        this.textoNoticiasTitular = data.data;      
       }
     })
   }
+  textoNoticiasTitular = "Noticias Principales";
   busquedaNoIniciada = true;
   sinNoticias:Boolean = false;
   /*onResize(event) {
@@ -372,6 +377,7 @@ export class MainComponent implements OnInit {
     await this.http.get(`http://localhost:3000/getCategorias/${nombre}`,{}).toPromise()
     .then((res:any)=>{this.noticias = res});
     this.noticias.reverse();
+    this.textoNoticiasTitular = nombre;
   }
   async getNoticiaCategoriaFecha(fecha:string):Promise<void>{
     window.scroll(0,0);
@@ -379,6 +385,7 @@ export class MainComponent implements OnInit {
     await this.http.get(`http://localhost:3000/getCategoriasFecha/${fecha}`,{}).toPromise()
     .then((res:any)=>{this.noticias = res});
     this.noticias.reverse();
+    this.textoNoticiasTitular = fecha;
   }
   resultados;
   buscarNoticias(busqueda:string){
@@ -388,11 +395,14 @@ export class MainComponent implements OnInit {
       this.sinNoticias = false;
       this.noticias = [];
       this.noticias = this.resultados;
+      this.textoNoticiasTitular = "Resultados de "+busqueda;
     } else {
       this.sinNoticias = true;
+      this.textoNoticiasTitular = "Noticias Principales";
     }    
     if(this.sinNoticias){
       this.noticias = [];
+      this.textoNoticiasTitular = "Noticias Principales";
     }
   }
   tamañoEtiquetas;
@@ -406,6 +416,7 @@ export class MainComponent implements OnInit {
     this.noticia2.push(this.noticias[2]);
     this.noticia3.push(this.noticias[3]);
     this.noticia4.push(this.noticias[4]);
+    this.textoNoticiasTitular = "Noticias Principales";
   }
   cate:Categorias[] = []
   log(a:any){

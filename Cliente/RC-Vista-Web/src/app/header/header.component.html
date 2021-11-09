@@ -16,9 +16,9 @@
   </div>
   
   <div id="divbot">
-  <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
+  <a class="botonmenu" (click)="textoBusqueda=''; volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
   <span *ngFor="let noticia of categoriasDefecto">    
-    <a class="botonmenu" (click)="eventoBusquedaCategoria(noticia.nombre)">{{noticia.nombre}}</a>
+    <a class="botonmenu" (click)="textoBusqueda='';eventoBusquedaCategoria(noticia.nombre)">{{noticia.nombre}}</a>
   </span>
 
 

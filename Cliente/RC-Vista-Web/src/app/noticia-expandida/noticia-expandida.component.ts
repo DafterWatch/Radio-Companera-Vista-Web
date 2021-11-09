@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BuscarCategoriaService } from '../buscar-categoria.service';
 
 @Component({
   selector: 'app-noticia-expandida',
@@ -26,7 +27,11 @@ export class NoticiaExpandidaComponent implements OnInit {
 
   breakpoint: number;
 
-  constructor(public router: Router, private _ngZone: NgZone, private http:HttpClient, private breakpointObserver: BreakpointObserver) { 
+  constructor(public router: Router, 
+    private _ngZone: NgZone, 
+    private http:HttpClient, 
+    private breakpointObserver: BreakpointObserver,
+    private pasarDatosBusquedaCategoria: BuscarCategoriaService) { 
 
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
