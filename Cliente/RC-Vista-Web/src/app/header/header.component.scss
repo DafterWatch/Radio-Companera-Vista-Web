@@ -308,7 +308,9 @@ font-size: 2.2vw;
 .ModoNoche:hover{
   background-color:black;
 }
-
+.botonmenu{
+  cursor: pointer;
+}
 
 
 
@@ -350,7 +352,6 @@ font-size: 2.2vw;
   }
 
   .botonmenu{
-    //cursor: pointer;
     width: 0%;
     height: 0%;
     font-size: 0%;

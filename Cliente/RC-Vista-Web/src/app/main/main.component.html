@@ -1,51 +1,47 @@
-<span *ngIf="paginaActual==1">
+<span *ngIf="busquedaNoIniciada">
     <div id="noticiasarriba" *ngFor="let noticiagrande of noticiaGrande | slice:0:4">    
         <div id="noticiagrande">
-            <img [src]="noticiagrande.imagen" id="ImaNoticiaGrande" (click)="irNoticiaExpandida(noticiagrande)">
+            <img [src]="noticiagrande.imagen || 'assets/images/noticia9.jpg'" id="ImaNoticiaGrande" (click)="irNoticiaExpandida(noticiagrande)">
             <div class="titulogrande" (click)="irNoticiaExpandida(noticiagrande)">{{noticiagrande.titulo}}</div>
-            <button mat-button class="btnFechaGrande">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
+            <button mat-button class="btnFechaGrande" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticiagrande.fecha_publicacion))">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
             <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
-                <button mat-button class="btncategoriaGrande">{{etiqueta}}</button>
+                <button mat-button class="btncategoriaGrande" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
             </div>
         </div>
         <div id="noticiasCostado">
             <div id="columna1">
                 <div id="fila1a" *ngFor="let primeranoticia of noticia1 | slice:0:4">
-                    <img [src]="primeranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(primeranoticia)">
+                    <img [src]="primeranoticia.imagen || 'assets/images/noticia9.jpg'" id="ImaNoticia1" (click)="irNoticiaExpandida(primeranoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(primeranoticia)">{{primeranoticia.titulo}}</div>
-                    <!--<button mat-button class="btncategoria1">{{primeranoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
+                    <button mat-button class="btnFecha1" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticiagrande.fecha_publicacion))">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
-                        <button mat-button class="btncategoria1">{{etiqueta}}</button>
+                        <button mat-button class="btncategoria1" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
                     </div>
                 </div>
                 <div id="fila2a" *ngFor="let segundanoticia of noticia2 | slice:0:4">
-                    <img [src]="segundanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(segundanoticia)">
+                    <img [src]="segundanoticia.imagen || 'assets/images/noticia9.jpg'" id="ImaNoticia1" (click)="irNoticiaExpandida(segundanoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(segundanoticia)">{{segundanoticia.titulo}}</div>
-                    <!--<button mat-button class="btncategoria1">{{segundanoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
+                    <button mat-button class="btnFecha1" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticiagrande.fecha_publicacion))">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
-                        <button mat-button class="btncategoria1">{{etiqueta}}</button>
+                        <button mat-button class="btncategoria1" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
                     </div>
                 </div>
             </div>
             <div id="columna2">
                 <div id="fila1b" *ngFor="let terceranoticia of noticia3 | slice:0:4">
-                    <img [src]="terceranoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(terceranoticia)">
+                    <img [src]="terceranoticia.imagen || 'assets/images/noticia9.jpg'" id="ImaNoticia1" (click)="irNoticiaExpandida(terceranoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(terceranoticia)">{{terceranoticia.titulo}}</div>
-                    <!--<button mat-button class="btncategoria1">{{terceranoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
+                    <button mat-button class="btnFecha1" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticiagrande.fecha_publicacion))">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
-                        <button mat-button class="btncategoria1">{{etiqueta}}</button>
+                        <button mat-button class="btncategoria1" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
                     </div>
                 </div>
                 <div id="fila2b" *ngFor="let cuartanoticia of noticia4 | slice:0:4">
-                    <img [src]="cuartanoticia.imagen" id="ImaNoticia1" (click)="irNoticiaExpandida(cuartanoticia)">
+                    <img [src]="cuartanoticia.imagen || 'assets/images/noticia9.jpg'" id="ImaNoticia1" (click)="irNoticiaExpandida(cuartanoticia)">
                     <div class="titulonoticia1" (click)="irNoticiaExpandida(cuartanoticia)">{{cuartanoticia.titulo}}</div>
-                    <!--<button mat-button class="btncategoria1">{{cuartanoticia.nombre}}</button>-->
-                    <button mat-button class="btnFecha1">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
+                    <button mat-button class="btnFecha1" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticiagrande.fecha_publicacion))">{{sacarSoloFecha(noticiagrande.fecha_publicacion)}}</button>
                     <div *ngFor="let etiqueta of noticiagrande.categoriasarray | slice:0:1" style="display: inline;">
-                        <button mat-button class="btncategoria1">{{etiqueta}}</button>
+                        <button mat-button class="btncategoria1" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
                     </div>
                 </div>
             </div>
@@ -72,52 +68,28 @@
     <div id="noticias">
         <p id="textocabeza">Noticias Principales</p>
         <mat-grid-list #grid [cols]="cols" rowHeight="2:2.7" >
-            
+            <!--Mejorar css-->
             <div *ngIf="sinNoticias">
                 <h1>No existen resultados para su busqueda</h1>
             </div>
-        
         <div *ngFor="let noticia of noticias| paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual}">
                 
                 <mat-grid-tile [colspan]="1" [rowspan]="1">
                     <mat-card class="campoNoticia">
-                        <img mat-card-image [src]="noticia.imagen" id="imgNoticia" (click)="irNoticiaExpandida(noticia)">                    
-                        
+                        <img mat-card-image [src]="noticia.imagen || 'assets/images/noticia9.jpg'" id="imgNoticia" (click)="irNoticiaExpandida(noticia)">
                         <mat-card-header id="tituloNoticia">
                         <mat-card-title id="tit" style="cursor: pointer;" (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</mat-card-title>
-                        
                         </mat-card-header>        
                         <mat-card-actions id="botones">
                             <div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline; margin: 2px;">
-                                <button mat-button class="botonNoticiaCategoria">{{etiqueta}}</button>
+                                <button mat-button class="botonNoticiaCategoria" (click)="getNoticiaCategoria(etiqueta)">{{etiqueta}}</button>
                             </div>
-                        <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
+                        <button mat-button class="botonNoticia" (click)="getNoticiaCategoriaFecha(sacarSoloFecha(noticia.fecha_publicacion))">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
                         </mat-card-actions>
                     </mat-card>
                 </mat-grid-tile>    
         </div>
         </mat-grid-list>
-        <!--No Borrar-->
-        <!--<mat-grid-list #grid [cols]="cols" rowHeight="2:2.5" >
-            <div *ngFor="let noticia of noticias| paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual}">
-                    
-                    <mat-grid-tile [colspan]="1" [rowspan]="1">
-                        <div class="campoNoticia">
-                            <img mat-card-image [src]="noticia.imagen" id="imgNoticia" (click)="irNoticiaExpandida(noticia)">                    
-                            <div *ngFor="let etiqueta of noticia.categoriasarray" style="display: inline;">
-                                <button mat-button class="botonNoticiaCategoria">{{etiqueta}}</button>
-                            </div>
-                            <div id="tituloNoticia">
-                            <div id="tit" style="cursor: pointer;" (click)="irNoticiaExpandida(noticia)">{{noticia.titulo}}</div>
-                            
-                            </div>        
-                            <div id="botones">
-                            <button mat-button class="botonNoticia">{{sacarSoloFecha(noticia.fecha_publicacion)}}</button>
-                            </div>
-                        </div>
-                    </mat-grid-tile>    
-            </div>
-            </mat-grid-list>-->
         <div id="contenedorPagina">
             <pagination-controls class="custom-pagination"
             (pageChange)="cambioPagina($event)" 

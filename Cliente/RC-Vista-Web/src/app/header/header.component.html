@@ -1,10 +1,8 @@
 <div class="topnav" id="myTopnav">
   <div id="divLog">
-    <!--<img [src]="logo" id="logoRC">-->
-    <img src="assets/images/logoRadioCompañera.jpg" id="logoRC">
-  
+    <img [src]="logo || 'assets/images/logoRadioCompañera.jpg'" id="logoRC">  
     <div class="divTitulo">
-    <p class="labelRadio">Radio Compañera</p>
+    <p class="labelRadio">{{titulo}}</p>
   </div>
   
   <div class="divRedes" style="list-style-type: none">
@@ -32,7 +30,6 @@
         <mat-label class="label">Mas categorias</mat-label>
         <mat-select>
           <mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre" class="categorias" (click)="eventoBusquedaCategoria(categoria.nombre)">
-          <!--<mat-option *ngFor="let categoria of categorias" [value]="categoria.nombre" class="categorias">-->
             {{categoria.nombre}}
           </mat-option>
         </mat-select>
@@ -41,15 +38,8 @@
 <a class="buscadorBox">
   <mat-form-field appearance="fill" id="buscador">
     <mat-label class="labelbuscar">Buscar</mat-label>
-        <!--
-    <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda" (ngModelChange)="eventoBusqueda($event)">
-    <mat-icon id="btnBuscar" (click)="textoBusqueda=''; eventoBusqueda('')" matSuffix>search</mat-icon>
--->
-
     <input type="text" matInput placeholder="¿Que buscas?" [(ngModel)]="textoBusqueda">
     <mat-icon id="btnBuscar" (click)="eventoBusqueda(textoBusqueda)" matSuffix>search</mat-icon>
-
-
   </mat-form-field>
 </a>
 
