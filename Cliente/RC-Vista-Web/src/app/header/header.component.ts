@@ -35,6 +35,9 @@ export class HeaderComponent implements OnInit {
   facebook = "assets/images/facebook.png";
   twitter = "assets/images/twitter.png";
   youtube = "assets/images/youtube.png";
+  instagram = "assets/images/instagram.jpg";
+  spotify = "assets/images/spoti.png";
+  tiktok = "assets/images/tiktok1.png";
 
   extraCategorias;
   categorias: Categoria[] = [];

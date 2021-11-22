@@ -37,6 +37,7 @@ import { MatListModule } from '@angular/material/list';
 import { InnerhtmlpipePipe } from './innerhtmlpipe.pipe';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AnuncioTopComponent } from './anuncio-top/anuncio-top.component';
 
 
 
@@ -48,6 +49,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FooterComponent,
     NavComponent,
     AsideComponent,
+    AnuncioTopComponent,
     PrivacyPolicyComponent,
     NoticiaExpandidaComponent,
     PaginaPrincipalComponent,

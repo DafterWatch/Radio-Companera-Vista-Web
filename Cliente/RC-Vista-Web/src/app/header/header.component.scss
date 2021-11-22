@@ -12,9 +12,37 @@ body {
 
 #divLog{
   width: 100%;
-  background-image: url("../../assets/images/fon3.jpg");
-  height: 160px;
+  //background-image: url('../../assets/images/fon3.jpg');
+  flex: 1 1 auto;
+  overflow: hidden;
+  //background-color: aqua;
+  height: 200px;
 }
+
+#DivLogos{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  //background-color: rgb(232, 255, 127);
+}
+
+#DivLogos::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(rgba(255,255,255,0), rgba(0,0,0,0.7));
+}
+
+
+#ImagenFondo{
+  width: 100%;
+  height: 100%;
+}
+
 #divbot{
   background-color:black;
   flex: 1 1 auto;
@@ -35,11 +63,10 @@ a {
   background-color: rgb(18, 18, 18);
   font-size: 1vw;
   font-family: Helvetica, 'Now';
-  font-weight: bold;
+  //font-weight: bold;
   margin-top: 0%;
   transition: 0.2s;
   width: 9.5%;
-
 }
 
 .divModoNoche {
@@ -53,7 +80,7 @@ a {
   transition: 0.2s;
   width: 10%;
   height: auto;
-  margin-right: 2%;
+  margin-right: 1%;
 
 }
 
@@ -76,37 +103,43 @@ a:hover {
 }
 
 #logoRC{
-  width: 6%;
+  width: 8%;
   height: auto;
   float: left;
   display: block;
   text-align: center;
   padding: 0% 0%;
   transition: 0.3s;
-  margin-left: 8%;
-  margin-top: 1%;
-  border-radius: 22%;
+  border-radius: 25%;
+  position: absolute;
+  top: 10%;
+  left: 3%;
 }
 .divTitulo {
   float: left;
-  height: 70px;
-  width: 50%;
+  height: auto;
+  width: 42%;
   //background-color:crimson;
-  margin-top: 4%;
-  margin-left: 0.7%;
+  position: absolute;
+  top: 25%;
+  left: 12%;
+
 }
 
 .labelRadio {
-  font-size: 5vw;
+  font-size: 3.9vw;
   font-family:Georgia, 'Times New Roman', Times, serif;
+  line-height: 100%;
+  //position: absolute;
 }
+
 
 #btnfacebook{
   cursor: pointer;
   border-radius: 50%; 
-  height: 50px;
-  width: 50px;
-  margin-right: 5%;
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
   transition: 0.3s;
 
 }
@@ -114,15 +147,15 @@ a:hover {
   
   color: white;
   transition: 0.3s;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 #btntwitter{
   cursor: pointer;
   border-radius: 50%; 
-  height: 50px;
-  width: 50px;
-  margin-right: 5%;
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
   transition: 0.3s;
 
 }
@@ -130,35 +163,89 @@ a:hover {
   
   color: white;
   transition: 0.3s;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   
 }
 #btnyoutube{
   cursor: pointer;
   border-radius: 50%; 
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   transition: 0.3s;
+  margin-right: 3%;
 
 }
 #btnyoutube:hover{
   
   color: white;
   transition: 0.3s;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
+}
+
+
+#btninstagram{
+  cursor: pointer;
+  border-radius: 50%; 
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
+  transition: 0.3s;
+
+}
+#btninstagram:hover{
+  
+  color: white;
+  transition: 0.3s;
+  height: 50px;
+  width: 50px;
+}
+#btnspotify{
+  cursor: pointer;
+  border-radius: 50%; 
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
+  transition: 0.3s;
+
+}
+#btnspotify:hover{
+  
+  color: white;
+  transition: 0.3s;
+  height: 50px;
+  width: 50px;
+  
+}
+#btntiktok{
+  cursor: pointer;
+  border-radius: 50%; 
+  height: 40px;
+  width: 40px;
+  margin-right: 3%;
+  transition: 0.3s;
+
+}
+#btntiktok:hover{
+  
+  color: white;
+  transition: 0.3s;
+  height: 50px;
+  width: 50px;
 }
 .divRedes{
   flex: 1 1 auto;
   height: auto;
-  width: 20%;
+  width: 10%;
   text-align: right;
   float: right;
-  margin-top: 4%;
-  margin-right: 8%;
+  margin-top: 1%;
+  margin-right: 1%;
+  position: absolute;
+  top: 2%;
+  right: 0.5%;
   //background-color: darkgoldenrod;
-
 }
 
 .mas{
@@ -329,8 +416,14 @@ font-size: 2.2vw;
     width: 100%;
     margin-left: 0%;
   }
+  .topnav #divLog{
+    width: 100%;
+    background-color: black;
+    background-image: none;
+    height: 100px;
+  }
   .topnav #logoRC {
-    width: 15%;
+    width: 0%;
     height: auto;
     float: left;
     display: block;
@@ -359,26 +452,26 @@ font-size: 2.2vw;
 
   #btnfacebook{
     cursor: pointer;
-    border-radius: 50%; 
-    height: 30px;
-    width: 30px;
-    margin-right: 2%;
-    transition: 0.3s;
+    border-radius: 0%; 
+    height: 0%;
+    width: 0%;
+    margin-right: 0%;
+    transition: 0%;
   
   }
   #btnfacebook:hover{
     
     color: white;
     transition: 0.3s;
-    height: 40px;
-    width: 40px;
+    height: 0%;
+    width: 0%;
   }
   #btntwitter{
     cursor: pointer;
     border-radius: 50%; 
-    height: 30px;
-    width: 30px;
-    margin-right: 2%;
+    height: 0%;
+    width: 0%;
+    margin-right: 3%;
     transition: 0.3s;
   
   }
@@ -386,34 +479,88 @@ font-size: 2.2vw;
     
     color: white;
     transition: 0.3s;
-    height: 40px;
-    width: 40px;
+    height: 0%;
+    width: 0%;
     
   }
   #btnyoutube{
     cursor: pointer;
-    border-radius: 50%;  
-    height: 30px;
-    width: 30px;
-    margin-right: 2%;
+    border-radius: 50%; 
+    height: 0%;
+    width: 0%;
     transition: 0.3s;
+    margin-right: 3%;
   
   }
   #btnyoutube:hover{
     
     color: white;
     transition: 0.3s;
-    height: 40px;
-    width: 40px;
+    height: 0%;
+    width: 0%;
+  }
+  
+  
+  #btninstagram{
+    cursor: pointer;
+    border-radius: 50%; 
+    height: 0%;
+    width: 0%;
+    margin-right: 3%;
+    transition: 0.3s;
+  
+  }
+  #btninstagram:hover{
+    
+    color: white;
+    transition: 0.3s;
+    height: 0%;
+    width: 0%;
+  }
+  #btnspotify{
+    cursor: pointer;
+    border-radius: 50%; 
+    height: 0%;
+    width: 0%;
+    margin-right: 3%;
+    transition: 0.3s;
+  
+  }
+  #btnspotify:hover{
+    
+    color: white;
+    transition: 0.3s;
+    height: 0%;
+    width: 0%;
+    
+  }
+  #btntiktok{
+    cursor: pointer;
+    border-radius: 50%; 
+    height: 0%;
+    width: 0%;
+    margin-right: 3%;
+    transition: 0.3s;
+  
+  }
+  #btntiktok:hover{
+    
+    color: white;
+    transition: 0.3s;
+    height: 0%;
+    width: 0%;
   }
   .divRedes{
     flex: 1 1 auto;
     height: auto;
-    width: 40%;
-    text-align: left;
-    float: left;
-    margin-top: 5%;
+    width: 0%;
+    text-align: right;
+    float: right;
+    margin-top: 0%;
     margin-right: 0%;
+    position: absolute;
+    top: 0%;
+    right: 0%;
     //background-color: darkgoldenrod;
   }
 
@@ -423,10 +570,10 @@ font-size: 2.2vw;
     height: 70px;
   }
   #divbot{
-    background-color:black;
+    background-color:rgb(115, 44, 44);
     width: 100%;
     margin-left: 0%;
-    height: auto;
+    height: 0px;
   }
 
 }
@@ -435,24 +582,26 @@ font-size: 2.2vw;
   .topnav.responsive {position: relative;}
 
   .topnav.responsive .icon {
-    position:absolute;
-    right: 0;
-    top: 0;
-    margin-top: 5%;
-    margin-right: 5%;
     display: block;
+    //width: 100%;
+    margin-top: 0%;
+    margin-right: 7%;
+    text-align: right;
+    float: right;
+    padding: 2% 0%;
   }
 
   .topnav.responsive #divbot{
     background-color:black;
     width: 100%;
     margin-left: 0%;
+    height: auto;
   }
   .topnav.responsive #divLog{
-    width: 100%;
+    width:0%;
     background-color: black;
     background-image: none;
-    height: 70px;
+    height: 0px;
   }
 
   .topnav.responsive a {
@@ -631,195 +780,4 @@ font-size: 7vw;
 }
 
 }
-
-
-
-/*.navbar
-{
-  background-color: white;
-}
-.navbar-light .navbar-nav .nav-link
-{
-  color: black;
-  font-size: 18px;
-}
-
-.navbar-light .navbar-nav .nav-link:hover
-{
-  text-decoration: underline;
-}
-
-/*@import '~@angular/material/theming';
-
-@include mat-core();
-
-$app-primary: mat-palette($mat-indigo);
-$app-accent:  mat-palette($mat-blue, A200, A100, A400);
-
-$app-warn:    mat-palette($mat-red);
-
-$app-theme: mat-light-theme((
-  color: (
-    primary: $app-primary,
-    accent: $app-accent,
-    warn: $app-warn,  
-  )
-));
-
-@include angular-material-theme($app-theme);
-
-$app-dark-theme: mat-dark-theme((
-  color: (
-    primary: $app-primary,
-    accent: $app-accent,
-    warn: $app-warn,  
-  )
-));
-
-.darkmode {
-
-  @include angular-material-theme($app-dark-theme);
-}*/
-
-
-//____________________________________________________________
-
-
-
-/*#toolbar{
-    background-color: rgb(255, 255, 255);
-    height: 150px;
-}
-#iconoMenu{
-  
-}
-@media(max-width: 959px)
-{
-  mat-toolbar {
-    border-radius: 0px;
-  }
-}
-#logoRC{
-    height: 80px;
-    //margin-left: 200px;
-    border-radius: 20%;
-}
-.navigation-items{
-  list-style-type:none;
-  padding: 0;
-  margin: 0;
-}
-#botones{
-  width: 400px;
-  height: 150px;
-  background-color: aqua;
-}
-.botonmenu{
-    height: 50px;
-    border-radius: 0px;
-    color: white;
-    background-color: rgb(45, 45, 45);
-    font-size: 13px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    //font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.botonmenu:hover{
-    background-color: red;
-    color: white;
-    transition: 0.3s;
-}*/
-/*
-#divCombobox{
-    border: 1px solid #c4c1c1; 
-    border-radius: 0px;
-}
-#combobox{
-    height: 47px;
-    width: 200px;
-    font-size: 13px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 0px;
-    text-align: center;
-    color: white;
-    background-color: rgb(45, 45, 45);
-
-}
-#combobox:hover{
-    background-color: red;
-    color: white;
-    transition: 0.3s;
-}
-.categorias{
-    text-align: center;
-    background-color: white;
-    color: black;
-    font-size: 13px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-.categorias:hover{
-  cursor: pointer;
-    background-color: orange;
-    color: red;
-    transition: 0.3s;
-    text-decoration:underline;
-}
-
-::ng-deep .mat-form-field-underline {
-    display: none;
-  }
-
-#buscadorBox{
-    border-radius: 0px;
-    //border: 1px solid #E0E0E0;
-    //margin-right: 200px;
-}
-#buscador {
-    height: 47px;
-    width: 250px;
-    font-size: 15px;
-    border-radius: 0px;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    font-size: 13px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-  }
-#btnBuscar{
-    cursor: pointer;
-    border-radius: 50%;    
-    height: 25px;
-    width: 25px;
-    text-align: center;
-}
-#btnBuscar:hover{
-    background-color: red;
-    color: white;
-    transition: 0.3s;
-}
-
-.flex-stretch{
-    flex: 1 0 auto;
-  }
-  .Iconligh{
-    margin-left: 10px;
-    color: rgb(240, 173, 29);
-    margin-top: 10px;
-}
-
-.Iconnight{
-  margin-left: 10px;
-  color: rgb(76, 84, 233);
-}
-#switch{
-  background-color: rgb(56, 56, 56);
-  margin-left: 10px;
-}
-
-#ModoNoche{
-  background-color: rgb(56, 56, 56);
-  float: right;
-  margin-left: 50px;
-  border-radius: 40px;
-  height: 50px;
-  width: 120px;
-}*/
 

@@ -68,68 +68,123 @@ body {
         transition: 0.3s;
         color: red;
     }
+
     #btnfacebook{
         cursor: pointer;
         border-radius: 50%; 
-        height: 50px;
-        width: 50px;
-        margin-right: 10%;
+        height: 60px;
+        width: 60px;
+        margin-right: 3%;
         transition: 0.3s;
-    
-    }
-    #btnfacebook:hover{
+      
+      }
+      #btnfacebook:hover{
         
         color: white;
         transition: 0.3s;
-        height: 60px;
-        width: 60px;
-    }
-    #btntwitter{
+        height: 70px;
+        width: 70px;
+      }
+      #btntwitter{
         cursor: pointer;
         border-radius: 50%; 
-        height: 50px;
-        width: 50px;
-        margin-right: 10%;
+        height: 60px;
+        width: 60px;
+        margin-right: 3%;
         transition: 0.3s;
-    
-    }
-    #btntwitter:hover{
+      
+      }
+      #btntwitter:hover{
         
         color: white;
         transition: 0.3s;
-        height: 60px;
-        width: 60px;
+        height: 70px;
+        width: 70px;
         
-    }
-    #btnyoutube{
+      }
+      #btnyoutube{
         cursor: pointer;
         border-radius: 50%; 
-        height: 50px;
-        width: 50px;
+        height: 60px;
+        width: 60px;
         transition: 0.3s;
-    
-    }
-    #btnyoutube:hover{
+        margin-right: 3%;
+      
+      }
+      #btnyoutube:hover{
         
         color: white;
         transition: 0.3s;
+        height: 70px;
+        width: 70px;
+      }
+      
+      
+      #btninstagram{
+        cursor: pointer;
+        border-radius: 50%; 
         height: 60px;
         width: 60px;
-    }
+        margin-right: 3%;
+        transition: 0.3s;
+      
+      }
+      #btninstagram:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 70px;
+        width: 70px;
+      }
+      #btnspotify{
+        cursor: pointer;
+        border-radius: 50%; 
+        height: 60px;
+        width: 60px;
+        margin-right: 3%;
+        transition: 0.3s;
+      
+      }
+      #btnspotify:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 70px;
+        width: 70px;
+        
+      }
+      #btntiktok{
+        cursor: pointer;
+        border-radius: 50%; 
+        height: 60px;
+        width: 60px;
+        margin-right: 3%;
+        transition: 0.3s;
+      
+      }
+      #btntiktok:hover{
+        
+        color: white;
+        transition: 0.3s;
+        height: 70px;
+        width: 70px;
+      }
+
     #Sort2{
         flex: 1 1 auto;
-        height: 90px;
-        width: 200px;
+        height: auto;
+        width: 25%;
         text-align: right;
         float: right;
-        margin-top: 0%;
-        margin-right: 2%;
+        margin-top: 10%;
+        margin-right: 0%;
+        //background-color: aqua;
     
     }
     #derechos{
         flex: 1 1 auto; 
-        height: 30px;
-        width: 750px;
+        height: auto;
+        width: 80%;
         color: rgb(255, 255, 255);
         float: left;
         font-size: 0.9vw;
@@ -189,10 +244,118 @@ body {
             margin-top: 3%;
             margin-left: 1%;
         }
-        .toolbar #Sort2{  
-            padding-top: 5%;
-            height: 50px;
+        #btnfacebook{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          margin-right: 3%;
+          transition: 0.3s;
+        
         }
+        #btnfacebook:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+        }
+        #btntwitter{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          margin-right: 3%;
+          transition: 0.3s;
+        
+        }
+        #btntwitter:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+          
+        }
+        #btnyoutube{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          transition: 0.3s;
+          margin-right: 3%;
+        
+        }
+        #btnyoutube:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+        }
+        
+        
+        #btninstagram{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          margin-right: 3%;
+          transition: 0.3s;
+        
+        }
+        #btninstagram:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+        }
+        #btnspotify{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          margin-right: 3%;
+          transition: 0.3s;
+        
+        }
+        #btnspotify:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+          
+        }
+        #btntiktok{
+          cursor: pointer;
+          border-radius: 50%; 
+          height: 25px;
+          width: 25px;
+          margin-right: 3%;
+          transition: 0.3s;
+        
+        }
+        #btntiktok:hover{
+          
+          color: white;
+          transition: 0.3s;
+          height: 30px;
+          width: 30px;
+        }
+  
+      #Sort2{
+          flex: 1 1 auto;
+          height: auto;
+          width: 100%;
+          text-align: right;
+          float: right;
+          margin-top: 10%;
+          margin-right: 0%;
+          //background-color: aqua;
+      
+      }
 
         .toolbar button{
             font-size: 13px; 

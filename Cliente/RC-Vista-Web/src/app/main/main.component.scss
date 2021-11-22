@@ -221,31 +221,6 @@
 
 //------------------------------
 
-#anuncio1{
-  width: 400px;
-  margin-left: 17%;
-  margin-bottom: 40%;
-  
-  background-color: red;
-  
-
-}
-
-#anuncio2{
-  width: 400px;
-  margin-left: 17%;
-  
-  background-color: red;
-
-  }
-
-  #anuncios{
-    width: 500px;
-    float: right;
-    background-color: red;
-    }
-
-//--------------------------------
 
 .image {
   width: 200px;
@@ -255,26 +230,84 @@
   animation:spin 4s linear infinite;
   border-radius: 50%;
   margin: auto;
+  float: left;
+  margin-left: 22%;
+  margin-top: 5%;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 #conImg{
-  height: 300px;
+  height: 400px;
   width: 100%;
-  background-image: url("../../assets/images/city3.jpg");
+  //background-image: url("../../assets/images/city3.jpg");
   background-size: 100% 100%;
   display: flex;
   align-items: center;
+  margin-bottom: 3%;
+}
+#ConFondo{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(232, 255, 127);
+  margin-left: 0%;
+}
+
+.FondoX {
+  width: 100%;
+  height: 100%;
+}
+
+#TextoDeRadio{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255,255,255,0), rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+#textoCostadito{
+  width: 50%;
+  height: 100%;
+  float: left;
+  //background-color: rgb(198, 51, 51);
+}
+#textoRa1{
+  float: left;
+  font-size: 13vw;
+  font-family: Arial, sans-serif;
+  color: rgb(235, 45, 45);
+  margin-top: 8%;
+  margin-left: 2%;
+}
+
+#textoRa{
+  font-size: 2.5vw;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
+  margin-top: 12%;
+  color: white;
+  margin-left: 3%;
 }
 
 #reproductor1{
-  font-size: 1.3vw;
+  font-size: 1vw;
   font-family: Helvetica, 'Now';
   font-weight: bold;
+  //background-color: aqua;
 }
 
+.reproductor {
+  width: 70%;
+  height: 150px;
+  margin-left: 3%;
+  //background-color: aqua;
+  margin-top: 3%;
+  
+}
 //NOTICIAS PRINCIPALES-------------------------
 #textocabeza{
   font-size: 2vw;
@@ -300,7 +333,7 @@
 }
 
 #TextoNoResultados{
-  font-size: 1vw;
+  font-size: 2vw;
   text-align: center;
   font-family: Helvetica, 'Now';
   font-weight: bold;
@@ -649,23 +682,85 @@
     animation:spin 4s linear infinite;
     border-radius: 50%;
     margin: auto;
+    float: left;
+    margin-left: 40%;
+    margin-top: 5%;
   }
   @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
   @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
   
   #conImg{
-    height: 100px;
+    height: 130px;
     width: 100%;
+    //background-image: url("../../assets/images/city3.jpg");
+    background-size: 100% 100%;
     display: flex;
     align-items: center;
-    margin-top: 7%;
+    margin-bottom: 3%;
+    margin-top: 5%;
   }
-
-  #reproductor1{
-    font-size: 3vw;
+  #ConFondo{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(232, 255, 127);
+    margin-left: 0%;
+  }
+  
+  .FondoX {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #TextoDeRadio{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0), rgba(0, 0, 0, 0.6));
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  #textoCostadito{
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+    //background-color: rgb(198, 51, 51);
+  }
+  #textoRa1{
+    float: left;
+    font-size: 0vw;
+    font-family: Arial, sans-serif;
+    color: rgb(235, 45, 45);
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  
+  #textoRa{
+    font-size: 0vw;
     font-family: Helvetica, 'Now';
     font-weight: bold;
+    margin-top: 0%;
+    color: white;
+    margin-left: 0%;
+  }
+  
+  #reproductor1{
+    font-size: 1vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
+    //background-color: aqua;
+    width: 100%;
+  }
+  
+  .reproductor {
+    width: 100%;
+    height: 100px;
+    margin-left: 0%;
+    //background-color: aqua;
+    margin-top: 0%;
+    
   }
 
   #textocabeza{
@@ -700,7 +795,7 @@
   }
   #tituloNoticia {
     text-align: left;  
-    height: 20%;
+    height: 15%;
     width: 100%;
     
   }
@@ -712,8 +807,8 @@
   }
   #tit {
     text-align: left;
-    font-size: 5.5vw;
-    height: 20%;
+    font-size: 1.4em;
+    //height: 15%;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 100%;
   
@@ -722,7 +817,7 @@
   .botonNoticiaCategoria{
   
     color:white;
-    font-size: 4vw;
+    font-size: 1em;
     margin-top: 0%;
     margin-left: 4%;
     text-align: left;
@@ -739,9 +834,9 @@
   .botonNoticia{
   
     color: red;
-    margin-top: 3%;
+    margin-top: 0%;
     text-align: left;
-    font-size: 4vw;
+    font-size: 1em;
   
   }
   .botonNoticia:hover{
@@ -757,8 +852,8 @@
   
   
   #botones{
-    margin-top: 3%;
-    font-size: 4vw;
+    margin-top: 0%;
+    //font-size: 0.7em;
     text-align: left;
     margin-left: 4%;
 
@@ -769,7 +864,7 @@
     margin-right: auto;
     width: auto;
     max-width: 400px;
-    font-size: 5vw;
+    font-size: 1em;
   }
 
 

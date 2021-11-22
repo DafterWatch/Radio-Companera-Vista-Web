@@ -452,13 +452,224 @@ export class MainComponent implements OnInit {
     sessionStorage.setItem('idNoticia',noticia.id_noticia);
     this.router.navigate(['noticia']);
   }
-  public noticias:Noticias[] = [];
+  /*public noticias:Noticias[] = [];
   public noticiasAux:Noticias[] = [];
   public noticiaGrande:Noticias[] = [];  
   public noticia1:Noticias[] = [];
   public noticia2:Noticias[] = [];
   public noticia3:Noticias[] = [];
-  public noticia4:Noticias[] = [];
+  public noticia4:Noticias[] = [];*/
+
+
+
+  public noticias:Noticias[] = [
+    {
+    id_noticia: 1,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/afganistan.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 2,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia1.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 3,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia3.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 4,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia4.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 5,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia10.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 6,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia5.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 7,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia7.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 8,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia9.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 9,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 1,
+    imagen: "assets/images/noticia11.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  },
+  {
+    id_noticia: 10,
+    id_reportero:1,
+    ultima_modificacion: "10-09-10",
+    fecha_publicacion: "10-10-10",
+    estado :true,
+    id_contenido: 11,
+    imagen: "assets/images/noticia8.jpg",
+    titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+    etiquetas: ["uno","dos","tres"],
+    categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+  }
+];
+  public noticiasAux:Noticias[] = [];
+  public noticiaGrande:Noticias[] = [
+    {
+      id_noticia: 1,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 11,
+      imagen: "assets/images/noticia4.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+    }
+  ];  
+  public noticia1:Noticias[] = [
+    {
+      id_noticia: 2,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 11,
+      imagen: "assets/images/noticia7.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+    }
+  ];
+  public noticia2:Noticias[] = [
+    {
+      id_noticia: 3,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 11,
+      imagen: "assets/images/noticia11.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+    }
+  ];
+  public noticia3:Noticias[] = [
+    {
+      id_noticia: 4,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 11,
+      imagen: "assets/images/noticia6.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+    }
+  ];
+  public noticia4:Noticias[] = [
+    {
+      id_noticia: 5,
+      id_reportero:1,
+      ultima_modificacion: "10-09-10",
+      fecha_publicacion: "10-10-10",
+      estado :true,
+      id_contenido: 11,
+      imagen: "assets/images/noticia1.jpg",
+      titulo: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
+      etiquetas: ["uno","dos","tres"],
+      categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
+    }
+  ];
   
 }
 

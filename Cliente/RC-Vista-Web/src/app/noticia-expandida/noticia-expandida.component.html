@@ -21,7 +21,7 @@
                     <div id="OtrasNoticias">
                         <p class="textocabeza">Noticias Principales</p>
                         <div id="princi">
-                        <mat-grid-list #grid [cols]="cols" rowHeight="2:2">
+                        <mat-grid-list #grid [cols]="cols" rowHeight="2:2.4">
                         
                         <div *ngFor="let noticia of noticiasPrincipales | slice:0:4 | paginate: { itemsPerPage: cantidadItems, currentPage: paginaActual }">
                             <mat-grid-tile [colspan]="1" [rowspan]="1">
@@ -89,17 +89,28 @@
             
 </div>
 <div id="RadioD">
-<div id="conImg">
-    <img class="image" src="assets/images/logoRadioCompañera.jpg">
+    <div id="conImg">
+        <div id="ConFondo">
+            <img class="FondoX" src="assets/images/city3.jpg">
+            
+            <div id="TextoDeRadio">
+                <img class="image" src="assets/images/logoRadioCompañera.jpg">
+                <p id="textoRa1">|</p>
+                
+                <div id="textoCostadito">
+                <p id="textoRa">106.3 FM La PAZ</p>
+                <div class="reproductor">
+                    <ngx-audio-player id="reproductor1" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
+                    muted="muted" [displayPlaylist]="msaapDisplayPlayList"
+                    [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
+                    [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
+                    [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
+                </div>
+                <br>
+            </div>
+            </div>
+        </div>
     </div>
-    <div class="reproductor">
-        <ngx-audio-player id="reproductor1" [playlist]="msaapPlaylist" [displayTitle]="msaapDisplayTitle" [autoPlay]="false" 
-        muted="muted" [displayPlaylist]="msaapDisplayPlayList"
-        [displayVolumeControls]="msaapDisplayVolumeControls" [displayRepeatControls]="msaapDisplayRepeatControls"
-        [disablePositionSlider]="msaapDisablePositionSlider" [displayArtist]="msaapDisplayArtist" 
-        [displayDuration]="msaapDisplayDuration" [expanded]="false"></ngx-audio-player> 
-    </div>
-    <br>
 </div>
 <div id="AnuncioArriba">
 </div>

@@ -13,7 +13,7 @@
   }
   #titulo{
     margin-top: 2%;
-    font-size: 3.5vw;
+    font-size: 5em;
     margin-left: 0%;
     line-height: 110%;
     font-family: Helvetica, 'Now';
@@ -27,7 +27,7 @@
 .botonNoticiaA{
   margin-top: 0%;
   color: rgb(162, 162, 162);
-  font-size: 1.2vw;
+  font-size: 1.8em;
   text-align: left;
   font-family: Helvetica, 'Now';
   font-weight: bold;
@@ -47,7 +47,7 @@
 .botonNoticia{
   background-color: red;
   color: white;
-  font-size: 1vw;
+  font-size: 1.8em;
   text-align: left;
   font-family: Helvetica, 'Now';
   padding: 0% 3%;
@@ -68,7 +68,7 @@
   text-align: left;
   font-family: Helvetica, 'Now';
   margin-bottom: 0%;
-  font-size: 1vw;
+  font-size: 1.5em;
   line-height: 150%;
 }
 
@@ -91,7 +91,7 @@
 
   }
   .textocabeza{
-    font-size: 2vw;
+    font-size: 3em;
     margin-left: 4%;
     font-family: Helvetica, 'Now';
     font-weight: bold;
@@ -195,8 +195,8 @@
 #tit {
   width: 100%;
   margin-left: 0%;
-  font-size: 1.2vw;
-  line-height: 120%;
+  font-size: 2.3em;
+  line-height: 110%;
   text-align: left;
   font-family: Helvetica, 'Now';
   font-weight: bold;
@@ -207,7 +207,7 @@
 
 .botonNoticiaFecha{
   color: rgb(162, 162, 162);
-  font-size: 1vw;
+  font-size: 1.8em;
   text-align: left;
   font-family: Helvetica, 'Now';
   font-weight: bold;
@@ -223,7 +223,7 @@
 #imgotrasNoticias{
   cursor: pointer;
   width: 106%;
-  height: 300px;
+  height: 340px;
 }
 
 #botones{
@@ -242,7 +242,7 @@
   padding: 2%;
 }
 #label{ 
-  font-size: 1.3vw;
+  font-size: 2em;
   margin-left: 1%;
 }
 #usuarioBox{
@@ -258,7 +258,7 @@
   float: right; 
   border: 2px solid rgb(150, 150, 150);
   border-radius: 0%;
-  font-size: 1vw;
+  font-size: 1.8em;
 }
 
 #btnEnviar{
@@ -267,11 +267,11 @@
   width: 20%; 
   margin-left: 2%;
   margin-right: 8%;
-  font-size: 1vw;
+  font-size: 1.8em;
 }
 
 #VerMas{
-  font-size: 1vw;
+  font-size: 1.8em;
   text-align: center;
   margin-left: 2%;
   background-color: red;
@@ -360,7 +360,7 @@
   margin-left: 2%;
   margin-top: 2%;
   height: auto;
-  margin-bottom: 4%;
+  margin-bottom: 10%;
 }
 
 .image {
@@ -371,6 +371,9 @@
   animation:spin 4s linear infinite;
   border-radius: 50%;
   margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 40%;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
@@ -379,10 +382,22 @@
 #conImg{
   height: 150px;
   width: 100%;
-  background-image: url("../../assets/images/city3.jpg");
+ // background-image: url("../../assets/images/city3.jpg");
   background-size: 100% 100%;
   display: flex;
   align-items: center;
+}
+#ConFondo{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(232, 255, 127);
+  margin-left: 0%;
+}
+.FondoX {
+  width: 100%;
+  height: 100%;
 }
 
 #reproductor1{
@@ -390,7 +405,46 @@
   font-family: Helvetica, 'Now';
   font-weight: bold;
 }
+.reproductor {
+  width: 100%;
+  height: 100px;
+  margin-left: 0%;
+  //background-color: aqua;
+  margin-top: 25%;
+  
+}
+  
+#TextoDeRadio{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255,255,255,0), rgba(0, 0, 0, 0.6));
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+#textoCostadito{
+  width: 100%;
+  height: auto;
+  margin-left: 0%;
+  //background-color: rgb(198, 51, 51);
+}
+#textoRa1{
+  float: left;
+  font-size: 0vw;
+  font-family: Arial, sans-serif;
+  color: rgb(235, 45, 45);
+  margin-top: 0%;
+  margin-left: 0%;
+}
 
+#textoRa{
+  font-size: 0vw;
+  font-family: Helvetica, 'Now';
+  font-weight: bold;
+  margin-top: 0%;
+  color: white;
+  margin-left: 0%;
+}
 #AnuncioArriba{
   margin-left: 0%;
   width: 7%;
@@ -427,7 +481,7 @@
     }
     #titulo{
       margin-top: 2%;
-      font-size: 9vw;
+      font-size: 2.5em;
       margin-left: 0%;
       line-height: 110%;
       font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -440,7 +494,7 @@
   }
   .botonNoticiaA{
     color: red;
-    font-size: 4.5vw;
+    font-size: 1.2em;
     text-align: left;
   
   }
@@ -456,7 +510,7 @@
   
   .botonNoticia{
     color: red;
-    font-size: 4.7vw;
+    font-size: 1.2em;
     margin-top: 0%;
     
     text-align: left;
@@ -466,6 +520,16 @@
     background-color: black;
     color: white;
     transition: 0.3s;
+  }
+
+  .ContenidoNoticia{
+    margin-top: 0%;
+    color: black;
+    text-align: left;
+    font-family: Helvetica, 'Now';
+    margin-bottom: 0%;
+    font-size: 1.2em;
+    line-height: 150%;
   }
   
     #OtrasNoticias{
@@ -487,33 +551,10 @@
   
     }
     .textocabeza{
-      font-size: 7vw;
+      font-size: 2em;
       margin-left: 4%;
     }
-    #textoU{
-      font-size: 20px;
-      margin-left: 20px;
-      font-family:Arial, Helvetica, sans-serif;
-    }
-    #divAudio{
-      margin-top: 50px;
-      width: 370px;
-      height: 180px;
-      background-color:rgb(243, 243, 239);
-    }
-    #divVideo{
-      width: 370px;
-      height: 370px;
-      background-color:rgb(243, 243, 239); 
-      margin-top: 50px;
-    }
-    #anuncio{
-      width: 200px;
-      background-color:rgb(243, 243, 239); 
-      margin-top: 50px;
-      margin-left: 80px;
-  
-    }
+
     #margen{
       width: 370px;
       background-color:rgb(243, 243, 239); 
@@ -544,20 +585,6 @@
     margin-left: 5%;
   }
   
-  #video{
-    width: 340px;
-    height: 270px;
-    margin-left: 15px;
-    
-  }
-  #audio{
-    margin-top: 50px;
-    width: 300px;
-    height: 400px;
-    border-radius: 0px;
-    align-items: bottom;
-    
-  }
   .campoNoticia1 {
     top: 0%;
     right: 0%;
@@ -573,7 +600,7 @@
     text-align: left;
     height: auto;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 0%;
     
   }
   #tituloNoticia:hover{
@@ -584,7 +611,7 @@
   }
   #tit {
     text-align: left;
-    font-size: 7.3vw;
+    font-size: 1.4em;
     height: auto;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 105%;
@@ -594,7 +621,7 @@
   .botonNoticiaCategoria{
   
     color:white;
-    font-size: 5vw;
+    font-size: 1em;
     margin-top: 0%;
     margin-left: 4%;
     text-align: left;
@@ -611,7 +638,22 @@
   #imgotrasNoticias{
     cursor: pointer;
     width:111%;
-    height: 260px;
+    height: 180px;
+  }
+
+  .botonNoticiaFecha{
+    color: rgb(162, 162, 162);
+    font-size: 1.2em;
+    text-align: left;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
+    display:block;
+    padding: 2% 0%;
+  }
+  .botonNoticiaFecha:hover{
+    text-decoration: underline;
+    color: rgb(133, 47, 47);
+    transition: 0.3s;
   }
   
   #botones{
@@ -739,5 +781,120 @@
   #warningBox{
     color: red;
     font-size: 1.2vw;
+  }
+
+  #RadioD{
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+    max-height: max-content;
+  }
+
+  .image {
+    width: 70px;
+    height: 70px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    border-radius: 50%;
+    margin: auto;
+    float: left;
+    margin-left: 5%;
+    margin-top: 1%;
+  }
+  @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  
+  #conImg{
+    height: 100px;
+    width: 100%;
+    //background-image: url("../../assets/images/city3.jpg");
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3%;
+    margin-top: 5%;
+  }
+  #ConFondo{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(232, 255, 127);
+    margin-left: 0%;
+  }
+  
+  .FondoX {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #TextoDeRadio{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0), rgba(0, 0, 0, 0.6));
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  #textoCostadito{
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+    //background-color: rgb(198, 51, 51);
+  }
+  #textoRa1{
+    float: left;
+    font-size: 0vw;
+    font-family: Arial, sans-serif;
+    color: rgb(235, 45, 45);
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+  
+  #textoRa{
+    font-size: 0vw;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
+    margin-top: 0%;
+    color: white;
+    margin-left: 0%;
+  }
+  
+  #reproductor1{
+    font-size: 0.8em;
+    font-family: Helvetica, 'Now';
+    font-weight: bold;
+    //background-color: aqua;
+  }
+  
+  .reproductor {
+    width: 100%;
+    height: 100px;
+    margin-left: 0%;
+    //background-color: aqua;
+    margin-top: 24%;
+    
+  }
+  #AnuncioArriba{
+    margin-left: 0%;
+    width: 0%;
+    height: 0%;
+    float: left;
+  }
+  #AnuncioArriba1{
+    margin-left: 0%;
+    width: 0%;
+    height: 0%;
+    float: right;
+  }
+  
+  #AnuncioArriba2{
+    margin-left: 0%;
+    width: 0%;
+    height: 0%;
+    float: left;
+    display:none;
   }
 }
