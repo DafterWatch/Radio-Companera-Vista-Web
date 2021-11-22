@@ -29,14 +29,16 @@
   <div id="divbot">
 
 
-  <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
+  <!--<a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
   <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Social</a>
   <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Deportes</a>
   <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Ciencia y tecnologia</a>
   <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Politico</a>
-  <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Internacional</a>
+  <a class="botonmenu" (click)="volverPrincipal(); eventoBusquedaCategoria('')">Internacional</a>-->
+
+  <a class="botonmenu" (click)="textoBusqueda=''; volverPrincipal(); eventoBusquedaCategoria('')">Inicio</a>
   <span *ngFor="let noticia of categoriasDefecto">    
-    <a class="botonmenu" (click)="eventoBusquedaCategoria(noticia.nombre)">{{noticia.nombre}}</a>
+    <a class="botonmenu" (click)="textoBusqueda='';eventoBusquedaCategoria(noticia.nombre)">{{noticia.nombre}}</a>
   </span>
 
   <a class="mas" *ngIf="extraCategorias">
