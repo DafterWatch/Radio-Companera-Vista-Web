@@ -443,7 +443,7 @@ export class MainComponent implements OnInit {
     title: 'Radio Compañera',
     link: 'https://stream.zeno.fm/xhh74fthxy8uv?1630882081587',
     //link: '',
-    artist: 'Estacion 106.3',
+    artist: 'La Paz - Bolivia',
     duration: 3.5
   }
   ];
@@ -474,7 +474,7 @@ export class MainComponent implements OnInit {
 
 
   public noticias:Noticias[] = [
-    {
+    /*{
     id_noticia: 1,
     id_reportero:1,
     ultima_modificacion: "10-09-10",
@@ -603,11 +603,11 @@ export class MainComponent implements OnInit {
     contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
     etiquetas: ["uno","dos","tres"],
     categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-  }
+  }*/
 ];
   public noticiasAux:Noticias[] = [];
   public noticiaGrande:Noticias[] = [
-    {
+    /*{
       id_noticia: 1,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -619,10 +619,10 @@ export class MainComponent implements OnInit {
       contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-    }
+    }*/
   ];  
   public noticia1:Noticias[] = [
-    {
+   /* {
       id_noticia: 2,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -634,10 +634,10 @@ export class MainComponent implements OnInit {
       contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-    }
+    }*/
   ];
   public noticia2:Noticias[] = [
-    {
+    /*{
       id_noticia: 3,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -649,10 +649,10 @@ export class MainComponent implements OnInit {
       contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-    }
+    }*/
   ];
   public noticia3:Noticias[] = [
-    {
+   /* {
       id_noticia: 4,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -664,10 +664,10 @@ export class MainComponent implements OnInit {
       contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-    }
+    }*/
   ];
   public noticia4:Noticias[] = [
-    {
+    /*{
       id_noticia: 5,
       id_reportero:1,
       ultima_modificacion: "10-09-10",
@@ -679,7 +679,7 @@ export class MainComponent implements OnInit {
       contenido: "Judge in trial of Arbery slaying says nothing he can do about 11 white people on jury of 12",
       etiquetas: ["uno","dos","tres"],
       categoriasarray: ["categoria1","categoria2","categoria3","categoria4"],
-    }
+    }*/
   ];
   
 }
